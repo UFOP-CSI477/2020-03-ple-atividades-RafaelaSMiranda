@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Playball&display=swap');
+
 body{
     background-color:white ;
     margin: 30px;
@@ -47,20 +49,55 @@ header h1 {
    
 }
 
-.container-text p{
+.container-text{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+   /* quero separar em 3 colunas  */
+}
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 70px;
-    margin-left: 300px;
-    margin-right: 300px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+.container-text p{
+    font-family: 'Playball' ;
     font-size: 20px;
     text-align: center;
+    grid-column-start: 2;
+    /* inicia na coluna 2 */
     border: 2px solid  darkred;
     border-radius: 8px;
     background-color: rgb(252, 233, 233) ;
+}
+
+
+@media (max-width: 900px){
+
+    .container{
+        padding: 3px;
+        border: none;
+        box-shadow: none;
+    }
+
+    .container .container-link a{
+   
+        display: inline;
+        padding-left: 100px;
+        padding-top: 5px;
+        text-decoration: none; color:darkred; font-size:200%;
+        
+    }
+
+    .container-text p{
+        
+        font-size: 1,4rem;
+        border: none;
+        border: 2px solid  darkred;
+        border-radius: 8px;
+        background-color: rgb(252, 233, 233) ;
+        grid-column-start: 1;
+        grid-column-end: 3;
+     
+       
+    }
+    
+
 }
 
 
