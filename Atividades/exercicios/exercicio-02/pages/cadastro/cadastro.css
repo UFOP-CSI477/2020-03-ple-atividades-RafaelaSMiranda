@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Playball&display=swap');
+
+
+.container header {
+
+    border: solid 1px darkred;
+    background-color: rgb(248, 232, 235);
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    /* margin: 0 300px 0 300px ; */
+    justify-content: center;
+
+}
+
+.container header a{
+    text-decoration: none;
+    color:darkred;
+    font-size:150%;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto 5% auto 5%;
+}
+
+.container .container-titulo{
+    display: flex;
+    justify-content: center;
+    font-family: Playball;
+    font-size: 50px;
+   
+}
+
+.container .container-form{
+    display: flex;
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 30px;
+    margin-right: 25%;
+    margin-left: 25%;
+   
+}
+
+.container .container-form .duo{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container .container-form .duo label ~ label{
+    margin-left: 20px;
+}
+
+.secao{
+    font-size: 120%;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.secao ~ .secao {
+    /* quero a secao 2 , ou seja, aquela que precede a secao 1 */
+    margin-top: 20px;
+}
+
+.buttons{
+    margin-top: 20px;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    padding: 10px;
+}
+
+.buttons button{
+    font-size: 100%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    margin-left: 20px;
+    border: 2px solid rgb(54, 1, 1);
+    border-radius: 3px;
+    width: 30%;
+    padding: 1%;
+    background-color: rgb(248, 232, 235);
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.buttons button:hover{
+    background-color: rgb(223, 190, 196);
+}
+
+label{
+    font-size: 100%;
+    
+}
+
+input{
+    border: 1px solid rgb(54, 1, 1);
+    border-radius: 3px;
+    padding: 3px;
+    margin-left: 20px;
+    margin-top: 5px;
+
+}
+

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+
+    <link rel="stylesheet" href="./cadastro.css">
+
+</head>
+
+<body>
+
+
+    <div class="container">
+        <header>
+            <a href="../home/home.html">Home</a>
+            <a href="../lançamentos/laçamentos.html">Lançamentos</a>
+            <a href="../relatorios/relatorios.html">Relatórios</a>
+            <a href="../perfil/perfil.html">Perfil</a>
+            <a href="../sair/sair.html">Sair</a>
+        </header>
+
+        <div class="container-titulo">
+
+            <p>Cadastro</p>
+
+        </div>
+
+        <div class="container-form">
+
+            <form method="POST" action="validar.html">
+
+                <div class="secao">
+                    <label>Dados pessoais:</label>
+                </div>
+
+                <div>
+                    <label for="nome">Nome:</label>
+                    <input type="text" name="nome" id="nome" placeholder="Nome Completo">
+                </div>
+
+                <div>
+                    <label for="endereco">Endereço:</label>
+                    <input type="text" name="endereco" id="endereco" placeholder="Endereço Completo">
+                </div>
+
+
+                <div class="duo">
+                    <label for="cpf">CPF:</label>
+                    <input type="cpf" name="cpf" id="cpf" placeholder="   .   .   -  " minlength="11" maxlength="11">
+
+                    <label for="rg">RG:</label>
+                    <input type="text" name="rg" id="rg" placeholder="  -  .   .   " minlength="8" maxlength="10">
+                </div>
+
+                <div>
+                    <label for="nasc">Data de Nascimento:</label>
+                    <input type="date" name="dataNasc" id="nasc" placeholder="  /  /    " minlength="8" maxlength="8">
+                </div>
+
+                <div>
+                    <label for="nacionalidade">Nacionalidade: </label>
+                    <input type="text" name="nacionalidade" id="nacionalidade" placeholder="País de nascimento"
+                        minlength="8" maxlength="8">
+                </div>
+
+                <div>
+                    <label for="estadoCivil">Estado Civil: </label>
+                    <input type="radio" name="estadoCivil" id="solteiro" value="S">
+                    <label for="solteiro">Solteiro</label>
+
+                    <input type="radio" name="estadoCivil" id="casado" value="C">
+                    <label for="casado">Casado</label>
+
+                    <input type="radio" name="estadoCivil" id="naoInformar" value="NI">
+                    <label for="naoInformar">Prefiro não informar</label>
+
+                </div>
+
+                <div class="secao">
+                    <label>Contatos: </label>
+                </div>
+
+                <div>
+                    <label for="telefone">Telefone: </label>
+                    <input type="tel" name="telefone" id="telefone" placeholder="(  )     -    " minlength="11"
+                        maxlength="11">
+                </div>
+
+                <div>
+                    <label for="email">E-mail: </label>
+                    <input type="email" name="email" id="email" placeholder="Informe o seu melhor e-mail">
+                </div>
+
+                <div class="duo">
+                    <label for="usuario">Usuário:</label>
+                    <input type="text" name="usuario" id="usuario" placeholder="Informe o seu usuário">
+               
+                    <label for="senha">Senha: </label>
+                    <input type="password" name="senha" id="senha" placeholder="********" minlength="6" maxlength="8">
+                </div>
+
+                <div class="buttons">
+                    <button type="submit">Cadastrar</button>
+                    <button type="reset">Limpar</button>
+                </div>
+
+                <div>
+
+                </div>
+
+
+
+            </form>
+        </div>
+    </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+.container header {
+
+    border: solid 1px darkred;
+    background-color: rgb(248, 232, 235);
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    /* margin: 0 300px 0 300px ; */
+    justify-content: center;
+
+}
+
+.container header a{
+    text-decoration: none;
+    color:darkred;
+    font-size:150%;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto 5% auto 5%;
+}
+
+
+.container .container-dados{
+    display: inline;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .container-paragrafo, .container-button{
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 30px;
+    margin-right: 30%;
+    margin-left: 30%;
+
+}
+
+.container .container-paragrafo{
+    margin-top: 10%;
+}
+
+.container .container-paragrafo p{
+    font-size: 150%;
+}
+
+.container .container-button button{
+
+    font-size: 100%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    margin-left: 20px;
+    border: 2px solid rgb(54, 1, 1);
+    border-radius: 3px;
+    width: 30%;
+    padding: 1%;
+    background-color: rgb(248, 232, 235);
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+}
+
+.container .container-button button:hover{
+
+    background-color: rgb(223, 190, 196);
+}
