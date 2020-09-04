@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Cadastro</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="./cadastro.css">
+</head>
+
+<body>
+
+
+    <!-- <header >
+        <a href="../home/home.html">Home</a>
+        <a href="../lançamentos/laçamentos.html">Lançamentos</a>
+        <a href="../relatorios/relatorios.html">Relatórios</a>
+        <a href="../perfil/perfil.html">Perfil</a>
+        <a href="../sair/sair.html">Sair</a>
+    </header> -->
+
+    <nav class="navbar navbar-expand-sm bg-light navbar-light justify-content-center fixed-top">
+
+        <!-- Links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="../home/home.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../lançamentos/laçamentos.html">Lançamentos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../relatorios/relatorios.html">Relatórios</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../perfil/perfil.html">Perfil</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../sair/sair.html">Sair</a>
+            </li>
+        </ul>
+
+    </nav>
+
+
+    <h1>Cadastro</h1>
+
+
+    <br>
+
+    <form method="POST" action="validar.html">
+
+        <div>
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome" id="nome" placeholder="Nome Completo">
+        </div>
+
+        <div>
+            <label for="endereco">Endereço:</label>
+            <input type="text" name="endereco" id="endereco" placeholder="Endereço Completo">
+        </div>
+
+        <br>
+
+        <div>
+            <label>Dados pessoais:</label>
+        </div>
+
+        <br>
+
+        <div>
+            <label for="cpf">CPF:</label>
+            <input type="cpf" name="cpf" id="cpf" placeholder="   .   .   -  " minlength="11" maxlength="11">
+
+            <label for="rg">RG:</label>
+            <input type="text" name="rg" id="rg" placeholder="  -  .   .   " minlength="8" maxlength="10">
+        </div>
+
+        <div>
+            <label for="nasc">Data de Nascimento:</label>
+            <input type="date" name="dataNasc" id="nasc" placeholder="  /  /    " minlength="8" maxlength="8">
+        </div>
+
+        <div>
+            <label for="nacionalidade">Nacionalidade: </label>
+            <input type="text" name="nacionalidade" id="nacionalidade" placeholder="País de nascimento" minlength="8"
+                maxlength="8">
+        </div>
+
+        <div>
+            <label for="estadoCivil">Estado Civil: </label>
+            <input type="radio" name="estadoCivil" id="solteiro" value="S">
+            <label for="solteiro">Solteiro</label>
+
+            <input type="radio" name="estadoCivil" id="casado" value="C">
+            <label for="casado">Casado</label>
+
+            <input type="radio" name="estadoCivil" id="naoInformar" value="NI">
+            <label for="naoInformar">Prefiro não informar</label>
+
+        </div>
+
+        <br>
+
+        <div>
+            <label>Contatos: </label>
+        </div>
+
+        <br>
+
+        <div>
+            <label for="telefone">Telefone: </label>
+            <input type="tel" name="telefone" id="telefone" placeholder="(  )     -    " minlength="11" maxlength="11">
+        </div>
+
+        <div>
+            <label for="email">E-mail: </label>
+            <input type="email" name="email" id="email" placeholder="Informe o seu melhor e-mail">
+        </div>
+
+        <br>
+
+        <div>
+            <label for="usuario">Usuário:</label>
+            <input type="text" name="usuario" id="usuario" placeholder="Informe o seu usuário">
+        </div>
+
+        <div>
+            <label for="senha">Senha: </label>
+            <input type="password" name="senha" id="senha" placeholder="********" minlength="6" maxlength="8">
+        </div>
+
+        <br>
+
+        <div>
+            <input type="submit" value="Cadastrar">
+            <input type="reset" value="Limpar">
+        </div>
+
+        <div>
+
+        </div>
+
+
+
+    </form>
+
+</body>
+
+</html>
