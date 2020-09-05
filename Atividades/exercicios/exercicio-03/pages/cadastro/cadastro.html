@@ -10,145 +10,163 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
-        <link rel="stylesheet" href="./cadastro.css">
 </head>
 
 <body>
 
 
-    <!-- <header >
-        <a href="../home/home.html">Home</a>
-        <a href="../lançamentos/laçamentos.html">Lançamentos</a>
-        <a href="../relatorios/relatorios.html">Relatórios</a>
-        <a href="../perfil/perfil.html">Perfil</a>
-        <a href="../sair/sair.html">Sair</a>
-    </header> -->
+    <nav class="navbar navbar-expand-sm bg-light navbar-light justify-content-center"
+    style="font-size: 20px;">
 
-    <nav class="navbar navbar-expand-sm bg-light navbar-light justify-content-center fixed-top">
+    <!-- Links -->
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" href="../home/home.html">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="../lancamentos/lancamentos.html">Lançamentos</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="../relatorios/relatorios.html">Relatórios</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="../perfil/perfil.html">Perfil</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="../sair/sair.html">Sair</a>
+        </li> 
+        
 
-        <!-- Links -->
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="../home/home.html">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="../lançamentos/laçamentos.html">Lançamentos</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="../relatorios/relatorios.html">Relatórios</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="../perfil/perfil.html">Perfil</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="../sair/sair.html">Sair</a>
-            </li>
-        </ul>
+    </ul>
 
-    </nav>
+</nav>
 
 
-    <h1>Cadastro</h1>
+    <div class="container my-3 w-75 border border-dark rounded shadow p-3 mb-5 bg-white rounded"
+        style=" padding: 20px;  ">
+        
+        <form method="POST" action="validar.html">
 
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" name="nome" id="nome" placeholder="Nome Completo" class="form-control">
+            </div>
 
-    <br>
+            <div class="form-group">
+                <label for="endereco">Endereço:</label>
+                <input type="text" name="endereco" id="endereco" placeholder="Endereço Completo" class="form-control">
+            </div>
 
-    <form method="POST" action="validar.html">
+            <br>
 
-        <div>
-            <label for="nome">Nome:</label>
-            <input type="text" name="nome" id="nome" placeholder="Nome Completo">
-        </div>
+            <div>
+                <label>Dados pessoais:</label>
+            </div>
 
-        <div>
-            <label for="endereco">Endereço:</label>
-            <input type="text" name="endereco" id="endereco" placeholder="Endereço Completo">
-        </div>
+            <br>
 
-        <br>
+            <div class="row">
 
-        <div>
-            <label>Dados pessoais:</label>
-        </div>
+                <div class="form-group">
+                    <div class="col-12">
+                        <label for="cpf">CPF:</label>
+                        <input class="form-control" type="cpf" name="cpf" id="cpf" placeholder="   .   .   -  "
+                            minlength="11" maxlength="11">
+                    </div>
+                    <div class="col-12">
+                        <label for="rg">RG:</label>
+                        <input class="form-control" type="text" name="rg" id="rg" placeholder="  -  .   .   "
+                            minlength="8" maxlength="10">
+                    </div>
+                </div>
 
-        <br>
+            </div>
 
-        <div>
-            <label for="cpf">CPF:</label>
-            <input type="cpf" name="cpf" id="cpf" placeholder="   .   .   -  " minlength="11" maxlength="11">
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-12">
+                        <label for="nasc">Data de Nascimento:</label>
+                        <input type="date" class="form-control" name="dataNasc" id="nasc" placeholder="  /  /    "
+                            minlength="8" maxlength="8">
+                    </div>
+                </div>
+            </div>
 
-            <label for="rg">RG:</label>
-            <input type="text" name="rg" id="rg" placeholder="  -  .   .   " minlength="8" maxlength="10">
-        </div>
+            <div class="form-group">
+                <label for="nacionalidade">Nacionalidade: </label>
+                <input class="form-control" type="text" name="nacionalidade" id="nacionalidade"
+                    placeholder="País de nascimento" minlength="8" maxlength="8">
+            </div>
 
-        <div>
-            <label for="nasc">Data de Nascimento:</label>
-            <input type="date" name="dataNasc" id="nasc" placeholder="  /  /    " minlength="8" maxlength="8">
-        </div>
-
-        <div>
-            <label for="nacionalidade">Nacionalidade: </label>
-            <input type="text" name="nacionalidade" id="nacionalidade" placeholder="País de nascimento" minlength="8"
-                maxlength="8">
-        </div>
-
-        <div>
             <label for="estadoCivil">Estado Civil: </label>
-            <input type="radio" name="estadoCivil" id="solteiro" value="S">
-            <label for="solteiro">Solteiro</label>
 
-            <input type="radio" name="estadoCivil" id="casado" value="C">
-            <label for="casado">Casado</label>
+            <div class="form-group form-check">
 
-            <input type="radio" name="estadoCivil" id="naoInformar" value="NI">
-            <label for="naoInformar">Prefiro não informar</label>
+                <input class="form-check-input" type="radio" name="estadoCivil" id="solteiro" value="S">
+                <label class="form-check-label" for="solteiro">Solteiro</label>
+            </div>
 
-        </div>
+            <div class="form-group form-check">
+                <input class="form-check-input" type="radio" name="estadoCivil" id="casado" value="C">
+                <label class="form-check-label" for="casado">Casado</label>
+            </div>
 
-        <br>
+            <div class="form-group form-check">
+                <input class="form-check-input" type="radio" name="estadoCivil" id="naoInformar" value="NI">
+                <label class="form-check-label" for="naoInformar">Prefiro não informar</label>
 
-        <div>
-            <label>Contatos: </label>
-        </div>
-
-        <br>
-
-        <div>
-            <label for="telefone">Telefone: </label>
-            <input type="tel" name="telefone" id="telefone" placeholder="(  )     -    " minlength="11" maxlength="11">
-        </div>
-
-        <div>
-            <label for="email">E-mail: </label>
-            <input type="email" name="email" id="email" placeholder="Informe o seu melhor e-mail">
-        </div>
-
-        <br>
-
-        <div>
-            <label for="usuario">Usuário:</label>
-            <input type="text" name="usuario" id="usuario" placeholder="Informe o seu usuário">
-        </div>
-
-        <div>
-            <label for="senha">Senha: </label>
-            <input type="password" name="senha" id="senha" placeholder="********" minlength="6" maxlength="8">
-        </div>
-
-        <br>
-
-        <div>
-            <input type="submit" value="Cadastrar">
-            <input type="reset" value="Limpar">
-        </div>
-
-        <div>
-
-        </div>
+            </div>
 
 
+            <div>
+                <label>Contatos: </label>
+            </div>
 
-    </form>
+            <br>
+
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-12">
+                        <label for="telefone">Telefone: </label>
+                        <input class="form-control" type="tel" name="telefone" id="telefone"
+                            placeholder="(  )     -    " minlength="11" maxlength="11">
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-group mb-3">
+                <label for="email">E-mail: </label>
+                <input class="form-control" type="email" name="email" id="email"
+                    placeholder="Informe o seu melhor e-mail">
+            </div>
+
+            <div class="form-group">
+                <label for="usuario">Usuário:</label>
+                <input class="form-control" type="text" name="usuario" id="usuario" placeholder="Informe o seu usuário">
+            </div>
+
+            <div class="form-group">
+                <label for="senha">Senha: </label>
+                <input class="form-control" type="password" name="senha" id="senha" placeholder="********" minlength="6" maxlength="8">
+            </div>
+
+            <br>
+
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Cadastrar">
+                <input type="reset" class="btn btn-danger" value="Limpar">
+            </div>
+
+            <div>
+
+            </div>
+
+
+
+        </form>
+
+    </div>
 
 </body>
 

@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Playball&display=swap');
+
+.container{
+    background-color: white;
+}
+
+.container header {
+
+    border: solid 1px darkred;
+    background-color: rgb(248, 232, 235);
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    /* margin: 0 300px 0 300px ; */
+    justify-content: center;
+
+}
+
+.container header a{
+    text-decoration: none;
+    color:darkred;
+    font-size:150%;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto 5% auto 5%;
+}
+
+.container .container-table{
+    display: flex;
+    justify-content: center;
+}
+
+
+
+table{
+   width: 80%;
+   border: 2px solid darkred;
+   padding: 10px;
+   border-radius: 8px;
+   box-shadow: 0 0 100px  rgba(0, 0, 0, 0.1);
+   margin-top: 30px;
+   /* border-collapse: collapse; */
+}
+
+caption{
+    font-family: Playball;
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+thead{
+    background-color: rgb(248, 232, 235);
+    font-size: 20px;
+    padding-bottom: 10px;
+
+}
+
+
+tbody td{
+    padding: 4px;
+    font-size: 110%;
+}
+
+
+tfoot th{
+    
+    padding-top: 10px;
+    font-size: 20px;
+  
+}
+
+tbody tr:hover{
+    background-color: rgb(201, 199, 199);
+}
+
+
+
+
+
+
+
+
+@media (max-width: 900px){
+
+
+    .container header {
+    
+        display: flex;
+        flex-wrap: wrap; 
+    }
+    
+    .container header a{
+        font-size:120%;  
+    }
+    
+    .container header a + a + a{
+        margin-top: 10px;
+    }
+
+    table{
+        font-size: 80%;
+    }
+
+}

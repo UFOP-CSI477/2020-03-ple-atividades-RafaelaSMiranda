@@ -14,7 +14,8 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-sm bg-light navbar-light justify-content-center fixed-top">
+    <nav class="navbar navbar-expand-sm bg-light navbar-light justify-content-center"
+        style="font-size: 20px;">
 
         <!-- Links -->
         <ul class="navbar-nav">
@@ -22,7 +23,7 @@
                 <a class="nav-link" href="../home/home.html">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../lançamentos/laçamentos.html">Lançamentos</a>
+                <a class="nav-link" href="../lancamentos/lancamentos.html">Lançamentos</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="../relatorios/relatorios.html">Relatórios</a>
@@ -31,21 +32,19 @@
                 <a class="nav-link" href="../perfil/perfil.html">Perfil</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../cadastro/cadastro.css">Sair</a>
+                <a class="nav-link" href="../cadastro/cadastro.html">Cadastro</a>
             </li>
         </ul>
 
     </nav>
 
-    <div class="container">
+    <div class="container my-5 w-25 border border-dark rounded shadow p-3 mb-5 bg-white rounded">
         <p>Deseja realmente sair ?</p>
 
-        <div class="container-button">
+            <button  type="button" class="bnt btn-primary" onclick=" alert('O sistema será encerrado!')">SAIR</button>
 
-            <button onclick="alert('O sistema será encerrado!')">SAIR</button>
-
-            <button>CANCELAR</button>
-        </div>
+            <button style="text-align: center;" type="button" class="bnt btn-danger">CANCELAR</button>
+      
     </div>
 
 
