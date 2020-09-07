@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Cálculo de IMC</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <script type="text/javascript" src="./02-imc.js"></script>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="jumbotron bg-light">
+            <h1 class="display-4 text-center">Cálculo do Índice de Massa Corporal (IMC) </h1>
+            <hr class="my-2">
+            <p class="lead text-center">Insira o seu peso e a sua altura para identificar a sua classificação do IMC</p>
+        </div>
+
+        <!-- ------------------------------------------------------------------------------------------------- -->
+        <div class="form-group">
+            <form>
+
+                <div class="row">
+                    <div class="col-5">
+                        <label class="font-weight-bold" for="peso">Peso:</label>
+                        <input type="number" name="peso" id="peso" class="form-control"
+                            placeholder="Peso em Kg - Exemplo: 80.5">
+                    </div>
+
+                    <div class="col-5 ">
+                        <label for="altura" class="font-weight-bold">Altura:</label>
+                        <input type="number" name="altura" id="altura" class="form-control"
+                            placeholder="Altura em metros - Exemplo: 1.60">
+
+                           
+                    </div>
+
+                    <div class="col-2 py-4 px-5">
+                        <button type="button" class="btn btn-light text-dark font-weight-bold border-info border"
+                            onclick="calcularIMC()" id="calcular">
+                            <span id="carregando" class="spinner-border spinner-border-sm"></span>
+                            Calcular</button>
+                    </div>
+
+                </div>
+
+                <div style="display: flex; justify-content: space-between;">
+                    <div class="containerRetorno">
+                        <div class="col-13 mt-2">
+                            <label for="imc" class="font-weight-bold">IMC:</label>
+                            <input type="text" name="imc" id="imc" class="form-control" disabled>
+                        </div>
+
+                        <div class="col-13 mt-2">
+                            <label for="class" class="font-weight-bold">Classificação:</label>
+                            <input type="text" name="class" id="class" class="form-control" disabled>
+                        </div>
+
+                        <div class="col-13 mt-2">
+                            <label for="pesoIdeal" class="font-weight-bold">Intevalo de peso ideal:</label>
+                            <input type="text" name="pesoIdeal" id="pesoIdeal" class="form-control" disabled>
+                        </div>
+                    </div>
+
+                    <div class=" border shadow border-info col-5 p-4 mt-3 ml-5 "
+                        style=" text-align: justify ; border-radius: 8px;">
+
+                        <p>Uma das maneiras de saber se o seu peso está
+                            adequado à sua altura é calculando o <em style="font-weight: bold;"> Índice de Massa
+                                Corporal (IMC) </em>. O resultado dessa
+                            fórmula matemática poderá indicar, por exemplo, se você está com peso adequado, se apresenta
+                            magreza, sobrepeso ou obesidade. </p>
+
+                        <p style="font-size: 12px; display: flex;">Fonte: Ministério da Saúde</p>
+                    </div>
+
+                    <div class="col-2" style="display: flex; align-items: center; ">
+                        <button type="button" class="btn btn-light text-dark font-weight-bold border-info border"
+                            onclick="limparDados()" id="btnResultado" disabled>Limpar os dados</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- ------------------------------------------------------------------------------------------------- -->
+
+    </div>
+
+</body>
+
+</html>
