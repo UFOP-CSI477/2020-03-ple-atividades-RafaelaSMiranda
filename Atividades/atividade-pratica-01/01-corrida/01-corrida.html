@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Competição de carrinhos de rolimã</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <script type="text/javascript" src="./01-corrida.js"></script>
+
+</head>
+
+
+<body>
+
+    <div class="container">
+        <div class="jumbotron bg-light">
+            <h1 class="display-4 text-center">Competição de carrinhos de rolimã</h1>
+            <hr class="my-2">
+            <p class="lead text-center">Apuração dos resultados</p>
+        </div>
+        <!-- ------------------------------------------------------------------------------------------------- -->
+        <div class="form-group">
+            <form>
+
+                <div class="row">
+                    <div class="col-5">
+                        <label class="font-" for="nome">Nome do competidor:</label>
+                        <input type="text" name="nomeJogador" id="nome" class="form-control" >
+                    </div>
+                    <div class="col-5 ">
+                        <label for="tempo">Tempo de prova (em segundos):</label>
+                        <input type="number" name="tempoJogador" id="tempo" class="form-control">
+                    </div>
+                    <div class="col-2 py-2 px-3">
+                        <button type="button" class="btn btn-light text-dark font-weight-bold border-info border"
+                            onclick="inserirParticipante()" id="inserir">Inserir
+                            competidor</button>
+                    </div>
+            </form>
+        </div>
+        <!-- ------------------------------------------------------------------------------------------------- -->
+
+        <div class="table-responsive py-3 ">
+            <table id="tableDados" class="table table-hover table-bordered table-striped shadow">
+                <thead class="table-secondary">
+
+                    <caption>Competidores</caption>
+
+                    <tr class="align-items-center">
+                        <th>Largada</th>
+                        <th>Competidor(a)</th>
+                        <th>Tempo (s)</th>
+                    </tr>
+                </thead>
+
+                <body class=" table-hover">
+
+                </body>
+
+            </table>
+
+        </div>
+
+        <!-- ------------------------------------------------------------------------------------------------- -->
+
+
+
+        <div class="d-flex justify-content-center py-2">
+
+            <button type="button" class=" btn btn-light text-dark font-weight-bold border-info border mr-2"
+                onclick="calcularResultado()" id="resultado" disabled>
+                Verificar Resultado
+            </button>
+
+            <button type="button" class=" btn btn-light text-dark font-weight-bold border-info border ml-2"
+                onclick="recarregaPagina()" id="novamente" disabled >
+                Nova Apuração
+            </button>
+        </div>
+
+
+
+
+        <div class="table-responsive py-4 ">
+            <table id="tableResultado" class="table table-bordered table-striped border-dark shadow bg-white rounded">
+                <thead class="table-secondary">
+
+                    <caption>Resultado</caption>
+
+                    <tr class="align-items-center">
+                        <th>Posição</th>
+                        <th>Largada</th>
+                        <th>Competidor(a)</th>
+                        <th>Tempo (s)</th>
+                        <th>Resultado</th>
+
+                    </tr>
+                </thead>
+
+                <body class=" table-hover">
+
+                </body>
+
+            </table>
+        </div>
+
+
+
+
+    </div>
+
+
+</body>
+
+</html>
