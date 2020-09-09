@@ -14,6 +14,13 @@ function verificaEntrada(valor) {
 
 }
 
+function Participante(nome, tempo, largada) {
+
+    this.nome = nome;
+    this.tempo = tempo;
+    this.largada = largada;
+}
+
 function inserirParticipante() {
 
     var nome = document.getElementById('nome');
@@ -24,12 +31,12 @@ function inserirParticipante() {
 
         if (verificaEntrada(nome) && verificaEntrada(tempo)) {
 
-            let participante = {
+            // let participante = {
 
-                nome: '',
-                tempo: '',
-                largada: ''
-            };
+            //     nome: '',
+            //     tempo: '',
+            //     largada: ''
+            // };
 
             numeroParticipantes += 1;
             var linha = document.createElement('tr');
@@ -37,9 +44,12 @@ function inserirParticipante() {
             linha.insertCell(1).innerHTML = nome.value;
             linha.insertCell(2).innerHTML = parseInt(tempo.value);
 
-            participante.nome = nome.value;
-            participante.tempo = parseInt(tempo.value);
-            participante.largada = numeroParticipantes;
+            // participante.nome = nome.value;
+            // participante.tempo = parseInt(tempo.value);
+            // participante.largada = numeroParticipantes;
+
+            const participante = new Participante(nome.value, tempo.value, numeroParticipantes);
+
 
             listaParticipantes.push(participante);
 
@@ -89,8 +99,6 @@ function calcularResultado() {
 
         var tempoInicial = listaParticipantes[0].tempo;
 
-        console.log(tempoInicial);
-
         for (var i = 0; i < listaParticipantes.length; i++) {
             let linha = document.createElement('tr');
             linha.insertCell(0).innerHTML = i + 1;
@@ -106,23 +114,12 @@ function calcularResultado() {
 
             document.getElementById('tableResultado').appendChild(linha);
             document.getElementById('novamente').disabled = false;
-
         }
-
-
-
-
     }
     else {
-
         alert('Não há participante cadastrado');
-        
-
     }
-
-
 }
-
 
 function recarregaPagina() {
     location.reload();

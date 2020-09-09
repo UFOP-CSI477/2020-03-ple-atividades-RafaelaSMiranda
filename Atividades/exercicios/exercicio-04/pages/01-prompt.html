@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Introdução ao JS</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script type="text/javascript" src="./01-prompt.js"></script>
+
+</head>
+
+<body>
+
+    <div class="container alert-light text-center mt-5">
+        <h1>Carregamento de dados utilizando Window.prompt</h1>
+
+    </div>
+
+    <div class="container">
+        <div id="dadosNome" class="mt-5">
+            <label for="nome">Nome completo: </label>
+            <input type="text" id="nome" disabled>
+        </div>
+
+        <div id="dadosEndereco" class="mt-3">
+            <label for="endeco">Endereco completo: </label>
+            <input type="text" id="endereco" disabled>
+        </div>
+
+        <div id="dadosIdade" class="mt-3">
+            <label for="idade">Idade: </label>
+            <input type="text" id="idade" disabled>
+        </div>
+
+        <div id="dadosDataNasc" class="mt-3">
+            <label for="dataNasc">Data de nascimento: </label>
+            <input type="text" id="dataNasc" disabled>
+        </div>
+
+        <input type="button" value="Inserir e carregar dados" class="mt-5 btn btn-info border-dark" onclick="carregarDados()">
+
+    </div>
+
+    
+
+
+
+</body>
+
+</html>
