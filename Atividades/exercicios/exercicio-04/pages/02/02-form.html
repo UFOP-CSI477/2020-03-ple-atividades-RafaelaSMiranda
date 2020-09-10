@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script type="text/javascript" src="./02-form.js"></script>
+
+</head>
+
+<body>
+
+    <div class="container alert-light text-center mt-5">
+        <h1>Carregamento de dados utilizando Formulário</h1>
+
+    </div>
+
+    <div class="container">
+        <form action="post" name="frmDados">
+
+            <div id="dadosNome" class="mt-5">
+                <label for="nome">Nome completo: </label>
+                <input type="text" name="nome">
+            </div>
+
+            <div id="dadosEndereco" class="mt-3">
+                <label for="endeco">Endereco completo: </label>
+                <input type="text" name="endereco">
+            </div>
+
+            <div id="dadosIdade" class="mt-3">
+                <label for="idade">Idade: </label>
+                <input type="text" name="idade">
+            </div>
+
+            <div id="dadosDataNasc" class="mt-3">
+                <label for="dataNasc">Data de nascimento: </label>
+                <input type="text" name="dataNasc">
+            </div>
+
+
+            <input type="button" value="Inserir" class="mt-5 btn btn-info border-dark" onclick="inserirDados()">
+
+            <input type="button" value="Carregar dados" class="mt-5 btn btn-info border-dark" onclick="exibirDados()">
+
+        </form>
+
+    </div>
+
+    <div class="container alert-light text-center mt-5">
+        <h2>Favor conferir os seus dados exibidos abaixo</h2>
+
+        <div style="display: flex;">
+            <p>Nome:</p>
+            <div id="nome"></div>
+        </div>
+
+        <div style="display: flex;">
+            <p>Endereço: </p>
+            <div id="endereco"></div>
+        </div>
+
+        <div style="display: flex;">
+            <p>Idade: </p>
+            <div id="idade"></div>
+        </div>
+
+        <div style="display: flex;">
+            <p>Data de Nascimento: </p>
+            <div id="dataNasc"></div>
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>
