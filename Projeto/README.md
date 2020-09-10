@@ -1,5 +1,5 @@
 # **CSI477-2020-03 - PLE - Proposta de Trabalho Final**
-## *Aluna(o): Princesa Leia (Luke Skywalker)*
+## *Aluna(o): Rafaela Silva Miranda*
 
 --------------
 
