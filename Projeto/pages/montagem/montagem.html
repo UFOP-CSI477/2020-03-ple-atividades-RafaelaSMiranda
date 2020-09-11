@@ -12,7 +12,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <!-- <link rel="stylesheet" href="./cadastro.css"> -->
+    <link rel="stylesheet" href="./montagem.css">
 </head>
 
 <body>
@@ -33,8 +33,8 @@
                         Cardápio
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Pizza</a>
-                        <a class="dropdown-item" href="#">Hamburguer</a>
+                        <a class="dropdown-item" href="../cardapio/cardapio.html">Pizza</a>
+                        <a class="dropdown-item" href="../cardapio/cardapio.html">Hamburguer</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Montar meu lanche</a>
                     </div>
@@ -49,9 +49,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="../bebidas/bebidas.html">Bebidas</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../finalizar/finalizar.html">Sacola</a>
-                </li>
 
                 <li class="nav-item ">
                     <a class="nav-link" href="../perfil/perfil.html">Perfil<span class="sr-only">(current)</span></a>
@@ -59,6 +56,8 @@
             </ul>
             <form class="form-inline my-2 my-lg-0">
 
+                <a href="../finalizar/finalizar.html" class="btn btn-danger my-2 mr-2 my-sm-0" type="submit">R$
+                    24,00</a>
                 <a href="../home/home.html" class="btn btn-outline-success my-2 my-sm-0" type="submit">Sair</a>
             </form>
         </div>
@@ -67,27 +66,92 @@
     <!-- -------------------------------------------------------------------------------------------------- -->
 
 
+    </div>
+
     <div class="container w-75 border border-dark rounded shadow bg-white rounded"
-        style=" padding: 20px; margin-top: 100px;   ">
+        style=" padding: 20px; margin-top: 100px; ">
 
+        <div class="title">
 
-        <div class="lancheEscolha">
-
-            <input type="button" value="Pizza">
-            <input type="button" value="Hambúrguer">
-            <input type="button" value="Porção">
-
+            <span>Escolha a opção e selecione os seus ingredientes</span>
 
         </div>
 
-        <input type="submit" class="btn btn-primary" value="Adicionar ingredientes">
+
+        <div class="row">
+
+            <div class="col-4" style="display: grid; justify-content: center;">
+
+                <span style="text-align: center;">Pizza</span>
+
+                <div class="quantidade">
 
 
-    </div>
+                    <div class="valor">
+                        <p style="text-align: center;">R$25,00</p>
+                    </div>
+
+                    <div class="unidades">
+                        <input type="button" id="subtrair" value='-' onclick="process(-1)" />
+                        <input id="quant" name="quant" class="text" size="1" type="text" value="1" maxlength="5"
+                            disabled />
+                        <input type="button" id="adicionar" value='+' onclick="process(1)">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-4" style="display: grid; justify-content: center;">
 
 
+                <span style="text-align: center;">Hambúrguer
+
+                </span>
+                <div class="quantidade">
 
 
+                    <div class="valor">
+                        <p style="text-align: center;">R$6,00</p>
+                    </div>
+
+                    <div class="unidades">
+                        <input type="button" id="subtrair" value='-' onclick="process(-1)" />
+                        <input id="quant" name="quant" class="text" size="1" type="text" value="1" maxlength="5"
+                            disabled />
+                        <input type="button" id="adicionar" value='+' onclick="process(1)">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-4" style="display: grid; justify-content: center;">
+
+                <span style="text-align: center;">Porção</span>
+
+                <div class="quantidade">
+
+
+                    <div class="valor">
+                        <p style="text-align: center;">R$20,00</p>
+                    </div>
+
+                    <div class="unidades">
+                        <input type="button" id="subtrair" value='-' onclick="process(-1)" />
+                        <input id="quant" name="quant" class="text" size="1" type="text" value="1" maxlength="5"
+                            disabled />
+                        <input type="button" id="adicionar" value='+' onclick="process(1)">
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="botaoFinalizar pt-5" style="display: flex; justify-content: center;">
+            <a href="../adicionais/adicionais.html" type="submit" class="btn btn-outline-primary">Ingredientes</a>
+        </div>
 
     </div>
 

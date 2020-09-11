@@ -12,7 +12,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <!-- <link rel="stylesheet" href="./cadastro.css"> -->
+    <link rel="stylesheet" href="./finalizar.css">
 </head>
 
 <body>
@@ -41,15 +41,12 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="../adicionais/adicionais.html">Adicionais<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="../adicionais/adicionais.html">Adicionais<span
+                            class="sr-only">(current)</span></a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link" href="../bebidas/bebidas.html">Bebidas</a>
-                </li>
-
-                <li class="nav-item active" >
-                    <a class="nav-link" href="#">Sacola</a>
                 </li>
 
                 <li class="nav-item ">
@@ -58,6 +55,8 @@
             </ul>
             <form class="form-inline my-2 my-lg-0">
 
+                <a href="../finalizar/finalizar.html" class="btn btn-danger my-2 mr-2 my-sm-0" type="submit">R$
+                    24,00</a>
                 <a href="../home/home.html" class="btn btn-outline-success my-2 my-sm-0" type="submit">Sair</a>
             </form>
         </div>
@@ -69,25 +68,38 @@
     <div class="container w-75 border border-dark rounded shadow bg-white rounded"
         style=" padding: 20px; margin-top: 100px;   ">
 
-        <p style="text-align: center;">Confirmação do pedido</p>
+        <div class="title">
+
+            <span>Finalizar pedido</span>
+
+        </div>
 
         <div class="item">
 
             <div class="descricao">
 
-                <p>Pizza</p>
+                <p>Grand Picanha</p>
+                <p>R$24,00</p>
+                <p style="font-weight: bold;">Valor total: R$ 24,00</p>
+                <div class="dropdown-divider"></div>
+                <p style="font-weight: bold; color: rgb(94, 94, 94);">Confirmar dados cadastrados. Em caso de alteração,
+                    por favor, atualize o seu cadastro</p>
+                <p>Nome:</p>
                 <p>Endereço: Rua A</p>
                 <p>Pagamento em dinheiro</p>
-                <p>Valor total: R$ 60,00</p>
-                <p>Observações</p>
-                <textarea name="" id="" cols="30" rows="10" placeholder="Ex.: Pedido sem cebola"></textarea>
+                <p style=" color: rgb(94, 94, 94);">Documento para nota fiscal</p>
+                <p>CPF:</p>
+                <div class="dropdown-divider"></div>
+                <p style="font-weight: bold; color: rgb(94, 94, 94); font-size: 20px;">Observações</p>
+                <textarea style="width: 60%;"  name="" id="" placeholder="Ex.: Pedido sem cebola"></textarea>
             </div>
 
 
 
-            <input type="submit" class="btn btn-primary" value="Finalizar pedido">
-            <input type="reset" class="btn btn-danger" value="Cancelar">
-
+            <form class="form mt-3">
+                <input type="submit" class="btn btn-outline-success" value="Finalizar pedido">
+                <input type="reset" class="btn btn-outline-danger" value="Cancelar">
+            </form>
 
 
         </div>

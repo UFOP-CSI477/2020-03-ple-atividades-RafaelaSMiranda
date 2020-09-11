@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Cardápio</title>
+    <link rel="stylesheet" href="./cardapio.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -12,7 +13,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <!-- <link rel="stylesheet" href="./cadastro.css"> -->
+
 </head>
 
 <body>
@@ -26,7 +27,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                
+
 
                 <li class="nav-item dropdown active">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -37,56 +38,85 @@
                         <a class="dropdown-item" href="#">Pizza</a>
                         <a class="dropdown-item" href="#">Hamburguer</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Montar meu lanche</a>
+                        <a class="dropdown-item" href="../montagem/montagem.html">Montar meu lanche</a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../adicionais/adicionais.html">Adicionais<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="../adicionais/adicionais.html">Adicionais<span
+                            class="sr-only">(current)</span></a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link" href="../bebidas/bebidas.html">Bebidas</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../finalizar/finalizar.html">Sacola</a>
-                </li>
+
 
                 <li class="nav-item ">
                     <a class="nav-link" href="../perfil/perfil.html">Perfil<span class="sr-only">(current)</span></a>
                 </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
 
+                
+            </ul>
+
+            <a href="../finalizar/finalizar.html" class="btn btn-danger my-2 mr-2 my-sm-0" type="submit">R$ 24,00</a>
+                  
+                    
+            
                 <a href="../home/home.html" class="btn btn-outline-success my-2 my-sm-0" type="submit">Sair</a>
-            </form>
+            
         </div>
     </nav>
+
+
+
 
     <!-- -------------------------------------------------------------------------------------------------- -->
 
 
     <div class="container w-75 border border-dark rounded shadow bg-white rounded"
-        style=" padding: 20px; margin-top: 100px;   ">
+        style=" padding: 20px; margin-top: 100px; ">
 
-        <p>Todas as Pizzas tem o mesmo tamanho. 35cm - 8 fatias</p>
+        <!-- <div class="info">
 
-        <div class="item">
-            <a href="../adicionais/adicionais.html">Nome da Pizza:</a>
-            <p>Descrição: </p>
-           
+            <p class="pizza">Todas as Pizzas tem o mesmo tamanho (35cm - 8 fatias)</p>
+            <p class="tempo">Entrega: 60 - 70 min</p>
 
-            
+        </div> -->
+
+
+        <div class="itens">
+
+            <dl>
+                <dt>Grand Picanha</dt>
+                <dd>- Pão australiano, burger de picanha 200g grelhado na brasa, queijo emmenthal, fatias de bacon
+                    crocante, cebola caramelizada, alface, tomate e maionese de bacon. Acompanha fritas.</dd>
+
+                <div class="quantidade">
+
+                    
+                    <div class="valor">
+                        <p>R$24,00</p>
+                    </div>
+
+                    <div class="unidades">
+                        <input type="button" id="subtrair" value='-' onclick="process(-1)" />
+                        <input id="quant" name="quant" class="text" size="1" type="text" value="1" maxlength="5"
+                            disabled />
+                        <input type="button" id="adicionar" value='+' onclick="process(1)">
+                    </div>
+
+                </div>
+
+            </dl>
+
         </div>
 
 
 
-
-
-
-        <a href="../finalizar/" type="submit" class="btn btn-outline-primary">Finalizar pedido</a>
-       
-
-
+        <div class="botaoFinalizar pt-5">
+            <a href="../finalizar/finalizar.html" type="submit" class="btn btn-outline-primary">Adicionais</a>
+            <a href="../finalizar/finalizar.html" type="submit" class="btn btn-outline-success">Finalizar pedido</a>
+        </div>
 
     </div>
 

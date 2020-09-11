@@ -24,16 +24,16 @@
 <!-- Apresentar restrições de funcionalidades e de escopo. -->
 ### 3. Restrições
 
-  Neste trabalho não serão considerados a finalização do pedido, como, o processo de pagamento. Não será oferecido também, todos os lanches fast food, apenas uma parcela de lanches e opções, que sejam suficientes para usabilidade do mesmo. Mas, os demais lanches e funcionalidades podem ser implementadas como trabalho futuro, assim como, o processo de pagamento e acompanhamento do pedido. 
+  Neste trabalho não serão considerados a finalização do pedido, como, o processo de pagamento. Não será oferecido também, todos os lanches fast food e bebidas, apenas uma parcela de opções, que sejam suficientes para usabilidade do mesmo. Mas, os demais lanches e funcionalidades podem ser implementadas como trabalho futuro, assim como, o processo de pagamento e acompanhamento do pedido. 
 
 
 <!-- Construir alguns protótipos para a aplicação, disponibilizá-los no Github e descrever o que foi considerado. //-->
 ### 4. Protótipo
 
 O projeto será composto por uma página principal com as informações sobre a empresa. Nesta página,  o cliente tem a opção de realizar o seu cadastro ou acessar no sistema. 
-Ao acessar o site, o cliente terá as opções de lanches que são disponíveis para compra, com o seu respectivo valor. Quando realiza a escolha do lanche, irá encaminhá-lo para uma nova janela contendo as opções de adicionais.
+Ao acessar o site, o cliente terá as opções de lanches que são disponíveis para compra, com o seu respectivo valor. Quando o cliente realiza a escolha do lanche, ele poderá optar em inserir adicionais, sendo direcionado para outra janela, contendo as opções.
 Terá a opção também de montar o lanche, o cliente escolhe qual lanche deseja, dentre as opções disponíveis e acrescenta os todos os itens (adicionais).
-Após a montagem, o cliente irá finalizar o pedido, encerrando a sua compra.
+Após a montagem, o cliente irá finalizar o pedido, encerrando a sua compra. Com isso, uma tela exibirá os dados cadastrados e o pedido para que o cliente visualize e realize a confirmação.
 O protótipo do projeto pode ser encontrado no seguinte endereço: https://github.com/UFOP-CSI477/2020-03-ple-atividades-RafaelaSMiranda/tree/master/Projeto . São consideradas as estruturas HTML e CSS desenvolvidas até o momento para visualização do protótipo.
 
 

@@ -12,7 +12,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <!-- <link rel="stylesheet" href="./cadastro.css"> -->
+
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <link rel="stylesheet" href="./bebidas.css">
 </head>
 
 <body>
@@ -41,16 +47,14 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="../adicionais/adicionais.html">Adicionais<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="../adicionais/adicionais.html">Adicionais<span
+                            class="sr-only">(current)</span></a>
                 </li>
 
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Bebidas</a>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="../finalizar/finalizar.html">Sacola</a>
-                </li>
 
                 <li class="nav-item ">
                     <a class="nav-link" href="../perfil/perfil.html">Perfil<span class="sr-only">(current)</span></a>
@@ -59,6 +63,8 @@
             </ul>
             <form class="form-inline my-2 my-lg-0">
 
+                <a href="../finalizar/finalizar.html" class="btn btn-danger my-2 mr-2 my-sm-0" type="submit">R$
+                    24,00</a>
                 <a href="../home/home.html" class="btn btn-outline-success my-2 my-sm-0" type="submit">Sair</a>
             </form>
         </div>
@@ -70,27 +76,37 @@
     <div class="container w-75 border border-dark rounded shadow bg-white rounded"
         style=" padding: 20px; margin-top: 100px;   ">
 
+        <div class="title">
 
-        <div class="item">
+            <span>Inserir Bebidas</span>
 
-            <div class="descricao">
+        </div>
 
-                <p>Suco: </p>
-            
+        <div class="adicionais">
+            <span>Suco</span>
+
+            <button style="border: none; background-color: transparent;" class="material-icons" style="color: red; ">
+                remove
+            </button>
+            <span style="border: none; margin-left: 10px;" id="quant" name="quant" class="text" size="1%" type="text" value="1"
+                maxlength="3" >1</span>
+            <button style="border: none; background-color: transparent;" class="material-icons" style="color: red;">
+                add
+            </button>
+
+            <div class="valor">
+                <span>+ R$ 3,00</span>
             </div>
 
-            <div class="quantidade">
-                <label>Quantidade:</label>
-                <input type="button" id="plus" value='-' onclick="process(-1)" />
-                <input id="quant" name="quant" class="text" size="1" type="text" value="1" maxlength="5" />
-                <input type="button" id="minus" value='+' onclick="process(1)">
-            </div>
+            <div class="dropdown-divider"></div>
+
         </div>
 
 
 
-        <input type="submit" class="btn btn-primary" value="Finalizar pedido">
-        <input type="reset" class="btn btn-danger" value="Limpar">
+
+        <a href="../finalizar/finalizar.html" type="submit" class="btn btn-outline-success">Finalizar pedido</a>
+        <input type="reset" class="btn btn-outline-danger" value="Limpar">
 
 
 

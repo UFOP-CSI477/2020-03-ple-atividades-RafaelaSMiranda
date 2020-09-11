@@ -1,0 +1,13 @@
+.title {
+
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    
+}
+
+.title span {
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(94, 94, 94);
+}
