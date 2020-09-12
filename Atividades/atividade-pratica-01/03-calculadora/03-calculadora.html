@@ -8,13 +8,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
-    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+    <link rel="text/plain" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+   
     <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 
-    <!-- <script type="text/javascript" src="./calculadora.css"></script> -->
+    <script type="text/javascript" src="./calculadora.js"></script>
 
     <link rel="stylesheet" href="./03-calculadora.css">
 
@@ -34,13 +35,13 @@
         <div class="border shadow border-info p-4" id="calculadora">
 
             <div class="row">
-                <textarea for=""></textarea>
+                <textarea id="exibeValores" disabled></textarea>
             </div>
 
             <hr>
 
             <div class="row">
-                <input for=""></input>
+                <input id="exibeResultado" disabled></input>
             </div>
 
             <hr>
@@ -49,29 +50,29 @@
             <div class="row mt-1 mb-1 ">
 
                 <div class="col-2 " id="botoes">
-                    <button>7</button>
+                    <button value="7" type="button" onclick="valores(value)">7</button>
                 </div>
 
                 <div class="col-2" id="botoes">
-                    <button>8</button>
+                    <button value="8" type="button" onclick="valores(value)">8</button>
                 </div>
 
                 <div class="col-2" id="botoes">
-                    <button>9</button>
+                    <button value="9" type="button" onclick="valores(value)">9</button>
                 </div>
 
                 <div class="col-2" id="botoes">
-                    <button>/</button>
+                    <button value="/" type="button" onclick="valores(value)">/</button>
                 </div>
 
                 <div class="col-2" id="botoes">
-                    <button><span class="material-icons">
+                    <button value="remover" type="button" onclick="remover()"><span class="material-icons">
                             undo
                         </span></button>
                 </div>
 
                 <div class="col-2" id="botoes">
-                    <button>C</button>
+                    <button value="C" type="button" onclick="valores(value)">Limpar</button>
                 </div>
 
             </div>
@@ -79,27 +80,27 @@
             <div class="row mt-1 mb-1">
 
                 <div class="col-2" id="botoes">
-                    <button>4</button>
+                    <button value="4" type="button" onclick="valores(value)">4</button>
                 </div>
 
                 <div class="col-2" id="botoes">
-                    <button>5</button>
+                    <button value="5" type="button" onclick="valores(value)">5</button>
                 </div>
 
                 <div class="col-2" id="botoes">
-                    <button>6</button>
+                    <button value="6" type="button" onclick="valores(value)">6</button>
                 </div>
 
                 <div class="col-2" id="botoes">
-                    <button>x</button>
+                    <button value="*" type="button" onclick="valores(value)">*</button>
                 </div>
 
                 <div class="col-2" id="botoes">
-                    <button>(</button>
+                    <button value="(" type="button" onclick="valores(value)">(</button>
                 </div>
 
                 <div class="col-2" id="botoes">
-                    <button>)</button>
+                    <button value=")" type="button" onclick="valores(value)">)</button>
                 </div>
 
             </div>
@@ -107,27 +108,27 @@
             <div class="row mt-1 mb-1">
 
                 <div class="col-2" id="botoes">
-                    <button>1</button>
+                    <button value="1" type="button" onclick="valores(value)">1</button>
                 </div>
 
                 <div class="col-2" id="botoes">
-                    <button>2</button>
+                    <button value="2" type="button" onclick="valores(value)">2</button>
                 </div>
 
                 <div class="col-2" id="botoes">
-                    <button>3</button>
+                    <button value="3" type="button" onclick="valores(value)">3</button>
                 </div>
 
                 <div class="col-2" id="botoes">
-                    <button>-</button>
+                    <button value="-" type="button" onclick="valores(value)">-</button>
                 </div>
 
                 <div class="col-2" id="botoes">
-                    <button>x²</button>
+                    <button value="." type="button" onclick="valores(value)">.</button>
                 </div>
 
                 <div class="col-2" id="botoes">
-                    <button>R</button>
+                    <button value="+" type="button" onclick="valores(value)">+</button>
                 </div>
 
             </div>
@@ -135,23 +136,15 @@
             <div class="row mt-1 mb-1">
 
                 <div class="col-2 " id="botoes">
-                    <button>0</button>
+                    <button value="0" type="button" onclick="valores(value)">0</button>
                 </div>
 
-                <div class="col-2" id="botoes">
-                    <button>,</button>
+                <div class="col-3 " id="botoes">
+                    <button value="hist" type="button" onclick="valores(value)">Histórico</button>
                 </div>
 
-                <div class="col-2" id="botoes">
-                    <button>%</button>
-                </div>
-
-                <div class="col-2" id="botoes">
-                    <button>+</button>
-                </div>
-
-                <div class="col-4" id="botaoResposta">
-                    <button >=</button>
+                <div class="col" id="botaoResposta">
+                    <button value="=" type="button" onclick="valores(value)">=</button>
                 </div>
 
 

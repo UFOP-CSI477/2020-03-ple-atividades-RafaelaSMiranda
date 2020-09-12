@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carregamento API</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script type="text/javascript" src="./05-carregamento-api.js"></script>
+    <link rel="stylesheet" href="./05-carregamento-api.css">
+
+</head>
+
+<body onload="carregarRegiao()">
+
+    <div class="container alert-light text-center mt-5">
+        <h1>Selecione a sua região, estado e cidade</h1>
+    </div>
+
+    <div class="row">
+
+        <div class="col-4 mt-5" style="display: grid; justify-content: center;">
+            <select name="regiao" id="regiao" onchange="carregarEstados()">
+                <option value="">Selecione</option>
+            </select>
+        </div>
+
+        <div class="col-4 mt-5" style="display: grid; justify-content: center;">
+            <select name="estado" id="estado" onchange="carregarCidades()">
+                <option value="">Selecione</option>
+            </select>
+        </div>
+
+        <div class="col-4 mt-5" style="display: grid; justify-content: center;">
+            <select name="cidade" id="cidade" onchange="exibirCidade()">
+                <option value="">Selecione</option>
+            </select>
+        </div>
+
+    </div>
+
+    <div id="cidadeSelecionada">
+
+        <p id="title">Você chegou ate a cidade</p>
+        <p id="city"></p>
+
+    </div>
+
+
+</body>
+
+</html>

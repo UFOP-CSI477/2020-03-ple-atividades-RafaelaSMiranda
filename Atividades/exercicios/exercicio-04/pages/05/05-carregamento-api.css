@@ -1,0 +1,22 @@
+select {
+
+    background-color: seashell;
+    border: 1px solid rosybrown;
+    border-radius: 6px;
+    padding: 5px;
+    font-size: 16px;
+    margin-left: 50px;
+    
+}
+
+
+p {
+
+    font-size: 30px;
+    margin-top: 20px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+
+}

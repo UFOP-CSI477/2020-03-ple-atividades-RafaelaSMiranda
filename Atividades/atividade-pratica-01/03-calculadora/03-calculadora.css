@@ -13,7 +13,12 @@
     border: none;
     width: 100%;
     resize: none;
+    margin-left: 20px;
     
+}
+
+input{
+    font-weight: bold;
 }
 
 hr{

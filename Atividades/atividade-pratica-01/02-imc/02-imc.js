@@ -77,5 +77,8 @@ function limparDados() {
     document.getElementById('calcular').disabled = false;
     document.getElementById('peso').disabled = false;
     document.getElementById('altura').disabled = false;
-    location.reload();
+    document.getElementById('btnResultado').disabled = true;
+    document.getElementById('peso').classList.remove('is-valid');
+    document.getElementById('altura').classList.remove('is-valid');
+    
 }
