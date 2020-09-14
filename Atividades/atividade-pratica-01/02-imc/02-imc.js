@@ -80,5 +80,8 @@ function limparDados() {
     document.getElementById('btnResultado').disabled = true;
     document.getElementById('peso').classList.remove('is-valid');
     document.getElementById('altura').classList.remove('is-valid');
+    var spinner = document.getElementById('carregando');
+    spinner.classList.add('spinner-border');
+    spinner.classList.add('spinner-border-sm');
     
 }

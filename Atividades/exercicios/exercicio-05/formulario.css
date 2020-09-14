@@ -1,0 +1,22 @@
+p {
+
+    font-size: 110%;
+}
+
+.botao{
+
+    display: flex;
+    justify-content: center;
+    margin-top: -100px;
+}
+
+.botao a{
+
+    font-size: 20px;
+    border-color: black;
+}
+
+.botao a:hover{
+
+    background-color: black;
+}

@@ -173,7 +173,7 @@ function cadastrar() {
     let email = document.getElementById('email');
     let cpf = document.getElementById('cpf');
     let telefone = document.getElementById('telefone');
-    let tf = document.getElementById('rg');
+    let rg = document.getElementById('rg');
     let nasc = document.getElementById('nasc');
     let solteiro = document.getElementById('solteiro');
     let casado = document.getElementById('casado');
@@ -193,6 +193,10 @@ function cadastrar() {
         validacaoData(nasc) &&
         validacaoCheck(solteiro, casado, naoInformar)) {
 
-            window.alert("Dados verificados com sucesso ! Cadastro realizado.")
+            window.alert("Dados verificados com sucesso ! Cadastro realizado.");
+            return true;
+        } else {
+            return false;
         }
 }
+

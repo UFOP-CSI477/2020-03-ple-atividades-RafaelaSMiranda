@@ -23,9 +23,9 @@ function limpar() {
     document.getElementById("tempo").classList.remove('is-valid');
     document.getElementById("calcular").disabled = false;
     document.getElementById("novoCalculo").disabled = true;
-    var remove = document.getElementById('carregando');
-    remove.classList.add('spinner-border');
-    remove.classList.add('spinner-border-sm');
+    var spinner = document.getElementById('carregando');
+    spinner.classList.add('spinner-border');
+    spinner.classList.add('spinner-border-sm');
     document.getElementById('primeiro').style.backgroundColor = 'transparent';
     document.getElementById('segundo').style.backgroundColor = 'transparent';
     document.getElementById('terceiro').style.backgroundColor = 'transparent';
