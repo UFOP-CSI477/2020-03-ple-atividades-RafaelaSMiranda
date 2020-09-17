@@ -1,0 +1,76 @@
+.date{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.date .item label{
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.date button {
+    background-color: rgb(241, 176, 176);
+    font-size: 20px;
+    border: 1px solid black;
+    font-family: 'Times New Roman', Times, serif;
+    border-radius: 3px;
+}
+
+.date button:hover{
+    background-color: rgb(199, 61, 61);
+}
+
+.date .item input, select{
+    border: 1px solid black;
+    border-radius: 3px;
+    font-size: 15px;
+}
+
+
+.countDown {
+    display: flex;
+    justify-content: center;
+    margin-top: 3%;
+}
+
+.countDown-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: stretch;
+    padding: 10px;
+    border: 1px #000 solid;
+    border-radius: 3px;
+    font-size: 50px;
+}
+
+
+.textDate, .text{
+
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+  
+}
+
+.textDate p, .text p{
+    margin-left: 5px;
+    margin-right: 10px;
+    font-size: 30px;
+}
+
+.container {
+    border: 1px solid salmon;
+    margin-top: 5%;
+    margin-left: 30%;
+    margin-right: 30%;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgb(247, 168, 159);
+    background-color: #f0eeee;
+}
+
+

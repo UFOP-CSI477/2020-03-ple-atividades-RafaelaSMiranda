@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>API Github</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./styles/index.css">
+</head>
+
+<body>
+
+    <div class="cabecalho">
+        <div>
+            <label for="github_name">Github Name:</label>
+            <input type="text" id="github_name" name="github_name">
+        </div>
+        <div>
+            <p id="disable_text" hidden style="color: red">Usuário não existe</p>
+        </div>
+        <div class="div_button">
+            <input type="submit" id="btnEnviar" value="Enviar" onclick=insertRow()>
+        </div>
+    </div>
+
+    <div class="container">
+        <div>
+            <table id="myTable" class="table table-hover table-bordered table-striped shadow">
+                <thead>
+                    <tr class="table table-success">
+                        <th>login</th>
+                        <th>email</th>
+                        <th>public_repos</th>
+                        <th>followers</th>
+                        <th>following</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <script src="js/index.js"></script>
+</body>
+
+</html>

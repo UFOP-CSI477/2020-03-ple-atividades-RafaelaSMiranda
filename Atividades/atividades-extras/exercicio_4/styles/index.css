@@ -1,0 +1,27 @@
+.cabecalho {
+    text-align: center ;
+    margin-top:10%;
+}
+
+
+
+.div_button > input{
+    background-color: rgb(224, 245, 245);
+    margin-top: 10px;
+    border: 1px solid black;
+    border-radius: 3px;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#myTable{
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    
+
+}
+
+table, th, td {
+    border: 1px  solid black;
+  }
