@@ -1,0 +1,86 @@
+.info {
+    
+    background-color: rgb(245, 233, 233);
+    border-radius: 8px;
+    margin-top: -50px;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+
+
+}
+
+.info .pizza {
+
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+    font-size: 120%;
+    margin-left: 5%;
+    /* display: none; */
+   
+}
+
+.info .tempo {
+
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+    margin-right: 5%;
+   
+}
+
+.itens p {
+
+    font-size: 110%;
+    color: red;
+    font-weight: bold;
+    margin-left: 3%;
+}
+
+.quantidade {
+    display: flex;
+
+}
+
+.quantidade .valor{
+    margin-right: 5%;
+}
+
+.quantidade .unidade input{
+
+    text-decoration: none;
+    border: none;
+    background: none;
+    text-align: center;
+    
+}
+
+.total p {
+
+    font-size: 110%;
+    color: red;
+    font-weight: bold;
+    margin-right: 60%;
+    
+}
+
+@media(max-width: 700px){
+
+    .info .pizza {
+
+        font-size: 90%;     
+       
+    }
+    
+    .info .tempo {
+        
+        font-size: 90%; 
+       
+    }
+
+}

@@ -14,5 +14,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('pages.home');
+}) -> name('pages.home');
+
+Route::get('/cardapio', function () {
+    return view('pages.cardapio');
+}) -> name('pages.cardapio');
+
+Route::get('/pedido', function () {
+    return view('pages.finalizar');
+}) -> name('pages.finalizar');
+
+Route::get('/perfil', function () {
+    return view('pages.perfil');
+}) -> name('pages.perfil');
