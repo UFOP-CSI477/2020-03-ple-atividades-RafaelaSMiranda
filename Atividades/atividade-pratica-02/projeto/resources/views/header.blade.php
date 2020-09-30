@@ -17,26 +17,23 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <title>Home</title>
+    <title>Sistema de Manutenção de Equipamentos</title>
 </head>
 
 <body>
 
 
 
-    <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top">
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top fixed-top">
 
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav mr-auto ">
 
 
                 <li class="nav-item" active style="font-size: 20px; padding-right: 50px;">
                     <a class="nav-link" href="{{route('principal')}}">Home</a>
                 </li>
-
-
-
 
                 @yield('link')
 

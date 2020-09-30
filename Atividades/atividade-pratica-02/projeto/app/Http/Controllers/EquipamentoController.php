@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Equipamento;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EquipamentoController extends Controller
 {
@@ -15,9 +16,15 @@ class EquipamentoController extends Controller
     public function index()
 
     {
+        $Auth = true;
+
         $equipamentos = Equipamento::orderby('nome')->get();
 
-        return view('suporte.equipamento.index', ['equipamentos' => $equipamentos]);
+        if ($Auth) {
+            return view('administrativo.equipamento.index', ['equipamentos' => $equipamentos]);
+        } else {
+            return view('suporte.equipamento.index', ['equipamentos' => $equipamentos]);
+        }
 
         //
     }
@@ -30,6 +37,7 @@ class EquipamentoController extends Controller
     public function create()
     {
         //
+        return view('administrativo.equipamento.create');
     }
 
     /**
@@ -41,6 +49,10 @@ class EquipamentoController extends Controller
     public function store(Request $request)
     {
         //
+
+        Equipamento::create($request->all());
+        session()->flash('mensagem', 'Equipamento cadastrado com sucesso!');
+        return redirect()->route('admPrincipal');
     }
 
     /**
@@ -52,6 +64,8 @@ class EquipamentoController extends Controller
     public function show(Equipamento $equipamento)
     {
         //
+
+        return view('administrativo.equipamento.show', ['equipamento' => $equipamento]);
     }
 
     /**
@@ -63,6 +77,8 @@ class EquipamentoController extends Controller
     public function edit(Equipamento $equipamento)
     {
         //
+
+        return view('administrativo.equipamento.edit', ['equipamento' => $equipamento]);
     }
 
     /**
@@ -75,6 +91,12 @@ class EquipamentoController extends Controller
     public function update(Request $request, Equipamento $equipamento)
     {
         //
+
+        $equipamento->fill($request->all());
+        $equipamento->save();
+
+        session()->flash('mensagem', 'Equipamento atualizado com sucesso');
+        return redirect()->route('admPrincipal');
     }
 
     /**

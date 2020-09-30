@@ -4,10 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Equipamento;
 use App\Models\Registro;
-use App\Models\User;
 use Illuminate\Http\Request;
 
-class RegistroController extends Controller
+class RelatorioRegistroController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,25 +16,26 @@ class RegistroController extends Controller
     public function index()
     {
         //
-        $Auth = true;
 
-        $registros = Registro::orderBy('dataLimite')->get();
+        $lista = array();
 
-        foreach ($registros as $registro) {
+        $equipamentos = Equipamento::get();
 
-            // echo $registro->equipamento->nome . '-';
-            // echo $registro->user->name . '-';
+        foreach ($equipamentos as $equipamento) {
 
-            $registro->dataLimite =  date('d-m-Y', strtotime($registro->dataLimite));
+            $query =  Registro::where('equipamento_id', '=', $equipamento->id)->get();
+            // echo sizeof($query);
+
+
+
+            if (sizeof($query) > 0) {
+
+
+                $lista[$equipamento->nome] = $query;
+            }
         }
 
-
-
-        if ($Auth) {
-            return view('administrativo.manutencao.index', ['registros' => $registros]);
-        } else {
-            return view('suporte.registro.index', ['registros' => $registros]);
-        }
+        return view('administrativo.indexRelatorioManutencao', ['lista' => $lista]);
     }
 
     /**
@@ -46,10 +46,6 @@ class RegistroController extends Controller
     public function create()
     {
         //
-
-        $equipamentos = Equipamento::get();
-
-        return  view('administrativo.manutencao.create', ['equipamentos' => $equipamentos]);
     }
 
     /**
@@ -61,12 +57,6 @@ class RegistroController extends Controller
     public function store(Request $request)
     {
         //
-
-
-        // dd($request->all());
-        Registro::create($request->all());
-        session()->flash('mensagem', 'Manutenção cadastrada com sucesso!');
-        return redirect()->route('admPrincipal');
     }
 
     /**

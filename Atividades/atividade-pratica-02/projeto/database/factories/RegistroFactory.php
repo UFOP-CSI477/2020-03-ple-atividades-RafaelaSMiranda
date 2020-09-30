@@ -23,7 +23,7 @@ class RegistroFactory extends Factory
     {
         return [
 
-            'equipamento_id' => $this->faker->numberBetween(1, 4),
+            'equipamento_id' => $this->faker->numberBetween(2,4),
             'user_id' => $this->faker->numberBetween(1, 4),
             'descricao' => $this->faker->word,
             'dataLimite' => $this->faker->date("Y-m-d", 'now'),

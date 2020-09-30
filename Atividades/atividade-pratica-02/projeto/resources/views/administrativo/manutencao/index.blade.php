@@ -1,5 +1,4 @@
-@extends('home')
-
+@extends ('administrativo.headerAdm')
 
 @section('conteudo')
 

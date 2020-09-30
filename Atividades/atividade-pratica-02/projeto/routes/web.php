@@ -1,27 +1,34 @@
 <?php
 
 use App\Http\Controllers\EquipamentoController;
+use App\Http\Controllers\RegistroController;
+use App\Http\Controllers\RelatorioRegistroController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-use App\Models\Equipamento;
 
 Route::get('/', function () {
     return view('principal');
 })->name('principal');
 
+Route::get('/administrativo', function () {
+    return view('administrativo.inicio');
+})->name('adm');
+
+Route::get('/admPrincipal', function () {
+    return view('administrativo.telaPrincipal');
+})->name('admPrincipal');
+
 Route::resource('/equipamento', EquipamentoController::class);
-Route::resource('/registro', EquipamentoController::class);
+
+Route::resource('/relatorioRegistro', RelatorioRegistroController::class);
+
+Route::resource('/registro', RegistroController::class);
+
+Route::resource('/user', UserController::class);
+
+
+
 // Route::get('/ola', function () {
 //     return 'Olá, mundo';
 // });

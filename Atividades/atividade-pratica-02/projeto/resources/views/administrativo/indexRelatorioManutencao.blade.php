@@ -1,4 +1,5 @@
-@extends('home')
+@extends('administrativo.headerAdm')
+
 
 
 @section('conteudo')
@@ -6,10 +7,15 @@
 <div class="container">
     <div class="table-responsive py-3 ">
         <p style="font-family: 'Lobster Two'; font-size: 30px; display: flex; justify-content: center;">Mantenções Cadastradas</p>
+
+
+        @foreach($lista as $chave => $l)
+
+        <p style="font-weight: bold; font-size: 20px; display: flex; justify-content: center;">Equipamento: {{$chave}}</p>
         <table id="tableDados" class="table table-hover table-bordered table-striped shadow">
             <thead class="table-secondary">
 
-                <caption style="text-align: center;">Manutenções Cadastradas</caption>
+                <caption style="text-align: center;">Manutenções</caption>
 
                 <tr style="font-size: 20px;" class="align-items-center">
                     <th>Data limite</th>
@@ -21,18 +27,28 @@
             </thead>
 
             <tbody class=" table-hover">
-                @foreach($registros as $e)
+                @foreach($l as $manutencao)
+
                 <tr>
-                    <td>{{ $e->dataLimite}} </td>
-                    <td>{{ $e->equipamento->nome}} </td>
-                    <td>{{ $e->user->name}} </td>
+
                     <?php
 
-                    if ($e->tipo === '1') {
+                    $manutencao->dataLimite = date('d-m-Y', strtotime($manutencao->dataLimite));
+
+
+                    ?>
+                    <td>{{$manutencao->dataLimite}} </td>
+                    <td>{{ $manutencao->equipamento->nome}} </td>
+                    <td>{{ $manutencao->user->name}} </td>
+
+
+                    <?php
+
+                    if ($manutencao->tipo === '1') {
                         $tipo = "Preventiva";
-                    } else if ($e->tipo === '3') {
+                    } else if ($manutencao->tipo === '3') {
                         $tipo = "Corretiva";
-                    } else if ($e->tipo === '3') {
+                    } else if ($manutencao->tipo === '3') {
                         $tipo = "Urgente";
                     } else {
                         $tipo = "Tipo não cadastrado";
@@ -41,16 +57,28 @@
 
                     ?>
                     <td>{{ $tipo}} </td>
-                    <td>{{ $e->descricao}} </td>
+                    <td>{{ $manutencao->descricao}} </td>
+
+
                 </tr>
+
                 @endforeach
             </tbody>
 
             <tfoot>
-                <th colspan="5" style="text-align: center;">Final do relatório</th>
+                <tr>
+                    <th colspan="2" style="text-align: center;">Total</th>
+                    <th colspan="3" style="text-align: center;"> {{sizeof($l)}}</th>
+                </tr>
             </tfoot>
 
         </table>
+
+
+
+        @endforeach
+
+
 
     </div>
 </div>
