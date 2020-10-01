@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProdutoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,23 +17,25 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Produto;
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('paginaPrincipal');
+})->name('principal');
 
-Route::get('/produtos', function(){
+// Route::get('/produtos', function () {
 
-    $produtos = Produto::all();
+//     $produtos = Produto::all();
 
-    // return $produtos[1]["id"];
-    return view('produtos', ['produtos' => $produtos]);
-});
+//     // return $produtos[1]["id"];
+//     return view('produtos', ['produtos' => $produtos]);
+// });
 
-Route::get('/produtos/{id}', function($id){
+// Route::get('/produtos/{id}', function ($id) {
 
-    $produtos = Produto::find($id);
+//     $produtos = Produto::find($id);
 
-    if($produtos == null){
-        return 'ID inválido';
-    }
-    return view('produtos', ['produtos' => $produtos]);
-});
+//     if ($produtos == null) {
+//         return 'ID inválido';
+//     }
+//     return view('produtos', ['produtos' => $produtos]);
+// });
+
+Route::resource('/produtos', ProdutoController::class);

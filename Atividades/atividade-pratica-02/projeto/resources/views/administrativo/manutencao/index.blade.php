@@ -5,10 +5,15 @@
 <div class="container">
     <div class="table-responsive py-3 ">
         <p style="font-family: 'Lobster Two'; font-size: 30px; display: flex; justify-content: center;">Mantenções Cadastradas</p>
+
+
         <table id="tableDados" class="table table-hover table-bordered table-striped shadow">
             <thead class="table-secondary">
 
                 <caption style="text-align: center;">Manutenções Cadastradas</caption>
+
+
+                <p style="font-family: 'Times New Roman', Times, serif; font-size: 120%;">Clique na manutenção para expandir a visualização</p>
 
                 <tr style="font-size: 20px;" class="align-items-center">
                     <th>Data limite</th>
@@ -22,16 +27,16 @@
             <tbody class=" table-hover">
                 @foreach($registros as $e)
                 <tr>
-                    <td>{{ $e->dataLimite}} </td>
-                    <td>{{ $e->equipamento->nome}} </td>
-                    <td>{{ $e->user->name}} </td>
+                    <td> <a style="text-decoration: none; color: black;" href="{{route('registro.show', $e->id)}}">{{$e->dataLimite}}</a></td>
+                    <td><a style="text-decoration: none; color: black;" href="{{route('registro.show', $e->id)}}">{{ $e->equipamento->nome}} </a></td>
+                    <td> <a style="text-decoration: none; color: black;" href="{{route('registro.show', $e->id)}}">{{ $e->user->name}}</a> </td>
                     <?php
 
-                    if ($e->tipo === '1') {
+                    if ($e->tipo === '0') {
                         $tipo = "Preventiva";
-                    } else if ($e->tipo === '3') {
+                    } else if ($e->tipo === '1') {
                         $tipo = "Corretiva";
-                    } else if ($e->tipo === '3') {
+                    } else if ($e->tipo === '2') {
                         $tipo = "Urgente";
                     } else {
                         $tipo = "Tipo não cadastrado";
@@ -39,8 +44,8 @@
 
 
                     ?>
-                    <td>{{ $tipo}} </td>
-                    <td>{{ $e->descricao}} </td>
+                    <td><a style="text-decoration: none; color: black;" href="{{route('registro.show', $e->id)}}">{{ $tipo}}</a> </td>
+                    <td><a style="text-decoration: none; color: black;" href="{{route('registro.show', $e->id)}}">{{ $e->descricao}}</a></td>
                 </tr>
                 @endforeach
             </tbody>

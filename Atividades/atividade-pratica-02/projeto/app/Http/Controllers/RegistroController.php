@@ -6,6 +6,9 @@ use App\Models\Equipamento;
 use App\Models\Registro;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+use function PHPUnit\Framework\isNull;
 
 class RegistroController extends Controller
 {
@@ -17,7 +20,7 @@ class RegistroController extends Controller
     public function index()
     {
         //
-        $Auth = true;
+
 
         $registros = Registro::orderBy('dataLimite')->get();
 
@@ -31,7 +34,7 @@ class RegistroController extends Controller
 
 
 
-        if ($Auth) {
+        if (Auth::check()) {
             return view('administrativo.manutencao.index', ['registros' => $registros]);
         } else {
             return view('suporte.registro.index', ['registros' => $registros]);
@@ -47,9 +50,14 @@ class RegistroController extends Controller
     {
         //
 
-        $equipamentos = Equipamento::get();
+        if (Auth::check()) {
+            $equipamentos = Equipamento::get();
 
-        return  view('administrativo.manutencao.create', ['equipamentos' => $equipamentos]);
+            return  view('administrativo.manutencao.create', ['equipamentos' => $equipamentos]);
+        } else {
+            session()->flash('mensagemErro', 'Operação não permitida!');
+            return redirect()->route('administrativo.inicio');
+        }
     }
 
     /**
@@ -62,11 +70,33 @@ class RegistroController extends Controller
     {
         //
 
+        if (Auth::check()) {
 
-        // dd($request->all());
-        Registro::create($request->all());
-        session()->flash('mensagem', 'Manutenção cadastrada com sucesso!');
-        return redirect()->route('admPrincipal');
+            // dd($dados);
+
+            if (!isNull($request->equipamento_id || $request->descricao || $request->dataLimite || $request->tipo)) {
+
+
+                session()->flash('mensagemErro', 'Insira todos os dados para o cadastro');
+            } else {
+
+                $registro = new Registro;
+                $registro->equipamento_id = $request->equipamento_id;
+                $registro->user_id = Auth::user()->id;
+                $registro->descricao = $request->descricao;
+                $registro->dataLimite = $request->dataLimite;
+                $registro->tipo = $request->tipo;
+
+                $registro->save();
+
+                // Registro::create($dados);
+                session()->flash('mensagem', 'Manutenção cadastrada com sucesso!');
+            }
+            return redirect()->route('admPrincipal');
+        } else {
+            session()->flash('mensagemErro', 'Operação não permitida!');
+            return redirect()->route('administrativo.inicio');
+        }
     }
 
     /**
@@ -78,6 +108,13 @@ class RegistroController extends Controller
     public function show(Registro $registro)
     {
         //
+
+        if (Auth::check()) {
+            return view('administrativo.manutencao.show', ['registro' => $registro]);
+        } else {
+            session()->flash('mensagemErro', 'Operação não permitida!');
+            return redirect()->route('administrativo.inicio');
+        }
     }
 
     /**
@@ -89,6 +126,14 @@ class RegistroController extends Controller
     public function edit(Registro $registro)
     {
         //
+
+        if (Auth::check()) {
+            $equipamentos = Equipamento::get();
+            return view('administrativo.manutencao.edit', ['registro' => $registro, 'equipamentos' => $equipamentos]);
+        } else {
+            session()->flash('mensagemErro', 'Operação não permitida!');
+            return redirect()->route('administrativo.inicio');
+        }
     }
 
     /**
@@ -101,6 +146,17 @@ class RegistroController extends Controller
     public function update(Request $request, Registro $registro)
     {
         //
+
+        if (Auth::check()) {
+            $registro->fill($request->all());
+            $registro->save();
+
+            session()->flash('mensagem', 'Manutenção atualizada com sucesso');
+            return redirect()->route('admPrincipal');
+        } else {
+            session()->flash('mensagemErro', 'Operação não permitida!');
+            return redirect()->route('administrativo.inicio');
+        }
     }
 
     /**
@@ -112,5 +168,15 @@ class RegistroController extends Controller
     public function destroy(Registro $registro)
     {
         //
+
+        if (Auth::check()) {
+
+            $registro->delete();
+            session()->flash('mensagem', 'Manutenção excluída com sucesso');
+            return redirect()->route('admPrincipal');
+        } else {
+            session()->flash('mensagemErro', 'Operação não permitida!');
+            return redirect()->route('administrativo.inicio');
+        }
     }
 }

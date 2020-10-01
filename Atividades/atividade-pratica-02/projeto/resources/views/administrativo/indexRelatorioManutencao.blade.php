@@ -44,11 +44,11 @@
 
                     <?php
 
-                    if ($manutencao->tipo === '1') {
+                    if ($manutencao->tipo === '0') {
                         $tipo = "Preventiva";
-                    } else if ($manutencao->tipo === '3') {
+                    } else if ($manutencao->tipo === '1') {
                         $tipo = "Corretiva";
-                    } else if ($manutencao->tipo === '3') {
+                    } else if ($manutencao->tipo === '2') {
                         $tipo = "Urgente";
                     } else {
                         $tipo = "Tipo não cadastrado";

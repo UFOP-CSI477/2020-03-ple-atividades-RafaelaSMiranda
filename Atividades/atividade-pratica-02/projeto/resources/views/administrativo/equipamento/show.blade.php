@@ -26,8 +26,17 @@
         </div>
 
         <div class="card-body">
-            <a href="{{route('equipamento.edit', $equipamento->id)}}" style="margin-left: 2px; margin-right: 2px; font-size: 120%;" type="button" class="btn btn-light border-info">Atualizar</a>
-            <a href="{{route('equipamento.index')}}" style="margin-left: 2px; margin-right: 2px; font-size: 120%;" type="button" class="btn btn-light border-danger">Voltar</a>
+            <form name="frmDelete" method="POST" action="{{route('equipamento.destroy', $equipamento->id)}}" onsubmit="return confirm('Confirma a exclusão da manutenção cadastrada?')">
+
+                @csrf
+                @method('DELETE')
+
+                <a href="{{route('equipamento.edit', $equipamento->id)}}" style="margin-left: 2px; margin-right: 2px; font-size: 120%;" type="button" class="btn btn-light border-success">Atualizar</a>
+
+                <input type="submit" class="btn btn-light border-danger" value="Excluir">
+
+                <a href="{{route('equipamento.index')}}" style="margin-left: 2px; margin-right: 2px; font-size: 120%;" type="button" class="btn btn-light border-info">Voltar</a>
+            </form>
         </div>
 
     </div>

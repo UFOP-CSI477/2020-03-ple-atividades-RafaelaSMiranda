@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 
+use function PHPUnit\Framework\isNull;
+
 class UserController extends Controller
 {
     /**
@@ -42,8 +44,15 @@ class UserController extends Controller
 
         // dd($request);
 
-        User::create($request->all());
-        session()->flash('mensagem', 'Usuário cadastrado com sucesso!');
+        $dados = $request->all();
+
+
+        if (!isNull($dados['name'] || $dados['email'] || $dados['password']) )  {
+            session()->flash('mensagemErro', 'Insira todos os dados para o cadastro');
+        } else {
+            User::create($dados);
+            session()->flash('mensagem', 'Usuário cadastrado com sucesso!');
+        }
         return redirect()->route('adm');
     }
 

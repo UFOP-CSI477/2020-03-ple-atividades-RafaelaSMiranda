@@ -14,13 +14,13 @@
 
 @section('conteudo')
 
-<div  class="container my-3 w-75 border border-dark rounded shadow p-5 mt-5 bg-white rounded" style=" padding: 20px;  ">
+<div class="container my-3 w-75 border border-dark rounded shadow p-5 mt-5 bg-white rounded" style=" padding: 20px;  ">
 
     <p style="font-family: 'Lobster Two'; font-size: 30px; display: flex; justify-content: center;">Cadastro</p>
 
-    <form method="POST" action="{{route('user.store')}}">
+    <form method="POST" action="{{route('user.store')}}" onsubmit="return cadastrarUsuario()">
 
-    @csrf
+        @csrf
 
         <div class="form-group">
             <label for="name">Nome:</label>
@@ -38,14 +38,14 @@
 
         <div class="form-group">
             <label for="password">Senha:</label>
-            <input type="password" name="password" id="password" placeholder="Insira a sua senha. Para a sua segurança, informe números, letras e caracteres" class="form-control">
+            <input minlength="6" type="password" name="password" id="password" placeholder="Insira a sua senha. Para a sua segurança, informe números, letras e caracteres" class="form-control">
         </div>
 
         <hr>
 
         <div class="form-group">
-            <input type="submit" class="btn btn-primary" value="Cadastrar">
-            <input type="reset" class="btn btn-danger" value="Limpar">
+            <input type="submit" class="btn btn-light border-success" value="Cadastrar">
+            <input type="reset" class="btn btn-light border-danger" value="Limpar">
         </div>
 
         <div>

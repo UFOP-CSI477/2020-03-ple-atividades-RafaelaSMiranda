@@ -9,16 +9,16 @@ class Registro extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['equipamento_id', 'user_id', 'descricao', 'dataLimite', 'tipo'];
+    protected $fillable = ['equipamento_id','descricao', 'dataLimite', 'tipo'];
 
     public function Equipamento()
     {
 
-        return $this->hasOne('App\Models\Equipamento', 'id', 'equipamento_id');
+        return $this->belongsTo(Equipamento::class);
     }
 
     public function User()
     {
-        return $this->hasOne('App\Models\User', 'id', 'user_id');
+        return $this->belongsTo(User::class);
     }
 }

@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Equipamento;
+use App\Models\Registro;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
+use function PHPUnit\Framework\isNull;
 
 class EquipamentoController extends Controller
 {
@@ -16,11 +19,11 @@ class EquipamentoController extends Controller
     public function index()
 
     {
-        $Auth = true;
+
 
         $equipamentos = Equipamento::orderby('nome')->get();
 
-        if ($Auth) {
+        if (Auth::check()) {
             return view('administrativo.equipamento.index', ['equipamentos' => $equipamentos]);
         } else {
             return view('suporte.equipamento.index', ['equipamentos' => $equipamentos]);
@@ -37,7 +40,13 @@ class EquipamentoController extends Controller
     public function create()
     {
         //
-        return view('administrativo.equipamento.create');
+
+        if (Auth::check()) {
+            return view('administrativo.equipamento.create');
+        } else {
+            session()->flash('mensagemErro', 'Operação não permitida!');
+            return redirect()->route('administrativo.inicio');
+        }
     }
 
     /**
@@ -49,10 +58,21 @@ class EquipamentoController extends Controller
     public function store(Request $request)
     {
         //
+        if (Auth::check()) {
+            $dados = $request->all();
 
-        Equipamento::create($request->all());
-        session()->flash('mensagem', 'Equipamento cadastrado com sucesso!');
-        return redirect()->route('admPrincipal');
+            if (!isNull($dados['nome'])) {
+                session()->flash('mensagemErro', 'Insira todos os dados para o cadastro');
+            } else {
+
+                Equipamento::create($request->all());
+                session()->flash('mensagem', 'Equipamento cadastrado com sucesso!');
+            }
+            return redirect()->route('admPrincipal');
+        } else {
+            session()->flash('mensagemErro', 'Operação não permitida!');
+            return redirect()->route('administrativo.inicio');
+        }
     }
 
     /**
@@ -64,8 +84,12 @@ class EquipamentoController extends Controller
     public function show(Equipamento $equipamento)
     {
         //
-
-        return view('administrativo.equipamento.show', ['equipamento' => $equipamento]);
+        if (Auth::check()) {
+            return view('administrativo.equipamento.show', ['equipamento' => $equipamento]);
+        } else {
+            session()->flash('mensagemErro', 'Operação não permitida!');
+            return redirect()->route('administrativo.inicio');
+        }
     }
 
     /**
@@ -78,7 +102,12 @@ class EquipamentoController extends Controller
     {
         //
 
-        return view('administrativo.equipamento.edit', ['equipamento' => $equipamento]);
+        if (Auth::check()) {
+            return view('administrativo.equipamento.edit', ['equipamento' => $equipamento]);
+        } else {
+            session()->flash('mensagemErro', 'Operação não permitida!');
+            return redirect()->route('administrativo.inicio');
+        }
     }
 
     /**
@@ -92,11 +121,16 @@ class EquipamentoController extends Controller
     {
         //
 
-        $equipamento->fill($request->all());
-        $equipamento->save();
+        if (Auth::check()) {
+            $equipamento->fill($request->all());
+            $equipamento->save();
 
-        session()->flash('mensagem', 'Equipamento atualizado com sucesso');
-        return redirect()->route('admPrincipal');
+            session()->flash('mensagem', 'Equipamento atualizado com sucesso');
+            return redirect()->route('admPrincipal');
+        } else {
+            session()->flash('mensagemErro', 'Operação não permitida!');
+            return redirect()->route('administrativo.inicio');
+        }
     }
 
     /**
@@ -108,5 +142,24 @@ class EquipamentoController extends Controller
     public function destroy(Equipamento $equipamento)
     {
         //
+
+        if (Auth::check()) {
+            $query =  Registro::where('equipamento_id', '=', $equipamento->id)->get();
+            // echo sizeof($query);
+
+            if (sizeof($query) > 0) {
+
+                session()->flash('mensagemErro', 'Existem manutenções cadastradas para este equipamento.
+            Não foi possível concluir a exclusão');
+                return redirect()->route('admPrincipal');
+            } else {
+                $equipamento->delete();
+                session()->flash('mensagem', 'Equipamento excluído com sucesso');
+                return redirect()->route('admPrincipal');
+            }
+        } else {
+            session()->flash('mensagemErro', 'Operação não permitida!');
+            return redirect()->route('administrativo.inicio');
+        }
     }
 }
