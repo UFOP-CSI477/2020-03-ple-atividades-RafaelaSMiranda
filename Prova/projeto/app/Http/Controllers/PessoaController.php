@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+use App\Models\Pessoa;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-use function PHPUnit\Framework\isNull;
-
-class UserController extends Controller
+class PessoaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +15,6 @@ class UserController extends Controller
     public function index()
     {
         //
-        $user = User::orderBy('name')->get();
-        return view('administrativo.user.index', ['user' => $user]);
     }
 
     /**
@@ -30,9 +25,6 @@ class UserController extends Controller
     public function create()
     {
         //
-
-
-        return view('administrativo.user.create');
     }
 
     /**
@@ -44,31 +36,15 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //
-
-        // dd($request);
-
-
-
-            $dados = $request->all();
-
-
-            if (!isNull($dados['name'] || $dados['email'] || $dados['password'])) {
-                session()->flash('mensagemErro', 'Insira todos os dados para o cadastro');
-            } else {
-                User::create($dados);
-                session()->flash('mensagem', 'Usuário cadastrado com sucesso!');
-            }
-            return redirect()->route('adm');
-
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Pessoa  $pessoa
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show(Pessoa $pessoa)
     {
         //
     }
@@ -76,10 +52,10 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Pessoa  $pessoa
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit(Pessoa $pessoa)
     {
         //
     }
@@ -88,10 +64,10 @@ class UserController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Pessoa  $pessoa
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, Pessoa $pessoa)
     {
         //
     }
@@ -99,10 +75,10 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Pessoa  $pessoa
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy(Pessoa $pessoa)
     {
         //
     }

@@ -57,11 +57,6 @@
                                     {{ __('Login') }}
                                 </button>
 
-                                @if (Route::has('password.request'))
-                                <a class="btn btn-light border-danger" href="{{ route('password.request') }}">
-                                    {{ __('Esqueceu sua senha?') }}
-                                </a>
-                                @endif
                             </div>
                         </div>
                     </form>

@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AgendamentoController;
+use App\Http\Controllers\ColetaController;
+use App\Http\Controllers\PessoaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +17,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('telaPrincipal');
 });
+
+
+Route::resource('/agendamento', AgendamentoController::class);
+Route::resource('/pessoa', PessoaController::class);
+Route::resource('/coleta', ColetaController::class);
