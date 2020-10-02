@@ -23,7 +23,7 @@ function validacaoSelect(campo) {
 
     let n = campo.value;
 
-    if (campo.selectedIndex === 0) {
+    if (campo.selectedIndex === 0 || campo === 'selecione') {
         campo.classList.add('is-invalid');
         campo.focus();
         return false;
@@ -59,6 +59,14 @@ function validacaoData(campo) {
 
 }
 
+function validaSelectEqui(campo) {
+
+    campo.classList.remove('is-invalid');
+    campo.classList.add('is-valid');
+    return true;
+
+}
+
 
 function cadastrarManutencao() {
 
@@ -89,13 +97,18 @@ function atualizarManutencao() {
 
 
     let descricao = document.getElementById('descricao');
+    let equipamento_id = document.getElementById('equipamento_id');
     let data = document.getElementById('dataLimite');
+    let tipo = document.getElementById('tipo');
 
 
     if (
 
+        validaSelectEqui(equipamento_id) &&
         validacaoString(descricao) &&
-        validacaoData(data)
+        validacaoData(data) &&
+        validacaoSelect(tipo)
+
 
 
     ) {

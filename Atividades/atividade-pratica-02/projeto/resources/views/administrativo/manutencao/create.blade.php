@@ -37,9 +37,9 @@
             <label for="tipo">Tipo de manutenção</label>
             <select  class="form-control" id="tipo" name="tipo">
                 <option hidden>Selecione</option>
-                <option value="0">Preventiva</option>
-                <option value="1">Corretiva</option>
-                <option value="2">Urgente</option>
+                <option value="1">Preventiva</option>
+                <option value="2">Corretiva</option>
+                <option value="3">Urgente</option>
             </select>
         </div>
 

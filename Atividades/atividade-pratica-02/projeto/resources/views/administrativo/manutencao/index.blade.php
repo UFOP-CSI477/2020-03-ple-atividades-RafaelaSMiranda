@@ -13,6 +13,7 @@
                 <caption style="text-align: center;">Manutenções Cadastradas</caption>
 
 
+
                 <p style="font-family: 'Times New Roman', Times, serif; font-size: 120%;">Clique na manutenção para expandir a visualização</p>
 
                 <tr style="font-size: 20px;" class="align-items-center">
@@ -32,11 +33,11 @@
                     <td> <a style="text-decoration: none; color: black;" href="{{route('registro.show', $e->id)}}">{{ $e->user->name}}</a> </td>
                     <?php
 
-                    if ($e->tipo === '0') {
+                    if ($e->tipo === '1') {
                         $tipo = "Preventiva";
-                    } else if ($e->tipo === '1') {
-                        $tipo = "Corretiva";
                     } else if ($e->tipo === '2') {
+                        $tipo = "Corretiva";
+                    } else if ($e->tipo === '3') {
                         $tipo = "Urgente";
                     } else {
                         $tipo = "Tipo não cadastrado";
@@ -44,6 +45,8 @@
 
 
                     ?>
+
+
                     <td><a style="text-decoration: none; color: black;" href="{{route('registro.show', $e->id)}}">{{ $tipo}}</a> </td>
                     <td><a style="text-decoration: none; color: black;" href="{{route('registro.show', $e->id)}}">{{ $e->descricao}}</a></td>
                 </tr>

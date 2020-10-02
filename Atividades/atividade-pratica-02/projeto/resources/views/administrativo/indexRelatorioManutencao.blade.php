@@ -9,6 +9,7 @@
         <p style="font-family: 'Lobster Two'; font-size: 30px; display: flex; justify-content: center;">Mantenções Cadastradas</p>
 
 
+
         @foreach($lista as $chave => $l)
 
         <p style="font-weight: bold; font-size: 20px; display: flex; justify-content: center;">Equipamento: {{$chave}}</p>
@@ -44,11 +45,11 @@
 
                     <?php
 
-                    if ($manutencao->tipo === '0') {
+                    if ($manutencao->tipo === '1') {
                         $tipo = "Preventiva";
-                    } else if ($manutencao->tipo === '1') {
-                        $tipo = "Corretiva";
                     } else if ($manutencao->tipo === '2') {
+                        $tipo = "Corretiva";
+                    } else if ($manutencao->tipo === '3') {
                         $tipo = "Urgente";
                     } else {
                         $tipo = "Tipo não cadastrado";

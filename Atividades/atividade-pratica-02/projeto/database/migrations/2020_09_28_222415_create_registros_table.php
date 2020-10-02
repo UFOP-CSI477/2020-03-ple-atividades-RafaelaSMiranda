@@ -26,7 +26,7 @@ class CreateRegistrosTable extends Migration
 
             $table->string('descricao', 191);
             $table->date('dataLimite');
-            $table->unsignedInteger('tipo', 10);
+            $table->integer('tipo');
 
 
             $table->timestamps();

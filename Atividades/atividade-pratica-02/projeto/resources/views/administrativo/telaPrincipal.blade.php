@@ -109,6 +109,7 @@
         <div class="card align-items-center my-5 border border-dark rounded shadow bg-white rounded">
             <p style="font-family: 'Lobster Two'; font-size: 30px; display: flex; justify-content: center;">Relatório de Usuários</p>
             <div class="card-body">
+
                 <a href="{{route('user.index')}}" style="margin-left: 2px; margin-right: 2px; font-size: 120%;" type="button" class="btn btn-light border-info">Visualizar</a>
 
             </div>

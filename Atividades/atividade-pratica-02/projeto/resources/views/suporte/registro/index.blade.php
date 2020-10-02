@@ -30,7 +30,7 @@
 
                     if ($e->tipo === '1') {
                         $tipo = "Preventiva";
-                    } else if ($e->tipo === '3') {
+                    } else if ($e->tipo === '2') {
                         $tipo = "Corretiva";
                     } else if ($e->tipo === '3') {
                         $tipo = "Urgente";

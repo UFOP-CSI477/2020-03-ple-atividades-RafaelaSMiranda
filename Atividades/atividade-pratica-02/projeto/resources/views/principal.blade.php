@@ -33,7 +33,7 @@
 
     <div class="button" style="display: flex; justify-content: center;">
         <a href="{{route('equipamento.index')}}" style="margin-left: 2px; margin-right: 50px; font-size: 150%;" type="button" class="btn btn-light border-info"><span class="glyphicon glyphicon-wrench"></span> Área Geral - Suporte</a>
-        <a href="{{route('adm')}}" style="margin-left: 2px; margin-right: 50px; font-size: 150%;" type="button" class="btn btn-light border-info"> <span class="glyphicon glyphicon-folder-open"></span> Área Administrativa</a>
+        <a  href="{{route('adm')}}" style="margin-left: 2px; margin-right: 50px; font-size: 150%;" type="button" class="btn btn-light border-info"> <span class="glyphicon glyphicon-folder-open"></span> Área Administrativa</a>
     </div>
 
 </body>

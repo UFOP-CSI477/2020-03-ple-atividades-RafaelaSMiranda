@@ -38,11 +38,6 @@
         </div>
 
         <div class="form-group">
-            <label for="user_id">Usuário:</label>
-            <input  type="text" name="user_id" id="user_id" placeholder="ID do usuário" class="form-control">
-        </div>
-
-        <div class="form-group">
             <label for="dataLimite">Data:</label>
             <input  value="{{$registro->dataLimite}}" type="date" name="dataLimite" id="dataLimite" class="form-control">
         </div>
@@ -50,11 +45,12 @@
         <div class="form-group">
             <label for="tipo">Tipo de manutenção</label>
             <select class="form-control" id="tipo" name="tipo">
-                <option>Selecione</option>
+                <option value="selecione" hidden>Selecione</option>
 
-                <option value="0">Preventiva</option>
-                <option value="1">Corretiva</option>
-                <option value="2">Urgente</option>
+
+                <option value="1">Preventiva</option>
+                <option value="2">Corretiva</option>
+                <option value="3">Urgente</option>
             </select>
         </div>
 

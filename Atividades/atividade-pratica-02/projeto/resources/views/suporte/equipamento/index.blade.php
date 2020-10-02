@@ -6,7 +6,7 @@
 <div class="container">
     <div class="table-responsive py-3 ">
         <p style="font-family: 'Lobster Two'; font-size: 30px; display: flex; justify-content: center;">Lista de Equipamentos</p>
-        <table id="tableDados" class="table table-hover table-bordered table-striped shadow">
+        <table id="tableDados" class="table table-hover table-bordered table-striped shadow" >
             <thead class="table-secondary">
 
                 <caption style="text-align: center;">Lista de Equipamentos</caption>

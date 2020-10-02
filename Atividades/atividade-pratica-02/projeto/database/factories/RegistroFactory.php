@@ -2,7 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\Equipamento;
 use App\Models\Registro;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class RegistroFactory extends Factory
@@ -23,11 +25,18 @@ class RegistroFactory extends Factory
     {
         return [
 
-            'equipamento_id' => $this->faker->numberBetween(2,4),
-            'user_id' => $this->faker->numberBetween(1, 4),
-            'descricao' => $this->faker->word,
+            'equipamento_id' => Equipamento::factory(),
+            'user_id' => User::factory(),
+            'descricao' => $this->faker->randomElement($array = array(
+                'Queimado',
+                'Falta de reparo',
+                'Limpeza',
+                'Revisão',
+                'Não funciona corretamente',
+                'Barulhos diferentes'
+            )),
             'dataLimite' => $this->faker->date("Y-m-d", 'now'),
-            'tipo' => $this->faker->randomNumber(2)
+            'tipo' => $this->faker->numberBetween(1, 3)
 
         ];
     }
