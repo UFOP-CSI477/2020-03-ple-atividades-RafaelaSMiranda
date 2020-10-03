@@ -10,12 +10,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Auth::routes();
-
-// Route::group(['middleware' => ['auth']], function() {
-//     // your routes
-//     Auth::get('/register', RegisterController::class);
-// });
-
 Route::get('/', function () {
     return view('principal');
 })->name('principal');

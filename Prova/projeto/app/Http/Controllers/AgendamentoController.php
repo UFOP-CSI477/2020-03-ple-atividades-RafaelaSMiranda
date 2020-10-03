@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Agendamento;
+use App\Models\Pessoa;
 use Illuminate\Http\Request;
 
 class AgendamentoController extends Controller
@@ -15,6 +16,18 @@ class AgendamentoController extends Controller
     public function index()
     {
         //
+
+
+        $agendamentos = Agendamento::orderBy('data', 'desc')->get();
+
+
+
+        foreach ($agendamentos as $agendamento) {
+
+            $agendamento->data =  date('d-m-Y', strtotime($agendamento->data));
+        }
+
+        return view('agendamento.index', ['agendamentos' => $agendamentos]);
     }
 
     /**

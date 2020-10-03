@@ -18,7 +18,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('telaPrincipal');
-});
+})->name('principal');
+
+Route::get('/homeAdm', function () {
+    return view('administrativo.homeAdm');
+})->name('homeAdm');
 
 
 Route::resource('/agendamento', AgendamentoController::class);

@@ -5,7 +5,7 @@
 
 
     <section class="jumbotron text-center">
-        <div class="container">
+        <div class="container" >
             <h1 style="font-size: 50px;">Sistema de Controle de Agendamentos de Doações de Sangue</h1>
             <p class="lead text-muted">Doe sangue, salve vida!</p>
         </div>
@@ -35,7 +35,7 @@
                         <div class="card-body bordered shadow">
                             <div class="d-flex justify-content-center align-items-center">
                                 <div class="btn-group justify-content-center" style="display: flex;">
-                                    <a href="#" style="margin-left: 2px; margin-right: 50px; font-size: 150%; justify-content: center; align-items: center;" type="button" class="btn btn-light border-info"><span class="glyphicon glyphicon-folder-open mr-3"></span>Área Administrativa</a>
+                                    <a href="{{route('homeAdm')}}" style="margin-left: 2px; margin-right: 50px; font-size: 150%; justify-content: center; align-items: center;" type="button" class="btn btn-light border-info"><span class="glyphicon glyphicon-folder-open mr-3"></span>Área Administrativa</a>
                                 </div>
                             </div>
                             <br>
