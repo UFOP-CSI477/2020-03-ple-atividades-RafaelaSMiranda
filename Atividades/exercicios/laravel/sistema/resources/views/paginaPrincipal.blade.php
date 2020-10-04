@@ -29,7 +29,7 @@
     </div>
 
     <div class="button" style="display: flex; justify-content: center;">
-        <a href="{{route('produtos.index')}}" style="margin-left: 2px; margin-right: 50px; font-size: 150%;" type="button" class="btn btn-light border-success">Visualizar produtos</a>
+        <a href="{{route('principalAdm')}}" style="margin-left: 2px; margin-right: 50px; font-size: 150%;" type="button" class="btn btn-light border-success">Acessar</a>
 
     </div>
 

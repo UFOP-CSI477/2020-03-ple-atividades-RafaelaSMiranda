@@ -3,6 +3,7 @@
 use App\Http\Controllers\AgendamentoController;
 use App\Http\Controllers\ColetaController;
 use App\Http\Controllers\PessoaController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -29,6 +30,7 @@ Route::get('/homeAdm', function () {
 Route::resource('/agendamento', AgendamentoController::class);
 Route::resource('/pessoa', PessoaController::class) ->middleware('auth');
 Route::resource('/coleta', ColetaController::class) ->middleware('auth');
+Route::resource('/usuario', UserController::class) ->middleware('auth');
 
 Auth::routes();
 

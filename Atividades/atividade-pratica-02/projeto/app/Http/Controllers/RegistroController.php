@@ -22,7 +22,7 @@ class RegistroController extends Controller
         //
 
 
-        $registros = Registro::orderBy('dataLimite')->get();
+        $registros = Registro::orderBy('dataLimite', 'asc')->get();
 
         foreach ($registros as $registro) {
 
@@ -51,7 +51,7 @@ class RegistroController extends Controller
         //
 
         if (Auth::check()) {
-            $equipamentos = Equipamento::get();
+            $equipamentos = Equipamento::orderBy('nome')->get();
 
             return  view('administrativo.manutencao.create', ['equipamentos' => $equipamentos]);
         } else {
@@ -128,7 +128,7 @@ class RegistroController extends Controller
         //
 
         if (Auth::check()) {
-            $equipamentos = Equipamento::get();
+            $equipamentos = Equipamento::orderBy('nome')->get();
             return view('administrativo.manutencao.edit', ['registro' => $registro, 'equipamentos' => $equipamentos]);
         } else {
             session()->flash('mensagemErro', 'Operação não permitida!');

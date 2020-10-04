@@ -35,7 +35,7 @@
         <strong style="font-size: 100%">Pontos de Coleta</strong>
     </a>
     <div class="dropdown-menu border-info border rounded shadow bg-white rounded">
-        <a style="font-size: 20px; padding-right: 50px;" class="dropdown-item" href="{{route('coleta.create')}}">Cadastrar</a>
+        <a  style="font-size: 20px; padding-right: 50px;" class="dropdown-item" href="{{route('coleta.create')}}">Cadastrar</a>
         <a style="font-size: 20px; padding-right: 50px;" class="dropdown-item" href="{{route('coleta.index')}}">Visualizar</a>
     </div>
 </li>
@@ -46,7 +46,7 @@
         <strong style="font-size: 100%">Agendamentos</strong>
     </a>
     <div class="dropdown-menu border-info border rounded shadow bg-white rounded">
-        <a style="font-size: 20px; padding-right: 50px;" class="dropdown-item" href="{{route('agendamento.create')}}">Cadastrar</a>
+        <a  style="font-size: 20px; padding-right: 50px;" class="dropdown-item" href="{{route('agendamento.create')}}">Cadastrar</a>
         <a style="font-size: 20px; padding-right: 50px;" class="dropdown-item" href="{{route('agendamento.index')}}">Visualizar</a>
     </div>
 </li>
@@ -59,7 +59,7 @@
     </a>
     <div class="dropdown-menu border-info border rounded shadow bg-white rounded">
         <a style="font-size: 20px; padding-right: 50px;" class="dropdown-item" href="{{route('register')}}">Cadastrar</a>
-        <a style="font-size: 20px; padding-right: 50px;" class="dropdown-item" href="#">Visualizar</a>
+        <a style="font-size: 20px; padding-right: 50px;" class="dropdown-item" href="{{route('usuario.index')}}">Visualizar</a>
     </div>
 </li>
 @guest

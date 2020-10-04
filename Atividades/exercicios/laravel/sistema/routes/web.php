@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\CidadeController;
+use App\Http\Controllers\CompraController;
+use App\Http\Controllers\EstadoController;
+use App\Http\Controllers\PessoaController;
 use App\Http\Controllers\ProdutoController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,6 +24,12 @@ Route::get('/', function () {
     return view('paginaPrincipal');
 })->name('principal');
 
+Route::get('/adm', function () {
+    return view('paginaInicialAdm');
+})->name('principalAdm');
+
+
+
 // Route::get('/produtos', function () {
 
 //     $produtos = Produto::all();
@@ -39,3 +49,7 @@ Route::get('/', function () {
 // });
 
 Route::resource('/produtos', ProdutoController::class);
+Route::resource('/cidades', CidadeController::class);
+Route::resource('/estados', EstadoController::class);
+Route::resource('/compras', CompraController::class);
+Route::resource('/pessoas', PessoaController::class);

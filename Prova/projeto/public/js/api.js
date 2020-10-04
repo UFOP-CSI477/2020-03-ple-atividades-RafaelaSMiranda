@@ -64,6 +64,7 @@ function preencherSelectCidades(data) {
 function carregarEstados() {
 
 
+    console.log ('entrou aqui')
     fetch("https://servicodados.ibge.gov.br/api/v1/localidades/estados")
         .then(response => response.json())
         .then(data => preencherSelectEstados(data))

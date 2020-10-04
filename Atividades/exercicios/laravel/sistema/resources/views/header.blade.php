@@ -34,9 +34,7 @@
                     <a class="nav-link" href="{{route('principal')}}">Home</a>
                 </li>
 
-                <li class="nav-item" active style="font-size: 20px; padding-right: 50px;">
-                    <a class="nav-link" href="{{route('produtos.create')}}">Cadastrar produto</a>
-                </li>
+
 
                 @yield('link')
 

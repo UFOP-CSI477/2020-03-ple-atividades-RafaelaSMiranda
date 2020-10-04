@@ -6,6 +6,7 @@ use App\Models\Agendamento;
 use App\Models\Pessoa;
 use App\Models\Coleta;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use function PHPUnit\Framework\isNull;
 
@@ -19,10 +20,7 @@ class AgendamentoController extends Controller
     public function index()
     {
         //
-
-        $Auth = true;
-
-        $agendamentos = Agendamento::orderBy('data', 'desc')->get();
+        // $agendamentos = Agendamento::orderBy('data', 'desc')->get();
         // $pessoas = Pessoa::orderBy('nome', 'asc')->get();
 
 
@@ -30,6 +28,15 @@ class AgendamentoController extends Controller
         //     ->whereColumn('id', 'agendamentos.pessoa_id')
         //     ->orderBy('nome', 'desc')
         //     ])->get();
+
+
+        $agendamentos = Agendamento::join('pessoas', 'agendamentos.pessoa_id', '=', 'pessoas.id')
+
+            ->orderBy('data', 'desc')
+            ->orderBy('pessoas.nome', 'asc')
+            ->get('agendamentos.*');
+
+            // dd($agendamentos);
 
 
 
@@ -40,7 +47,7 @@ class AgendamentoController extends Controller
             $agendamento->data =  date('d-m-Y', strtotime($agendamento->data));
         }
 
-        if ($Auth) {
+        if (Auth::check()) {
 
             return view('administrativo.agendamento.index', ['agendamentos' => $agendamentos]);
         } else {
@@ -58,8 +65,9 @@ class AgendamentoController extends Controller
         //
 
         $agendamentos = Agendamento::get();
-        $pessoa = Pessoa::get();
-        $coleta = Coleta::get();
+        $pessoa = Pessoa::orderBy('nome')->get();
+        $coleta = Coleta::orderBy('nome')->get();
+
 
         return view('administrativo.agendamento.create', ['agendamentos' => $agendamentos, 'pessoas' => $pessoa, 'coletas' => $coleta]);
     }

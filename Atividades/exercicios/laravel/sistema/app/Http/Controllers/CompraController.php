@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Compra;
 use App\Models\Produto;
 use Illuminate\Http\Request;
 
-class ProdutoController extends Controller
+class CompraController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +16,7 @@ class ProdutoController extends Controller
     public function index()
     {
         //
-
-        $produtos = Produto::orderBy('nome')->get();
-        return view('produtos.index', ['produtos' => $produtos]);
     }
-
 
     /**
      * Show the form for creating a new resource.
@@ -30,7 +27,11 @@ class ProdutoController extends Controller
     {
         //
 
-        return view('produtos.create');
+        $produtos = Produto::orderBy('nome')->get();
+
+        return view ('compras.create', ['produtos' => $produtos]);
+
+
     }
 
     /**
@@ -43,69 +44,51 @@ class ProdutoController extends Controller
     {
         //
 
-        Produto::create($request->all());
-
-        session()->flash('mensagem', 'Produto cadastrado com sucesso');
-        return redirect()->route('produtos.index');
+        dd($request->all());
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Produto  $produto
+     * @param  \App\Models\Compra  $compra
      * @return \Illuminate\Http\Response
      */
-    public function show(Produto $produto)
+    public function show(Compra $compra)
     {
         //
-
-        return view('produtos.show', ['produto' => $produto]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Produto  $produto
+     * @param  \App\Models\Compra  $compra
      * @return \Illuminate\Http\Response
      */
-    public function edit(Produto $produto)
+    public function edit(Compra $compra)
     {
         //
-
-        return view('produtos.edit', ['produto' => $produto]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Produto  $produto
+     * @param  \App\Models\Compra  $compra
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Produto $produto)
+    public function update(Request $request, Compra $compra)
     {
         //
-
-        $produto->fill($request->all());
-        $produto->save();
-
-        session()->flash('mensagem', 'Produto Atualizado com sucesso');
-        return redirect()->route('produtos.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Produto  $produto
+     * @param  \App\Models\Compra  $compra
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Produto $produto)
+    public function destroy(Compra $compra)
     {
         //
-
-        $produto->delete();
-        session()->flash('mensagem', 'Produto excluído com sucesso');
-
-        return redirect()->route('produtos.index');
     }
 }
