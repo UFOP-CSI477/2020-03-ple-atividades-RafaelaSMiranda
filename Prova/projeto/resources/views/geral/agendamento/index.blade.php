@@ -14,7 +14,7 @@
                 <caption style="text-align: center;">Relatório de Agendamentos</caption>
 
                 <tr style="font-size: 20px;" class="align-items-center">
-                    <th style="text-align: center;">Data</th>
+                    <th style="text-align: center;">Data da coleta</th>
                     <th style="text-align: center;">Local de coleta</th>
                     <th style="text-align: center;">Cidade de coleta</th>
                     <th style="text-align: center;">Id do doador</th>

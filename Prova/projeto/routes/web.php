@@ -3,6 +3,7 @@
 use App\Http\Controllers\AgendamentoController;
 use App\Http\Controllers\ColetaController;
 use App\Http\Controllers\PessoaController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,9 +23,13 @@ Route::get('/', function () {
 
 Route::get('/homeAdm', function () {
     return view('administrativo.homeAdm');
-})->name('homeAdm');
+})->name('homeAdm')->middleware('auth');
 
 
 Route::resource('/agendamento', AgendamentoController::class);
-Route::resource('/pessoa', PessoaController::class);
-Route::resource('/coleta', ColetaController::class);
+Route::resource('/pessoa', PessoaController::class) ->middleware('auth');
+Route::resource('/coleta', ColetaController::class) ->middleware('auth');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
