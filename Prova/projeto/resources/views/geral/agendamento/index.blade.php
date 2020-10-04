@@ -27,7 +27,11 @@
 
             <body class=" table-hover">
 
+
+
+
                 @foreach($agendamentos as $agendamento)
+
                 <tr>
                     <td>{{$agendamento->data}}</td>
                     <td>{{$agendamento->coleta->nome}}</td>
@@ -39,6 +43,18 @@
                 @endforeach
 
             </body>
+
+            <tfoot>
+                <tr>
+                    <?php
+
+                    $total = (sizeof($agendamentos))
+
+                    ?>
+                    <th colspan="2" style="text-align: center;">Total</th>
+                    <th colspan="4" style="text-align: center;"> {{$total}}</th>
+                </tr>
+            </tfoot>
 
         </table>
 

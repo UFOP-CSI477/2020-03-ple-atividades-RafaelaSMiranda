@@ -1,36 +1,17 @@
-@extends('head')
+@extends('administrativo.headAdm')
+
+@section('conteudo')
 
 
-
-@section('link')
-
-<li class="nav-item dropdown">
-    <a style="font-size: 20px; padding-right: 50px;" class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
-        Doadores
-    </a>
-    <div class="dropdown-menu border-info border rounded shadow bg-white rounded">
-        <a style="font-size: 20px; padding-right: 50px;" class="dropdown-item"  href="#">Cadastrar</a>
-        <a style="font-size: 20px; padding-right: 50px;" class="dropdown-item" href="#">Visualizar</a>
-    </div>
-</li>
-
-<li class="nav-item dropdown">
-    <a style="font-size: 20px; padding-right: 50px;" class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Pontos de Coleta
-    </a>
-    <div class="dropdown-menu border-info border rounded shadow bg-white rounded">
-        <a style="font-size: 20px; padding-right: 50px;" class="dropdown-item" href="#">Cadastrar</a>
-        <a style="font-size: 20px; padding-right: 50px;" class="dropdown-item" href="#">Visualizar</a>
-    </div>
-</li>
+<div class="position-relative overflow-hidden p-md-5 m-md-3 text-center bg-light">
+  <div class="col-7 p-lg-5 mx-auto my-5" style="background-color: rgb(237, 252, 247); border-radius: 8px; box-shadow: 5px 10px 8px 10px #c6c6c6;">
+    <h1 class="display-4 font-weight-bold" style="font-family: 'Sansita+Swashed';">Seja bem vindo!</h1>
+    <p class="lead font-weight-normal">Aqui você poderá visualizar os doadores cadastrados e realizar o cadastro de novos doadores.</p>
+    <p class="lead font-weight-normal">Visualize e cadastre os pontos de coleta.</p>
+    <p class="lead font-weight-normal">Além disso, realize todo o processo de agendamentos, como cadastrar um novo agendamento, atualizá-lo ou deletá-lo. Visualize também todos eles.</p>
+  </div>
+</div>
 
 
-<li class="nav-item dropdown">
-    <a style="font-size: 20px; padding-right: 50px;" class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Agendamento
-    </a>
-    <div class="dropdown-menu border-info border rounded shadow bg-white rounded">
-        <a style="font-size: 20px; padding-right: 50px;" class="dropdown-item" href="#">Cadastrar</a>
-        <a style="font-size: 20px; padding-right: 50px;" class="dropdown-item" href="#">Visualizar</a>
-    </div>
-</li>
 
 @endSection

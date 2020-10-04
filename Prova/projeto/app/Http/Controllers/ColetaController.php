@@ -15,6 +15,10 @@ class ColetaController extends Controller
     public function index()
     {
         //
+
+        $coleta = Coleta::orderBy('nome')->get();
+
+        return view('administrativo.coleta.index', ['locais'=> $coleta]);
     }
 
     /**
@@ -25,6 +29,8 @@ class ColetaController extends Controller
     public function create()
     {
         //
+
+        return view ('administrativo.coleta.create');
     }
 
     /**
@@ -36,6 +42,17 @@ class ColetaController extends Controller
     public function store(Request $request)
     {
         //
+
+        $coleta = new Coleta;
+        $coleta ->nome = $request->nome;
+        $coleta->cidade = $request->cidades;
+
+        $coleta->save();
+
+        // Coleta::create($request->all());
+        session()->flash('mensagem', 'Ponto de coleta cadastrado com sucesso!');
+        return redirect()->route('homeAdm');
+
     }
 
     /**

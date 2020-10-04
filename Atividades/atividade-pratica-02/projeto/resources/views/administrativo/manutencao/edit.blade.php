@@ -18,13 +18,11 @@
             <select class="form-control" id="equipamento_id" name="equipamento_id">
                 @foreach($equipamentos as $equipamento)
 
-                <option value="{{$equipamento->id}}"
-
-                @if($registro->equipamento_id === $equipamento->id)
+                <option value="{{$equipamento->id}}" @if($registro->equipamento_id == $equipamento->id)
                     selected
-                @endif
+                    @endif
 
-                >{{$equipamento->nome}}</option>
+                    >{{$equipamento->nome}}</option>
 
                 @endforeach
             </select>
@@ -34,12 +32,12 @@
 
         <div class="form-group">
             <label for="descricao">Descrição:</label>
-            <input  value="{{$registro->descricao}}" type="textArea" name="descricao" id="descricao" placeholder="Informe a descrição da manutenção" class="form-control">
+            <input value="{{$registro->descricao}}" type="textArea" name="descricao" id="descricao" placeholder="Informe a descrição da manutenção" class="form-control">
         </div>
 
         <div class="form-group">
             <label for="dataLimite">Data:</label>
-            <input  value="{{$registro->dataLimite}}" type="date" name="dataLimite" id="dataLimite" class="form-control">
+            <input value="{{$registro->dataLimite}}" type="date" name="dataLimite" id="dataLimite" class="form-control">
         </div>
 
         <div class="form-group">
@@ -48,9 +46,16 @@
                 <option value="selecione" hidden>Selecione</option>
 
 
-                <option value="1">Preventiva</option>
-                <option value="2">Corretiva</option>
-                <option value="3">Urgente</option>
+                <option value="1" @if($registro->tipo == "1")
+                    selected
+                    @endif>
+                    Preventiva</option>
+                <option value="2" @if($registro->tipo == "2")
+                    selected
+                    @endif>Corretiva</option>
+                <option value="3" @if($registro->tipo == "3")
+                    selected
+                    @endif>Urgente</option>
             </select>
         </div>
 

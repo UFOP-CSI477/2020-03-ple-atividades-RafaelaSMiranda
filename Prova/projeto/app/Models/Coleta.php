@@ -9,8 +9,12 @@ class Coleta extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['nome', 'cidades'];
+
     public function agendamentos()
     {
         return $this->hasMany(Agendamento::class);
     }
+
+
 }

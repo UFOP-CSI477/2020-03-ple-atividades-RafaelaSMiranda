@@ -24,17 +24,7 @@ class ColetaFactory extends Factory
         return [
             //
 
-            'nome' => $this->faker->randomElement($array = array(
-                'Hospital A',
-                'Hemocentro B',
-                'Centro de Saúde C',
-                'Hospital B',
-                'Hemocentro A',
-                'Centro de Saúde A',
-                'Centro de Saíde B',
-                'Hospital C',
-                'Hemocentro C',
-            )),
+            'nome' => $this->faker->company,
             'cidade' => $this->faker->city,
 
 

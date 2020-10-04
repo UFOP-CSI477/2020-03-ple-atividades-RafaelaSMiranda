@@ -10,15 +10,19 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Auth::routes();
+
+
 Route::get('/', function () {
     return view('principal');
 })->name('principal');
 
 Route::get('/administrativo', function () {
+
     return view('administrativo.inicio');
 })->name('adm');
 
 Route::get('/admPrincipal', function () {
+
     return view('administrativo.telaPrincipal');
 })->name('admPrincipal')->middleware('auth');
 

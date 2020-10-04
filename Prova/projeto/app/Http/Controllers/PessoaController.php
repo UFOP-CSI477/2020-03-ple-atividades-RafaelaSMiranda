@@ -15,6 +15,11 @@ class PessoaController extends Controller
     public function index()
     {
         //
+
+        $pessoas = Pessoa::orderBy('nome', 'asc')->get();
+
+
+        return view('administrativo.pessoa.index', ['pessoas' => $pessoas]);
     }
 
     /**
@@ -25,6 +30,8 @@ class PessoaController extends Controller
     public function create()
     {
         //
+
+        return view ('administrativo.pessoa.create');
     }
 
     /**
@@ -36,6 +43,13 @@ class PessoaController extends Controller
     public function store(Request $request)
     {
         //
+
+        Pessoa::create($request->all());
+
+        session()->flash('mensagem', 'Doador cadastrado com sucesso');
+
+        return redirect()->route('homeAdm');
+
     }
 
     /**

@@ -1,9 +1,9 @@
-Aplicativo:
+Aplicativo: Visual Studio Code
 
-Versão:
+Versão: 1.49.3
 
-Navegador:
+Navegador: Chrome - Versão 85.0.4183.121 (Versão oficial) 64 bits
 
 Laravel versão: v8.0.3
 
-Banco de Dados:
+Banco de Dados: sqlite
