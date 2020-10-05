@@ -51,7 +51,7 @@
         </div>
 
         <div class="card-body">
-            <form name="frmDelete" method="POST" action="{{route('agendamento.destroy', $agendamento->id)}}" onsubmit="return confirm('Confirma a exclusão da manutenção cadastrada?')">
+            <form name="frmDelete" method="POST" action="{{route('agendamento.destroy', $agendamento->id)}}" onsubmit="return confirm('Confirma a exclusão do agendamento cadastrado?')">
 
                 @csrf
                 @method('DELETE')

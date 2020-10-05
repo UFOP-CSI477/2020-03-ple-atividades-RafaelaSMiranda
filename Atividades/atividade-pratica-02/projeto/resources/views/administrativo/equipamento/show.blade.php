@@ -26,7 +26,7 @@
         </div>
 
         <div class="card-body">
-            <form name="frmDelete" method="POST" action="{{route('equipamento.destroy', $equipamento->id)}}" onsubmit="return confirm('Confirma a exclusão da manutenção cadastrada?')">
+            <form name="frmDelete" method="POST" action="{{route('equipamento.destroy', $equipamento->id)}}" onsubmit="return confirm('Confirma a exclusão do equipamento cadastrado?')">
 
                 @csrf
                 @method('DELETE')
