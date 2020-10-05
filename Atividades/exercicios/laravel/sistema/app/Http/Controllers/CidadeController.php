@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cidade;
+use App\Models\Estado;
 use Illuminate\Http\Request;
 
 class CidadeController extends Controller
@@ -25,6 +26,10 @@ class CidadeController extends Controller
     public function create()
     {
         //
+
+        $estados = Estado::orderBy('nome')->get();
+
+        return view ('cidades.create', ['estados' => $estados]);
     }
 
     /**
@@ -36,6 +41,10 @@ class CidadeController extends Controller
     public function store(Request $request)
     {
         //
+
+        Cidade::create($request->all());
+        session()->flash('mensagem', 'Cidade cadastrada com sucesso');
+        return view ('paginaInicialAdm');
     }
 
     /**

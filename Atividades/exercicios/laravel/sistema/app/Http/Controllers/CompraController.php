@@ -13,9 +13,13 @@ class CompraController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
+
+
+        $dado = $request->all();
+        dd($dado);
     }
 
     /**
@@ -44,7 +48,9 @@ class CompraController extends Controller
     {
         //
 
-        dd($request->all());
+        Compra::create($request->all());
+        session()->flash('mensagem', 'Compra efetuada com sucesso');
+        return view('paginaInicialAdm');
     }
 
     /**

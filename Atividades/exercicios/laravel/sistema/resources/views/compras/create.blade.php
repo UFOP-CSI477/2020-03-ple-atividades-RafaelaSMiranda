@@ -22,9 +22,15 @@
         </div>
 
         <div class="form-group">
-            <label for="nome">Quantidade:</label>
-            <input type="number" name="quantidade" id="quantidade" placeholder="Quantas unidades do produto" class="form-control">
+            <label for="nome">Id do cliente:</label>
+            <input type="number" name="pessoa_id" id="pessoa_id" placeholder="Informe o ID do cliente" class="form-control">
         </div>
+
+        <div class="form-group">
+            <label for="nome">Data da compra:</label>
+            <input type="date" name="data" id="data" class="form-control">
+        </div>
+
 
         <hr>
 

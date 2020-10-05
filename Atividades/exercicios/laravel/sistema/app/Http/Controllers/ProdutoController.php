@@ -46,7 +46,7 @@ class ProdutoController extends Controller
         Produto::create($request->all());
 
         session()->flash('mensagem', 'Produto cadastrado com sucesso');
-        return redirect()->route('produtos.index');
+        return view ('paginaInicialAdm');
     }
 
     /**

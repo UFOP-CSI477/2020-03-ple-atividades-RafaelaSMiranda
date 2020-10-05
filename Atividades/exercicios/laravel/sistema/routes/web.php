@@ -28,6 +28,10 @@ Route::get('/adm', function () {
     return view('paginaInicialAdm');
 })->name('principalAdm');
 
+Route::get('/relatorios', function () {
+    return view('paginaInicialRelatorios');
+})->name('paginaRelatorios');
+
 
 
 // Route::get('/produtos', function () {

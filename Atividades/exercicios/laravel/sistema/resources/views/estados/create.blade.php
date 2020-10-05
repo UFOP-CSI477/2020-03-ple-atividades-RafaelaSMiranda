@@ -7,19 +7,15 @@
 
     <p style="font-family: 'Lobster Two'; font-size: 30px; display: flex; justify-content: center;">Cadastrar Estado</p>
 
-    <form method="POST" action="#">
+    <form method="POST" action="{{route('estados.store')}}">
 
         @csrf
 
         <div class="form-group">
             <label for="nome">Estado:</label>
-            <input type="text" name="estado" id="estado" placeholder="Informe o estado" class="form-control">
+            <input type="text" name="nome" id="nome" placeholder="Informe o estado" class="form-control">
         </div>
 
-        <div class="form-group">
-            <label for="nome">Sigla:</label>
-            <input type="text" name="sigla" id="sigla" placeholder="Informe a sigla" class="form-control">
-        </div>
 
         <hr>
 

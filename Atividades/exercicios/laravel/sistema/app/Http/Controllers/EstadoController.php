@@ -38,6 +38,10 @@ class EstadoController extends Controller
     public function store(Request $request)
     {
         //
+
+        Estado::create($request->all());
+        session()->flash('mensagem', 'Estado cadastrado com sucesso');
+        return view('paginaInicialAdm');
     }
 
     /**

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cidade;
 use App\Models\Pessoa;
 use Illuminate\Http\Request;
 
@@ -25,6 +26,9 @@ class PessoaController extends Controller
     public function create()
     {
         //
+
+        $cidades = Cidade::orderBy('nome')->get();
+        return view ('pessoas.create', ['cidades' => $cidades]);
     }
 
     /**
@@ -36,6 +40,10 @@ class PessoaController extends Controller
     public function store(Request $request)
     {
         //
+
+        Pessoa::create($request->all());
+        session()->flash('mensagem', 'Cliente cadastrado com sucess');
+        return view ('paginaInicialAdm');
     }
 
     /**
