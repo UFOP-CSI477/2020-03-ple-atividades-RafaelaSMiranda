@@ -1,7 +1,16 @@
-@extends('pages.master');
+@extends('headCliente');
 
 
-@section('conteudoPerfil')
+
+@section('linkCardapio')
+
+<li class="nav-item">
+    <a class="nav-link" href="{{route('cardapio')}}">Cardapio</a>
+</li>
+
+@endSection
+
+@section('conteudo')
 
 
 <form method="POST" action="validar.html">

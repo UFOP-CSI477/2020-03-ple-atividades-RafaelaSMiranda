@@ -102,17 +102,17 @@
 
                     <div id="button">
                         <div class="form-group pt-2 pl-5">
-                            <a href="../cardapio/cardapio.html" class="btn btn-outline-success text-dark" type="button">
+                            <a href="{{route('produto.index')}}"  class="btn btn-outline-success text-dark" type="button">
                                 Entrar</a>
                         </div>
 
                         <div class="form-group">
-                            <a type="button" class="btn text-secondary" href="../cadastro/cadastro.html">Não tenho
+                            <a type="button" class="btn text-secondary" href="#">Não tenho
                                 cadastro</a>
                         </div>
 
                         <div class="form-group pl-4">
-                            <a type="button" class="btn text-secondary" href="../cardapio/cardapio.html">Visitar o site</a>
+                            <a href="{{route('cardapio')}}" type="button" class="btn text-secondary">Visitar o site</a>
                         </div>
                     </div>
 

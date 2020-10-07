@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRequestsTable extends Migration
+class CreatePedidosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,15 @@ class CreateRequestsTable extends Migration
      */
     public function up()
     {
-        Schema::create('requests', function (Blueprint $table) {
+        Schema::create('pedidos', function (Blueprint $table) {
             $table->id() ->autoIncrement();
-            $table->string('contato');
+            $table->dateTime('data');
+            $table->decimal('valorTotal')->default(0);
+            $table->unsignedBigInteger('cliente_id');
+            $table->string('status', 5);
 
-            $table->timestamps();
+            $table->foreign('cliente_id')->references('id')->on('users');
 
-            $table->foreignId('perfil_id')
-                ->constrained('perfis');
-
-            $table->foreignId('produto_id')
-                ->constrained('produtos');
 
             $table->timestamps();
         });
@@ -36,6 +34,6 @@ class CreateRequestsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('requests');
+        Schema::dropIfExists('pedidos');
     }
 }

@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Coleta;
+use App\Models\Pedido;
+use App\Models\PedidoProduto;
+use App\Models\Produto;
+use DateTime;
 use Illuminate\Http\Request;
 
-use function PHPUnit\Framework\isNull;
-
-class ColetaController extends Controller
+class PedidoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,9 +19,19 @@ class ColetaController extends Controller
     {
         //
 
-        $coleta = Coleta::orderBy('nome')->get();
+        echo 'entrou aqui';
 
-        return view('administrativo.coleta.index', ['locais' => $coleta]);
+        $pedidos = (session()->get('produto'));
+
+
+
+        foreach ($pedidos as $pedido) {
+
+            echo "pedido : " . $pedido;
+        }
+
+
+        return view ('pedido.sacola');
     }
 
     /**
@@ -32,7 +43,30 @@ class ColetaController extends Controller
     {
         //
 
-        return view('administrativo.coleta.create');
+
+        $pedido = new Pedido;
+        $pedidoProduto = new PedidoProduto;
+
+        $pedido->data = new DateTime();
+        $pedido->valorTotal = '20';
+        $pedido->cliente_id = 2;
+
+        $produtos = (session()->get('produto'));
+
+        foreach ($produtos as $produto) {
+
+
+
+        }
+
+
+
+
+        $pedido->save();
+
+
+
+        return redirect()->route('produto.index');
     }
 
     /**
@@ -44,26 +78,15 @@ class ColetaController extends Controller
     public function store(Request $request)
     {
         //
-
-        $coleta = new Coleta;
-        $coleta->nome = $request->nome;
-        $coleta->cidade = $request->cidades;
-        $coleta->save();
-
-
-
-        // Coleta::create($request->all());
-        session()->flash('mensagem', 'Ponto de coleta cadastrado com sucesso!');
-        return redirect()->route('homeAdm');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Coleta  $coleta
+     * @param  \App\Models\Pedido  $pedido
      * @return \Illuminate\Http\Response
      */
-    public function show(Coleta $coleta)
+    public function show(Pedido $pedido)
     {
         //
     }
@@ -71,10 +94,10 @@ class ColetaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Coleta  $coleta
+     * @param  \App\Models\Pedido  $pedido
      * @return \Illuminate\Http\Response
      */
-    public function edit(Coleta $coleta)
+    public function edit(Pedido $pedido)
     {
         //
     }
@@ -83,10 +106,10 @@ class ColetaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Coleta  $coleta
+     * @param  \App\Models\Pedido  $pedido
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Coleta $coleta)
+    public function update(Request $request, Pedido $pedido)
     {
         //
     }
@@ -94,10 +117,10 @@ class ColetaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Coleta  $coleta
+     * @param  \App\Models\Pedido  $pedido
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Coleta $coleta)
+    public function destroy(Pedido $pedido)
     {
         //
     }

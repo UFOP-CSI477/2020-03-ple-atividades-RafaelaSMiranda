@@ -30,13 +30,15 @@ class AgendamentoController extends Controller
         //     ])->get();
 
 
+
+
         $agendamentos = Agendamento::join('pessoas', 'agendamentos.pessoa_id', '=', 'pessoas.id')
 
             ->orderBy('data', 'desc')
             ->orderBy('pessoas.nome', 'asc')
             ->get('agendamentos.*');
 
-            // dd($agendamentos);
+        // dd($agendamentos);
 
 
 
@@ -48,6 +50,7 @@ class AgendamentoController extends Controller
         }
 
         if (Auth::check()) {
+
 
             return view('administrativo.agendamento.index', ['agendamentos' => $agendamentos]);
         } else {

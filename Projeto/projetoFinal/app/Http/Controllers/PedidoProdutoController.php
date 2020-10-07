@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Coleta;
+use App\Models\PedidoProduto;
 use Illuminate\Http\Request;
 
-use function PHPUnit\Framework\isNull;
-
-class ColetaController extends Controller
+class PedidoProdutoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,10 +15,6 @@ class ColetaController extends Controller
     public function index()
     {
         //
-
-        $coleta = Coleta::orderBy('nome')->get();
-
-        return view('administrativo.coleta.index', ['locais' => $coleta]);
     }
 
     /**
@@ -31,8 +25,6 @@ class ColetaController extends Controller
     public function create()
     {
         //
-
-        return view('administrativo.coleta.create');
     }
 
     /**
@@ -45,36 +37,31 @@ class ColetaController extends Controller
     {
         //
 
-        $coleta = new Coleta;
-        $coleta->nome = $request->nome;
-        $coleta->cidade = $request->cidades;
-        $coleta->save();
 
 
 
-        // Coleta::create($request->all());
-        session()->flash('mensagem', 'Ponto de coleta cadastrado com sucesso!');
-        return redirect()->route('homeAdm');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Coleta  $coleta
+     * @param  \App\Models\PedidoProduto  $pedidoProduto
      * @return \Illuminate\Http\Response
      */
-    public function show(Coleta $coleta)
+    public function show(PedidoProduto $pedidoProduto)
     {
         //
+
+
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Coleta  $coleta
+     * @param  \App\Models\PedidoProduto  $pedidoProduto
      * @return \Illuminate\Http\Response
      */
-    public function edit(Coleta $coleta)
+    public function edit(PedidoProduto $pedidoProduto)
     {
         //
     }
@@ -83,10 +70,10 @@ class ColetaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Coleta  $coleta
+     * @param  \App\Models\PedidoProduto  $pedidoProduto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Coleta $coleta)
+    public function update(Request $request, PedidoProduto $pedidoProduto)
     {
         //
     }
@@ -94,10 +81,10 @@ class ColetaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Coleta  $coleta
+     * @param  \App\Models\PedidoProduto  $pedidoProduto
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Coleta $coleta)
+    public function destroy(PedidoProduto $pedidoProduto)
     {
         //
     }

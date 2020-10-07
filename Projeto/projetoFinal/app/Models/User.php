@@ -22,6 +22,11 @@ class User extends Authenticatable
         'password',
     ];
 
+    public function pedidos()
+    {
+        return $this->belongsToMany((Pedido::class));
+    }
+
     /**
      * The attributes that should be hidden for arrays.
      *

@@ -109,7 +109,6 @@ function atualizarAgendamento() {
     let data = document.getElementById('data');
 
 
-
     if (
 
         validaSelectDoador(doador) &&
