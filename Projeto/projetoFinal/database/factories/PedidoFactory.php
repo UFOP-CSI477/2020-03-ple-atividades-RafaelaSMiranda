@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Cliente;
 use App\Models\Pedido;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -25,10 +26,9 @@ class PedidoFactory extends Factory
         return [
             //
 
-            'data' => $this->faker->dateTime(),
+
             'valorTotal' => $this->faker->numberBetween($min = 30, $max = 200),
-            'cliente_id' => User::factory(),
-            'status' => $this->faker->randomElement(array('RE', 'PA', 'CA')),
+            'cliente_id' => Cliente::factory(),
         ];
     }
 }

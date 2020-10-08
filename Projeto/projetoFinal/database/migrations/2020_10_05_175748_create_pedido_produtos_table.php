@@ -16,16 +16,13 @@ class CreatePedidoProdutosTable extends Migration
         Schema::create('pedido_produtos', function (Blueprint $table) {
             $table->id()->autoIncrement();
             $table->string('quantidade');
-            $table->decimal('valor')->default(0);
+            $table->decimal('valorTotal')->default(0);
 
             $table->unsignedBigInteger('pedido_id');
             $table->unsignedBigInteger('produto_id');
 
-            $table->string('status', 5);
-
             $table->foreign('pedido_id')->references('id')->on('pedidos');
             $table->foreign('produto_id')->references('id')->on('produtos');
-
 
             $table->timestamps();
         });

@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Adicional;
+use App\Models\Cliente;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class AdicionalFactory extends Factory
+class ClienteFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Adicional::class;
+    protected $model = Cliente::class;
 
     /**
      * Define the model's default state.
@@ -23,10 +23,10 @@ class AdicionalFactory extends Factory
     {
         return [
             //
-
-            'nome' => $this->faker->randomElement($array = array('Mussarela', 'Queijo', 'Tomate', 'Bacon', 'Fritas')),
-            'valor' => $this->faker->numberBetween($min = 2, $max = 15),
-
+            'nome' => $this->faker->name,
+            'endereco' => $this->faker->address,
+            'referencia' => $this->faker->city,
+            'contato' => $this->faker->phoneNumber,
         ];
     }
 }

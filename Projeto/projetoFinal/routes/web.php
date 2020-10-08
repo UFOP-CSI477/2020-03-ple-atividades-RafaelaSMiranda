@@ -2,9 +2,11 @@
 
 use App\Http\Controllers\AdicionalController;
 use App\Http\Controllers\CarrinhoController;
+use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\PedidoProdutoController;
 use App\Http\Controllers\ProdutoController;
+use App\Models\Produto;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -21,40 +23,28 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('homeInicial');
-}) -> name('home');
+}) -> name('homeInicial');
 
 Route::get('/head', function () {
     return view('headCliente');
 }) -> name('headCliente');
 
-
 Route::get('/cardapio', function () {
     return view('produtos.cardapio');
 }) -> name('cardapio');
 
-Route::get('/perfil', function () {
-    return view('cliente.perfil');
-}) -> name('perfil');
-
-Route::get('/sacola', function () {
-    return view('pedido.sacola');
-}) -> name('sacola');
 
 Route::resource('/produto', ProdutoController::class);
-Route::resource('/adicional', AdicionalController::class);
+
 Route::resource('/pedidoProduto', PedidoProdutoController::class);
-Route::resource('/produtoAdicional', ProdutoAdicionalController::class);
+
 Route::resource('/pedido', PedidoController::class);
-Route::resource('/carrinho', CarrinhoController::class);
-Route::get('/carrinho/adicionar',function(){
 
-    return redirect()->route('produto.index');
-});
+Route::resource('/cliente', ClienteController::class);
 
-
-
-Route::post('/carrinho/adicionar', 'CarrinhoController@adicionar')->name('carrinho.adicionar');
-
+Route::get('/adicionar/{produto}', [CarrinhoController::class, 'adicionar'])->name('sacolaAdicionar');
+Route::get('/remover/{produto}', [CarrinhoController::class, 'remover'])->name('sacolaRemover');
+Route::get('/cancelar', [CarrinhoController::class, 'cancelar'])->name('sacolaCancelar');
 
 Auth::routes();
 

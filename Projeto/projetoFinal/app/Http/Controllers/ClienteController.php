@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Adicional;
+use App\Models\Cliente;
 use Illuminate\Http\Request;
 
-class AdicionalController extends Controller
+class ClienteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -25,6 +25,8 @@ class AdicionalController extends Controller
     public function create()
     {
         //
+
+        return view('cliente.create');
     }
 
     /**
@@ -41,10 +43,10 @@ class AdicionalController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Adicional  $adicional
+     * @param  \App\Models\Cliente  $cliente
      * @return \Illuminate\Http\Response
      */
-    public function show(Adicional $adicional)
+    public function show(Cliente $cliente)
     {
         //
     }
@@ -52,10 +54,10 @@ class AdicionalController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Adicional  $adicional
+     * @param  \App\Models\Cliente  $cliente
      * @return \Illuminate\Http\Response
      */
-    public function edit(Adicional $adicional)
+    public function edit(Cliente $cliente)
     {
         //
     }
@@ -64,10 +66,10 @@ class AdicionalController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Adicional  $adicional
+     * @param  \App\Models\Cliente  $cliente
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Adicional $adicional)
+    public function update(Request $request, Cliente $cliente)
     {
         //
     }
@@ -75,10 +77,10 @@ class AdicionalController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Adicional  $adicional
+     * @param  \App\Models\Cliente  $cliente
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Adicional $adicional)
+    public function destroy(Cliente $cliente)
     {
         //
     }

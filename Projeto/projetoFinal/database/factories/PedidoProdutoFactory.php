@@ -29,8 +29,7 @@ class PedidoProdutoFactory extends Factory
             'pedido_id' => Pedido::factory(),
             'produto_id' => Produto::factory(),
             'quantidade' => $this->faker->randomElement(array(1, 2, 3)),
-            'valor' => $this->faker->numberBetween($min = 10, $max = 60),
-            'status' => $this->faker->randomElement(array('RE', 'PA', 'CA')),
+            'valorTotal' => $this->faker->numberBetween($min = 10, $max = 60),
         ];
     }
 }

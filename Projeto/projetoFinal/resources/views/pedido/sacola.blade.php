@@ -4,7 +4,7 @@
 @section('linkCardapio')
 
 <li class="nav-item">
-    <a class="nav-link" href="{{route('cardapio')}}">Cardapio</a>
+    <a class="nav-link" href="{{route('produto.index')}}">Cardapio</a>
 </li>
 
 @endSection
@@ -13,7 +13,7 @@
 
 <div class="title">
 
-<p style="font-family: 'Lobster Two'; font-size: 30px; display: flex; justify-content: center;">Finalizar Pedido</p>
+    <p style="font-family: 'Lobster Two'; font-size: 30px; display: flex; justify-content: center;">Finalizar Pedido</p>
 
 </div>
 
@@ -21,27 +21,27 @@
 
     <div class="descricao">
 
-        <p>Grand Picanha</p>
-        <p>R$24,00</p>
-        <p style="font-weight: bold;">Valor total: R$ 24,00</p>
-        <div class="dropdown-divider"></div>
-        <p style="font-weight: bold; color: rgb(94, 94, 94);">Confirmar dados cadastrados. Em caso de alteração,
-            por favor, atualize o seu cadastro</p>
-        <p>Nome:</p>
-        <p>Endereço: Rua A</p>
-        <p>Pagamento em dinheiro</p>
-        <p style=" color: rgb(94, 94, 94);">Documento para nota fiscal</p>
-        <p>CPF:</p>
-        <div class="dropdown-divider"></div>
-        <p style="font-weight: bold; color: rgb(94, 94, 94); font-size: 20px;">Observações</p>
-        <textarea style="width: 60%;" name="" id="" placeholder="Ex.: Pedido sem cebola"></textarea>
-    </div>
+
+        @foreach($produtos as $produto)
 
 
+        @if($produto->quantidade != 0)
 
+        <div class="shadow p-5">
+        <p style="font-weight: bold;">Produto: {{$produto->nome}}</p>
+        <p>- {{$produto->descricao}}</p>
+        <p>Quantidade: {{$produto->quantidade}} </p>
+        <p>Valor unitário: R${{$produto->valor}},00</p>
+        <p style="font-weight: bold;">Valor total: R$ {{$produto->valor*$produto->quantidade}},00</p>
+        </div>
 
-        <a href="{{route('pedido.create')}}" class="btn btn-outline-success" value="Finalizar pedido">Finalizar pedido </a>
-        <input type="reset" class="btn btn-outline-danger" value="Cancelar">
+        @endif
+        @endforeach
+
+        <hr>
+        <a type="buttom" href="{{route('cliente.create')}}" class="btn btn-light border-success"> Finalizar</a>
+        <a type="buttom" class="btn btn-outline-danger" href="{{route('sacolaCancelar')}}">Cancelar</a>
+        <a type="buttom" href="{{route('produto.index')}}" class="btn btn-light border-primary">Voltar</a>
 
 
 </div>

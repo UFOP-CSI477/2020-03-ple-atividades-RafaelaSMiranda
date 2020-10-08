@@ -19,20 +19,27 @@ class PedidoController extends Controller
     {
         //
 
-        echo 'entrou aqui';
 
-        $pedidos = (session()->get('produto'));
-
+        $produtos = Produto::get();
 
 
-        foreach ($pedidos as $pedido) {
+        foreach ($produtos as $produto) {
 
-            echo "pedido : " . $pedido;
+            $chave = 'produto.' . $produto->id;
+
+            if (session()->has($chave)) {
+
+                $quantidade = session($chave)['quantidade'];
+                $produto->quantidade = $quantidade;
+            } else {
+                $produto->quantidade = 0;
+            }
         }
 
-
-        return view ('pedido.sacola');
+        // dd($produto);
+        return view('pedido.sacola', ['produtos' => $produtos]);
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -43,30 +50,34 @@ class PedidoController extends Controller
     {
         //
 
+        // $produtos = Produto::get();
+        // $valorTotal = 0;
 
-        $pedido = new Pedido;
-        $pedidoProduto = new PedidoProduto;
+        // if (session()->has('produto')) {
 
-        $pedido->data = new DateTime();
-        $pedido->valorTotal = '20';
-        $pedido->cliente_id = 2;
+        //     foreach ($produtos as $produto) {
 
-        $produtos = (session()->get('produto'));
-
-        foreach ($produtos as $produto) {
+        //         $chave = 'produto.' . $produto->id;
 
 
-
-        }
-
-
-
-
-        $pedido->save();
+        //         if (session()->has($chave)) {
+        //             $valorTotal += $produto->valor * session()->get($chave)['quantidade'];
+        //         }
+        //     }
 
 
+        //     $pedido = new Pedido;
+        //     $pedido->data = new DateTime();
+        //     $pedido->valorTotal = $valorTotal;
+        //     $pedido->cliente_id = 2;
+        //     $pedido->status = 'PA';
 
-        return redirect()->route('produto.index');
+        //     $pedido->save();
+        // } else {
+        //     session()->flash('mensagemErro', 'Escolha pelo menos um produto');
+        // }
+
+        // return redirect()->route('pedidoProduto.store');
     }
 
     /**

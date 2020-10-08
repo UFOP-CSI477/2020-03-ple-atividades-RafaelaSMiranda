@@ -20,7 +20,7 @@
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-        <a class="navbar-brand" href="{{route('produto.index')}}">Lanches Fast Food</a>
+        <a class="navbar-brand" href="{{route('homeInicial')}}">Lanches Fast Food</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -31,48 +31,58 @@
 
                 @yield('linkCardapio')
 
-
-                <li class="nav-item ">
-                    <a class="nav-link" href="{{route('perfil')}}">Perfil</a>
-                </li>
-
                 @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                </li>
+                @if (Route::has('register'))
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                </li>
+                @endif
+                @else
+                <li class="nav-item dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        {{ Auth::user()->name }}
+                    </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+                            {{ __('Logout') }}
+                        </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </div>
+                </li>
+                @endguest
 
 
             </ul>
 
-            <a href="{{route('pedido.index')}}" class="btn btn-danger my-2 mr-2 my-sm-0" type="submit">
+            <?php
 
-            <p id="valorTotal">0</p></a>
+            $valorTotal = 0;
 
-            <a href="#" class="btn btn-outline-success my-2 my-sm-0" type="button">Sair</a>
+            if (session()->has('produto')) {
+                $produtos = session()->all()['produto'];
+
+                foreach ($produtos as $produto) {
+
+                    $valorTotal += $produto['quantidade'] * $produto['valor'];
+                }
+            }
+
+
+            ?>
+
+
+            <a style="font-weight: bold;" href="{{route('pedido.index')}}" class="btn btn-danger my-2 mr-2 my-sm-0" type="submit">
+
+                R$ {{$valorTotal}},00
+            </a>
 
         </div>
 
@@ -80,6 +90,26 @@
 
 
     <div class="container w-75 border border-dark rounded shadow bg-white rounded" style=" padding: 20px; margin-top: 100px; ">
+
+        @if(session('mensagem'))
+
+
+        <div class="alert alert-light border-info shadow ml-5 mr-5">
+            <p style="font-family: 'Sansita+Swashed'; font-weight: bold; font-size: 30px; display: flex; justify-content: center; text-align: center;">{{session('mensagem')}}</p>
+        </div>
+
+
+        @endif
+
+        @if(session('mensagemErro'))
+
+
+        <div class="alert alert-light border-danger shadow">
+            <p style="font-family: 'Sansita+Swashed'; font-weight: bold; font-size: 30px; display: flex; justify-content: center; text-align: center;">{{session('mensagemErro')}}</p>
+        </div>
+
+
+        @endif
 
         @yield('conteudo')
 

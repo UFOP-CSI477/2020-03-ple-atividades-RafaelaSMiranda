@@ -99,65 +99,53 @@ class ProdutoController extends Controller
      * @param  \App\Models\Produto  $produto
      * @return \Illuminate\Http\Response
      */
+
+    public function adicionar(Produto $produto)
+    {
+
+        dd($produto);
+    }
+
+
+
     public function show(Produto $produto)
     {
 
 
-        $valor = 1;
 
-        $chave = 'produto.'.$produto->id;
+        $quantidade = 1;
+
+        $chave = 'produto.' . $produto->id;
 
         if (session()->has('produto')) {
             if (session()->has($chave)) {
 
-                // dd(session()->get('produto'));
-
-                // $item = session($chave);
-
-                // foreach ($itens as $item) {
-
-                // if($item[$produto->id]){
-                // if ($item[0] == $produto->id) {
-
                 $item =  session()->pull($chave);
 
-                $valor = $item['quantidade'];
-                $valor++;
+                $quantidade = $item['quantidade'];
+                $quantidade++;
             }
-            // }
-            // }
 
             session([$chave => [
-                'quantidade' => $valor
+                'quantidade' => $quantidade,
+                'valor' => $produto->valor
             ]]);
 
-
-
-            // dd(session()->all());
         } else {
 
             session([$chave => [
 
-                'quantidade' => $valor
+                'quantidade' => $quantidade,
+                'valor' => $produto->valor
             ]]);
-
-            // dd(session('produto'));
         }
 
+        // foreach ($pedidos as $key => $pedido) {
 
-
-
-        $pedidos = session('produto');
-
-
-        foreach ($pedidos as $key => $pedido) {
-
-            echo $key . '-';
-            print_r($pedido);
-            echo "\n";
-        }
-
-
+        //     echo $key . '-';
+        //     print_r($pedido);
+        //     echo "\n";
+        // }
 
         return redirect()->route('produto.index', ['quantidade' => session('produto')]);
     }
@@ -171,6 +159,41 @@ class ProdutoController extends Controller
     public function edit(Produto $produto)
     {
         //
+
+        // dd($produto);
+
+        $valor = 0;
+
+        $chave = 'produto.' . $produto->id;
+
+        if (session()->has('produto')) {
+            if (session()->has($chave)) {
+
+                $item =  session()->pull($chave);
+
+                $valor = $item['quantidade'];
+
+                if ($valor > 0) {
+                    $valor--;
+
+                    print_r($item);
+                    echo ($valor);
+                    echo 'chave' . $chave;
+
+                    session([$chave => [
+                        'quantidade' => $valor,
+                        'valor' => $produto->valor
+                    ]]);
+                } else {
+                    dd(session()->all());
+                }
+            } else {
+
+                session()->flash('mensagemErro', 'Este produto ainda não esta na sacola');
+            }
+        }
+
+        return redirect()->route('produto.index', ['quantidade' => session('produto')]);
     }
 
     /**

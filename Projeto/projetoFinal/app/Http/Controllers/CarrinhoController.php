@@ -18,64 +18,95 @@ class CarrinhoController extends Controller
 
     public function index()
     {
-
-
-        $pedidos = Pedido::where([
-            'status' => 'RE',
-            'cliente_id' => 2,
-        ])->get();
-
-        return view('pedido.sacola', ['pedidos' => $pedidos]);
     }
 
-    public function adicionar()
+    public function adicionar(Produto $produto)
     {
 
-        dd('entrou aqui');
+        $quantidade = 1;
 
-        $this->Middleware('VerifyCsrfToken');
+        $chave = 'produto.' . $produto->id;
 
-        $req = Request();
+        if (session()->has('produto')) {
+            if (session()->has($chave)) {
 
-        $idProduto = $req->input('id');
+                $item =  session()->pull($chave);
 
-        $produto = Produto::find($idProduto);
+                $quantidade = $item['quantidade'];
+                $quantidade++;
+            }
 
-        if (isEmpty()($produto->id)) {
-            $req->session()->flash('mensagemErro', 'Produto não disponível.');
-            return redirect()->route('carrinho.index');
+            session([$chave => [
+                'quantidade' => $quantidade,
+                'valor' => $produto->valor
+            ]]);
+        } else {
+
+            session([$chave => [
+
+                'quantidade' => $quantidade,
+                'valor' => $produto->valor
+            ]]);
         }
 
-        $idUsuario = Auth::user()->id;
+        // foreach ($pedidos as $key => $pedido) {
 
-        $idPedido = Pedido::consultaId([
-            'cliente_id' => $idUsuario,
-            'status' => 'RE'
-        ]);
+        //     echo $key . '-';
+        //     print_r($pedido);
+        //     echo "\n";
+        // }
 
-        if (empty($idPedido)) {
-            $pedido_novo = Pedido::create([
-                'cliente_id' => $idUsuario,
-                'status' => 'RE'
-            ]);
+        return redirect()->route('produto.index', ['quantidade' => session('produto')]);
+    }
 
-            $idPedido = $pedido_novo->id;
+    public function remover(Produto $produto)
+    {
+
+
+        $valor = 0;
+
+        $chave = 'produto.' . $produto->id;
+
+        if (session()->has('produto')) {
+            if (session()->has($chave)) {
+
+                $item =  session()->pull($chave);
+
+                $valor = $item['quantidade'];
+
+                if ($valor > 0) {
+                    $valor--;
+
+                    print_r($item);
+                    echo ($valor);
+                    echo 'chave' . $chave;
+
+                    session([$chave => [
+                        'quantidade' => $valor,
+                        'valor' => $produto->valor
+                    ]]);
+                } else {
+
+                    session()->flash('mensagemErro', 'Não há mais produto para ser removido');
+                }
+            } else {
+
+                session()->flash('mensagemErro', 'Este produto ainda não esta no seu carrinho');
+            }
+        } else {
+            session()->flash('mensagemErro', 'Não há produto no carrinho para ser removido');
         }
 
-        PedidoProduto::create([
+        return redirect()->route('produto.index', ['quantidade' => session('produto')]);
+    }
 
-            'pedido_id' => $idPedido,
-            'produto_id' => $idProduto,
-            'valor' => $produto->valor,
-            'status' => 'RE',
-            'quantidade' => 1
-        ]);
+    public function cancelar(Request $request)
+    {
 
-
-        $req->session()->flash('mensagem', 'Produto adicionado com sucesso');
-
-        return redirect()->route('carrinho.index');
+        $request->session()->forget('produto');
+        return redirect()->route('produto.index');
 
 
     }
+
 }

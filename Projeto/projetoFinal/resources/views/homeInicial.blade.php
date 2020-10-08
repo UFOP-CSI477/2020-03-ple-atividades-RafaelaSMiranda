@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Home</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
     <!-- <script type="text/javascript" src=".js"></script> -->
 
@@ -53,8 +52,7 @@
                 <img src="../../img/3.jpg" alt="Pizza">
 
 
-                <div id="teste" class="carousel-caption container-fluid text-left "
-                    style="background-color: black; opacity: 0.6;">
+                <div id="teste" class="carousel-caption container-fluid text-left " style="background-color: black; opacity: 0.6;">
 
 
                     <p> Horário de funcionamento: </p>
@@ -91,16 +89,7 @@
             <div id="login">
                 <form class="form" style="display: flex; justify-content: space-evenly;">
 
-                    <div class="form-group">
-                        <label for="usuario" class="font-weight-bold">Usuário</label>
-                        <input class="form-control" type="text" name="usuario" id="usuario">
-
-                        <label for="senha" class="font-weight-bold">Senha</label>
-                        <input class="form-control" type="password" name="senha" id="senha">
-                    </div>
-
-
-                    <div id="button">
+                    <!-- <div id="button">
                         <div class="form-group pt-2 pl-5">
                             <a href="{{route('produto.index')}}"  class="btn btn-outline-success text-dark" type="button">
                                 Entrar</a>
@@ -113,6 +102,30 @@
 
                         <div class="form-group pl-4">
                             <a href="{{route('cardapio')}}" type="button" class="btn text-secondary">Visitar o site</a>
+                        </div>
+                    </div> -->
+
+                    <div class="col-md-6 mt-5">
+                        <div class="card mb-4 shadow-sm">
+                            <div class="card-body bordered shadow">
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <div class="btn-group justify-content-center" style="display: flex;">
+                                        <a href="{{route('produto.index')}}" style="margin-left: 2px; margin-right: 50px; font-size: 150%; justify-content: center; align-items: center;" type="button" class="btn btn-light border-info">Realize o seu pedido</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mt-5">
+                        <div class="card mb-4 shadow-sm">
+                            <div class="card-body bordered shadow">
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <div class="btn-group justify-content-center" style="display: flex;">
+                                        <a href="#" style="margin-left: 2px; margin-right: 50px; font-size: 150%; justify-content: center; align-items: center;" type="button" class="btn btn-light border-info">Área Administrativa</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 

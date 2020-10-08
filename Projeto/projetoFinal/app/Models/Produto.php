@@ -20,4 +20,6 @@ class Produto extends Model
     {
         return $this->belongsToMany((Pedido::class));
     }
+
+
 }

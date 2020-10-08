@@ -1,18 +1,27 @@
 
 
 
-function adicionar() {
+function adicionar(id) {
 
 
-    let value = document.getElementById('valorTotal').innerHTML;
 
-    console.log(value);
+    console.log(id);
 
-    value = parseInt(value) +1;
+    let value = document.getElementById(id);
 
-    console.log(value);
+    console.log(value.value);
 
-    document.getElementById('valorTotal').innerHTML = 10;
+    value++;
+
+    // console.log(value);
+
+    // value = parseInt(value) +1;
+
+    // console.log(value);
+
+    document.getElementById(id).innerHTML = value;
+
+
 
 
 }
