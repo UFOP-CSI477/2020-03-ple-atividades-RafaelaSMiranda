@@ -27,6 +27,7 @@ class ClienteFactory extends Factory
             'endereco' => $this->faker->address,
             'referencia' => $this->faker->city,
             'contato' => $this->faker->phoneNumber,
+            'pagamento' => $this->faker->randomElement(array('Dinheiro', 'Cartão')),
         ];
     }
 }

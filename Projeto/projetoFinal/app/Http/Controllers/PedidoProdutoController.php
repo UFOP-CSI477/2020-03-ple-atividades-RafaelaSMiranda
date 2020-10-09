@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cliente;
 use App\Models\Pedido;
 use App\Models\PedidoProduto;
 use App\Models\Produto;
 use DateTime;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class PedidoProdutoController extends Controller
 {
@@ -43,6 +45,8 @@ class PedidoProdutoController extends Controller
     {
         //
 
+        $cliente = Cliente::create($request->all());
+
         $produtos = Produto::get();
         $valorTotal = 0;
 
@@ -60,13 +64,11 @@ class PedidoProdutoController extends Controller
 
 
             $pedido = new Pedido();
-            $pedido->data = new DateTime();
             $pedido->valorTotal = $valorTotal;
-            $pedido->cliente_id = 2;
-            $pedido->status = 'PA';
+            $pedido->cliente_id = $cliente->id;
+            $pedido->observacao = $request->observacao;
 
             $pedido->save();
-
 
             foreach ($produtos as $produto) {
 
@@ -74,18 +76,26 @@ class PedidoProdutoController extends Controller
 
                 if (session()->has($chave)) {
 
-                    // dd($chave);
                     $newPedidoProduto = new PedidoProduto();
                     $newPedidoProduto->quantidade = session()->get($chave)['quantidade'];
-                    $newPedidoProduto->valor = $produto->valor * session()->get($chave)['quantidade'];
+                    $newPedidoProduto->valorTotal = $produto->valor * session()->get($chave)['quantidade'];
                     $newPedidoProduto->pedido_id = $pedido->id;
                     $newPedidoProduto->produto_id = $produto->id;
-                    $newPedidoProduto->status = 'PA';
                     $newPedidoProduto->save();
                 }
-
-                $request->session()->forget('produto');
             }
+
+            Mail::send('cliente.mail', ['produtos' => $newPedidoProduto, 'clientes' => $cliente, 'pedidos', $pedido], function ($m) {
+
+                $email = $_POST['email'];
+                $m->from('rafinhus01@gmail.com');
+                $m->to($email);
+                $m->subject('Confirmação do pedido');
+            });
+
+            $request->session()->forget('produto');
+
+            session()->flash('mensagem', 'Pedido concluído com sucesso. Você receberá um e-mail com a confirmação. Volte sempre!');
         } else {
             session()->flash('mensagemErro', 'Escolha pelo menos um produto');
         }

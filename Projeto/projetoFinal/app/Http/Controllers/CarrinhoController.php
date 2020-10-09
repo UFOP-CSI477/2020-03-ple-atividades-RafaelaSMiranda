@@ -18,6 +18,25 @@ class CarrinhoController extends Controller
 
     public function index()
     {
+
+        $produtos = Produto::get();
+
+
+        foreach ($produtos as $produto) {
+
+            $chave = 'produto.' . $produto->id;
+
+            if (session()->has($chave)) {
+
+                $quantidade = session($chave)['quantidade'];
+                $produto->quantidade = $quantidade;
+            } else {
+                $produto->quantidade = 0;
+            }
+        }
+
+        // dd($produto);
+        return view('pedido.sacola', ['produtos' => $produtos]);
     }
 
     public function adicionar(Produto $produto)
@@ -105,8 +124,5 @@ class CarrinhoController extends Controller
 
         $request->session()->forget('produto');
         return redirect()->route('produto.index');
-
-
     }
-
 }

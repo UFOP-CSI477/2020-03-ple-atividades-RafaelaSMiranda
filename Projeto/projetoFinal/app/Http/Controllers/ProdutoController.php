@@ -22,7 +22,7 @@ class ProdutoController extends Controller
         //
 
 
-        $produtos = Produto::orderBy('nome')->get();
+        $produtos = Produto::orderBy('valor', 'asc')->get();
 
         return view('produtos.cardapio', ['produtos' => $produtos]);
     }
@@ -34,53 +34,8 @@ class ProdutoController extends Controller
      */
     public function create()
     {
-        //
-
-        dd('entrou aqui');
-
-        $this->Middleware('VerifyCsrfToken');
-
-        $req = Request();
-
-        $idProduto = $req->input('id');
-
-        $produto = Produto::find($idProduto);
-
-        if (isEmpty()($produto->id)) {
-            $req->session()->flash('mensagemErro', 'Produto não disponível.');
-            return redirect()->route('carrinho.index');
-        }
-
-        $idUsuario = Auth::user()->id;
-
-        $idPedido = Pedido::consultaId([
-            'cliente_id' => $idUsuario,
-            'status' => 'RE'
-        ]);
-
-        if (empty($idPedido)) {
-            $pedido_novo = Pedido::create([
-                'cliente_id' => $idUsuario,
-                'status' => 'RE'
-            ]);
-
-            $idPedido = $pedido_novo->id;
-        }
-
-        PedidoProduto::create([
-
-            'pedido_id' => $idPedido,
-            'produto_id' => $idProduto,
-            'valor' => $produto->valor,
-            'status' => 'RE',
-            'quantidade' => 1
-        ]);
-
-
-        $req->session()->flash('mensagem', 'Produto adicionado com sucesso');
-
-        return redirect()->route('carrinho.index');
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -91,6 +46,13 @@ class ProdutoController extends Controller
     public function store(Request $request)
     {
         //
+
+
+        Produto::create($request->all());
+
+        session()->flash('mensagem', 'Produto adicionado com sucesso');
+
+        // return redirect()->route('carrinho.index');
     }
 
     /**
@@ -100,54 +62,8 @@ class ProdutoController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function adicionar(Produto $produto)
-    {
-
-        dd($produto);
-    }
-
-
-
     public function show(Produto $produto)
     {
-
-
-
-        $quantidade = 1;
-
-        $chave = 'produto.' . $produto->id;
-
-        if (session()->has('produto')) {
-            if (session()->has($chave)) {
-
-                $item =  session()->pull($chave);
-
-                $quantidade = $item['quantidade'];
-                $quantidade++;
-            }
-
-            session([$chave => [
-                'quantidade' => $quantidade,
-                'valor' => $produto->valor
-            ]]);
-
-        } else {
-
-            session([$chave => [
-
-                'quantidade' => $quantidade,
-                'valor' => $produto->valor
-            ]]);
-        }
-
-        // foreach ($pedidos as $key => $pedido) {
-
-        //     echo $key . '-';
-        //     print_r($pedido);
-        //     echo "\n";
-        // }
-
-        return redirect()->route('produto.index', ['quantidade' => session('produto')]);
     }
 
     /**
@@ -158,42 +74,6 @@ class ProdutoController extends Controller
      */
     public function edit(Produto $produto)
     {
-        //
-
-        // dd($produto);
-
-        $valor = 0;
-
-        $chave = 'produto.' . $produto->id;
-
-        if (session()->has('produto')) {
-            if (session()->has($chave)) {
-
-                $item =  session()->pull($chave);
-
-                $valor = $item['quantidade'];
-
-                if ($valor > 0) {
-                    $valor--;
-
-                    print_r($item);
-                    echo ($valor);
-                    echo 'chave' . $chave;
-
-                    session([$chave => [
-                        'quantidade' => $valor,
-                        'valor' => $produto->valor
-                    ]]);
-                } else {
-                    dd(session()->all());
-                }
-            } else {
-
-                session()->flash('mensagemErro', 'Este produto ainda não esta na sacola');
-            }
-        }
-
-        return redirect()->route('produto.index', ['quantidade' => session('produto')]);
     }
 
     /**

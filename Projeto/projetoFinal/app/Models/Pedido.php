@@ -10,17 +10,17 @@ class Pedido extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['data', 'valorTotal', 'cliente_id', 'status'];
+    protected $fillable = ['valorTotal', 'cliente_id', 'observacao'];
 
     public function produtos()
     {
         return $this->belongsToMany((Produto::class));
     }
 
-    public function user()
+    public function cliente()
     {
 
-        return $this->belongsTo((User::class));
+        return $this->belongsTo((Cliente::class));
     }
 
     public function pedido_produtos()

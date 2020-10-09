@@ -33,6 +33,10 @@ Route::get('/cardapio', function () {
     return view('produtos.cardapio');
 }) -> name('cardapio');
 
+Route::get('/homeAdm', function () {
+    return view('administrativo.homeAdm');
+}) -> name('homeAdm')->middleware('auth');
+
 
 Route::resource('/produto', ProdutoController::class);
 
@@ -45,6 +49,7 @@ Route::resource('/cliente', ClienteController::class);
 Route::get('/adicionar/{produto}', [CarrinhoController::class, 'adicionar'])->name('sacolaAdicionar');
 Route::get('/remover/{produto}', [CarrinhoController::class, 'remover'])->name('sacolaRemover');
 Route::get('/cancelar', [CarrinhoController::class, 'cancelar'])->name('sacolaCancelar');
+Route::get('/index', [CarrinhoController::class, 'index'])->name('sacolaIndex');
 
 Auth::routes();
 

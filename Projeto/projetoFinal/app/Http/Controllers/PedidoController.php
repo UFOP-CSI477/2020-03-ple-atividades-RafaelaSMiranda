@@ -18,26 +18,6 @@ class PedidoController extends Controller
     public function index()
     {
         //
-
-
-        $produtos = Produto::get();
-
-
-        foreach ($produtos as $produto) {
-
-            $chave = 'produto.' . $produto->id;
-
-            if (session()->has($chave)) {
-
-                $quantidade = session($chave)['quantidade'];
-                $produto->quantidade = $quantidade;
-            } else {
-                $produto->quantidade = 0;
-            }
-        }
-
-        // dd($produto);
-        return view('pedido.sacola', ['produtos' => $produtos]);
     }
 
 
@@ -48,36 +28,7 @@ class PedidoController extends Controller
      */
     public function create()
     {
-        //
 
-        // $produtos = Produto::get();
-        // $valorTotal = 0;
-
-        // if (session()->has('produto')) {
-
-        //     foreach ($produtos as $produto) {
-
-        //         $chave = 'produto.' . $produto->id;
-
-
-        //         if (session()->has($chave)) {
-        //             $valorTotal += $produto->valor * session()->get($chave)['quantidade'];
-        //         }
-        //     }
-
-
-        //     $pedido = new Pedido;
-        //     $pedido->data = new DateTime();
-        //     $pedido->valorTotal = $valorTotal;
-        //     $pedido->cliente_id = 2;
-        //     $pedido->status = 'PA';
-
-        //     $pedido->save();
-        // } else {
-        //     session()->flash('mensagemErro', 'Escolha pelo menos um produto');
-        // }
-
-        // return redirect()->route('pedidoProduto.store');
     }
 
     /**

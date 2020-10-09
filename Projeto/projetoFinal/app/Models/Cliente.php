@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Cliente extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['nome', 'endereco', 'referencia', 'contato', 'pagamento'];
+
+    public function pedidos()
+    {
+        return $this->belongsToMany((Pedido::class));
+    }
+
+
 }

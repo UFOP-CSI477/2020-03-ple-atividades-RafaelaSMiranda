@@ -14,8 +14,9 @@ class CreatePedidosTable extends Migration
     public function up()
     {
         Schema::create('pedidos', function (Blueprint $table) {
-            $table->id() ->autoIncrement();
+            $table->id()->autoIncrement();
             $table->decimal('valorTotal')->default(0);
+            $table->string('observacao')->nullable('Sem Observação');
             $table->unsignedBigInteger('cliente_id');
 
             $table->foreign('cliente_id')->references('id')->on('clientes');

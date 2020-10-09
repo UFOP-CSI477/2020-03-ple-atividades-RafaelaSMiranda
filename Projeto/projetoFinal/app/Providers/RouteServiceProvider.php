@@ -38,6 +38,7 @@ class RouteServiceProvider extends ServiceProvider
     {
 
         Route::model('produto', Produto::class);
+        Route::model('cliente', Cliente::class);
 
         $this->configureRateLimiting();
 

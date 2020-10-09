@@ -28,6 +28,7 @@ class PedidoFactory extends Factory
 
 
             'valorTotal' => $this->faker->numberBetween($min = 30, $max = 200),
+            'observacao' => $this->faker->word,
             'cliente_id' => Cliente::factory(),
         ];
     }

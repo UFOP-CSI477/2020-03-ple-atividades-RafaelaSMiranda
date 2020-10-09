@@ -19,6 +19,7 @@ class CreateClientesTable extends Migration
             $table->string('endereco', 191);
             $table->string('referencia', 100);
             $table->string('contato');
+            $table->string('pagamento');
             $table->timestamps();
         });
     }
