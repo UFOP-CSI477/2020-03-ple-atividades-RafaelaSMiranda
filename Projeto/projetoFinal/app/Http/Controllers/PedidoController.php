@@ -18,6 +18,13 @@ class PedidoController extends Controller
     public function index()
     {
         //
+
+        $data = new DateTime();
+
+
+        $pedidos = Pedido::orderBy('created_at', 'asc')->get();
+
+        return view('administrativo.homeAdm', ['pedidos' => $pedidos]);
     }
 
 
@@ -51,6 +58,10 @@ class PedidoController extends Controller
     public function show(Pedido $pedido)
     {
         //
+
+        $pedidoProduto = PedidoProduto::where('pedido_id', '=', $pedido->id)->get();
+
+        return view ('administrativo.pedido.show', ['pedidoProdutos' => $pedidoProduto, 'pedidos' => $pedido]);
     }
 
     /**
@@ -74,6 +85,14 @@ class PedidoController extends Controller
     public function update(Request $request, Pedido $pedido)
     {
         //
+
+        $pedido->fill($request->all());
+        $pedido->save();
+
+        return redirect()->route('pedido.index');
+
+
+
     }
 
     /**

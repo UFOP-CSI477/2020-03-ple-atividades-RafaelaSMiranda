@@ -61,6 +61,8 @@
     <textarea style="width: 100%;" name="observacao" id="observacao" placeholder="Ex.: Pedido sem cebola"></textarea>
     <hr>
 
+    <textarea class="d-none" style="width: 100%;" name="status" id="status" placeholder="Ex.: Pedido sem cebola"></textarea>
+
 
 
     <div class="form-group">

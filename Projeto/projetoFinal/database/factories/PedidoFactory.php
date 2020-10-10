@@ -29,6 +29,7 @@ class PedidoFactory extends Factory
 
             'valorTotal' => $this->faker->numberBetween($min = 30, $max = 200),
             'observacao' => $this->faker->word,
+            'status' => $this->faker->randomElement(array('Finalizado', 'Em aberto')),
             'cliente_id' => Cliente::factory(),
         ];
     }

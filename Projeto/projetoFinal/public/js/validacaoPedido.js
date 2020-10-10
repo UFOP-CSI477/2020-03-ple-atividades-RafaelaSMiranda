@@ -63,6 +63,13 @@ function validacaoObservacao(campo) {
 
 }
 
+function validacaoStatus(campo) {
+
+    campo.value = "Em aberto";
+    return true;
+
+}
+
 function validacaoPedido() {
 
     let nome = document.getElementById('nome');
@@ -72,8 +79,9 @@ function validacaoPedido() {
     let contato = document.getElementById('contato');
     let email = document.getElementById('email');
     let observacao = document.getElementById('observacao');
+    let status = document.getElementById('status');
 
-    console.log('entrou aqui');
+    console.log(status);
 
 
     if (
@@ -83,6 +91,7 @@ function validacaoPedido() {
         validacaoString(pagamento) &&
         validacaoString(contato) &&
         validacaoObservacao(observacao) &&
+        validacaoStatus(status) &&
         validacaoEmail(email)
     ) {
 

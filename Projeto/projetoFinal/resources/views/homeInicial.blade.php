@@ -7,9 +7,6 @@
     <title>Home</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
-    <!-- <script type="text/javascript" src=".js"></script> -->
-
-    <link rel="stylesheet" href="./home.css">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -127,7 +124,7 @@
                             <div class="card-body bordered shadow">
                                 <div class="d-flex justify-content-center align-items-center">
                                     <div class="btn-group justify-content-center" style="display: flex;">
-                                        <a href="{{route('homeAdm')}}" style="margin-left: 2px; margin-right: 50px; font-size: 150%; justify-content: center; align-items: center;" type="button" class="btn btn-light border-info">Área Administrativa</a>
+                                        <a href="{{route('pedido.index')}}" style="margin-left: 2px; margin-right: 50px; font-size: 150%; justify-content: center; align-items: center;" type="button" class="btn btn-light border-info">Área Administrativa</a>
                                     </div>
                                 </div>
                             </div>

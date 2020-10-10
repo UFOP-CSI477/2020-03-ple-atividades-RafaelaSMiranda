@@ -17,6 +17,7 @@ class CreatePedidosTable extends Migration
             $table->id()->autoIncrement();
             $table->decimal('valorTotal')->default(0);
             $table->string('observacao')->nullable('Sem Observação');
+            $table->string('status')->nullable('Em aberto');
             $table->unsignedBigInteger('cliente_id');
 
             $table->foreign('cliente_id')->references('id')->on('clientes');
