@@ -13,8 +13,8 @@
         Produtos
     </a>
     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="#pizza">Cadastrar</a>
-        <a class="dropdown-item" href="#hamburguer">Visualizar</a>
+        <a class="dropdown-item" href="{{route('produto.create')}}">Cadastrar</a>
+        <a class="dropdown-item" href="{{route('produto.index')}}">Visualizar</a>
     </div>
 </li>
 

@@ -54,7 +54,7 @@ if (session()->has('produto')) {
 
 <a style="font-weight: bold;" href="{{route('sacolaIndex')}}" class="btn btn-danger my-2 mr-2 my-sm-0" type="submit">
 
-    R$ {{$valorTotal}},00
+    R$ {{$valorTotal}}
 </a>
 
 @endSection

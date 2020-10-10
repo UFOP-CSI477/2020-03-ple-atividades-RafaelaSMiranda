@@ -21,10 +21,16 @@ class ProdutoController extends Controller
     {
         //
 
+        if (Auth::check()) {
 
-        $produtos = Produto::orderBy('valor', 'asc')->get();
+            $produtos = Produto::orderBy('nome', 'asc')->get();
+            return view('administrativo.produto.index', ['produtos' => $produtos]);
+        } else {
 
-        return view('produtos.cardapio', ['produtos' => $produtos]);
+            $produtos = Produto::orderBy('valor', 'asc')->get();
+
+            return view('produtos.cardapio', ['produtos' => $produtos]);
+        }
     }
 
     /**
@@ -34,6 +40,13 @@ class ProdutoController extends Controller
      */
     public function create()
     {
+
+        if (Auth::check()) {
+
+            return view('administrativo.produto.create');
+        } else {
+            return redirect()->route('login');
+        }
     }
 
 
@@ -47,12 +60,15 @@ class ProdutoController extends Controller
     {
         //
 
+        if (Auth::check()) {
+            Produto::create($request->all());
 
-        Produto::create($request->all());
+            session()->flash('mensagem', 'Produto adicionado com sucesso');
 
-        session()->flash('mensagem', 'Produto adicionado com sucesso');
-
-        // return redirect()->route('carrinho.index');
+            return redirect()->route('pedido.index');
+        } else {
+            return redirect()->route('login');
+        }
     }
 
     /**
@@ -64,6 +80,8 @@ class ProdutoController extends Controller
 
     public function show(Produto $produto)
     {
+
+        return view('administrativo.produto.show', ['produtos' => $produto]);
     }
 
     /**
@@ -97,5 +115,25 @@ class ProdutoController extends Controller
     public function destroy(Produto $produto)
     {
         //
+
+        if (Auth::check()) {
+
+            $query =  PedidoProduto::where('produto_id', '=', $produto->id)->get();
+            // echo sizeof($query);
+
+            if (sizeof($query) > 0) {
+
+                session()->flash('mensagemErro', 'Existem pedidos cadastradas para este produto.
+            Não foi possível concluir a exclusão');
+                return redirect()->route('produto.index');
+            } else {
+                $produto->delete();
+                session()->flash('mensagem', 'Produto excluído com sucesso');
+                return redirect()->route('produto.index');
+            }
+        } else {
+            session()->flash('mensagemErro', 'Operação não permitida!');
+            return redirect()->route('pedido.index');
+        }
     }
 }

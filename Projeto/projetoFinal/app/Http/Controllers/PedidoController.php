@@ -7,6 +7,7 @@ use App\Models\PedidoProduto;
 use App\Models\Produto;
 use DateTime;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PedidoController extends Controller
 {
@@ -19,12 +20,17 @@ class PedidoController extends Controller
     {
         //
 
-        $data = new DateTime();
+        if (Auth::check()) {
+
+            $data = new DateTime();
 
 
-        $pedidos = Pedido::orderBy('created_at', 'asc')->get();
+            $pedidos = Pedido::orderBy('created_at', 'asc')->get();
 
-        return view('administrativo.homeAdm', ['pedidos' => $pedidos]);
+            return view('administrativo.homeAdm', ['pedidos' => $pedidos]);
+        } else {
+            return redirect()->route('login');
+        }
     }
 
 
@@ -35,7 +41,6 @@ class PedidoController extends Controller
      */
     public function create()
     {
-
     }
 
     /**
@@ -61,7 +66,7 @@ class PedidoController extends Controller
 
         $pedidoProduto = PedidoProduto::where('pedido_id', '=', $pedido->id)->get();
 
-        return view ('administrativo.pedido.show', ['pedidoProdutos' => $pedidoProduto, 'pedidos' => $pedido]);
+        return view('administrativo.pedido.show', ['pedidoProdutos' => $pedidoProduto, 'pedidos' => $pedido]);
     }
 
     /**
@@ -90,9 +95,6 @@ class PedidoController extends Controller
         $pedido->save();
 
         return redirect()->route('pedido.index');
-
-
-
     }
 
     /**

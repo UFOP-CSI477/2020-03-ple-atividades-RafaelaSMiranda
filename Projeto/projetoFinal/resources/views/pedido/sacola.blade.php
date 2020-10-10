@@ -28,13 +28,14 @@
         @if($produto->quantidade != 0)
 
 
-
         <div class="shadow p-5">
             <p style="font-weight: bold;">Produto: {{$produto->nome}}</p>
             <p>- {{$produto->descricao}}</p>
             <p>Quantidade: {{$produto->quantidade}} </p>
-            <p>Valor unitário: R${{$produto->valor}},00</p>
-            <p style="font-weight: bold;">Valor total: R$ {{$produto->valor*$produto->quantidade}},00</p>
+            <p>Valor unitário: R$ {{$produto->valor}}</p>
+            <p style="font-weight: bold;">Valor total: R$ {{$produto->valor*$produto->quantidade}}
+
+            </p>
         </div>
 
         @endif
