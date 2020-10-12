@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class User extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,6 +16,10 @@ class User extends Controller
     {
         //
 
+
+        $users = User::orderBy('name')->get();
+
+        return view ('administrativo.administrador.index', ['users' => $users]);
     }
 
     /**

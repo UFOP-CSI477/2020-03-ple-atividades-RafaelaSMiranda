@@ -16,7 +16,9 @@
 
         @foreach($produtos as $produto)
 
-        @if($produto->tipo == 'Promoção')
+        @if($produto->tipo == 'Promoção' && $produto->condicao == 'Disponível')
+
+
 
         <?php
 
@@ -63,6 +65,7 @@
 
         @endif
 
+
         @endforeach
 
     </div>
@@ -78,7 +81,7 @@
 
         @foreach($produtos as $produto)
 
-        @if($produto->tipo == 'Pizza')
+        @if($produto->tipo == 'Pizza' && $produto->condicao == 'Disponível')
 
         <?php
 
@@ -137,7 +140,7 @@
         <p style="font-family: 'Lobster Two'; font-size: 30px; display: flex; justify-content: center;">Hambúrgueres</p>
         @foreach($produtos as $produto)
 
-        @if($produto->tipo == 'Hambúrguer')
+        @if($produto->tipo == 'Hambúrguer' && $produto->condicao == 'Disponível')
 
         <?php
 
@@ -200,7 +203,7 @@
 
         @foreach($produtos as $produto)
 
-        @if($produto->tipo == 'Porção')
+        @if($produto->tipo == 'Porção' && $produto->condicao == 'Disponível')
 
         <?php
 
@@ -259,7 +262,7 @@
 
         @foreach($produtos as $produto)
 
-        @if($produto->tipo == 'Bebida')
+        @if($produto->tipo == 'Bebida' && $produto->condicao == 'Disponível')
 
         <?php
 
@@ -319,7 +322,7 @@
 
         @foreach($produtos as $produto)
 
-        @if($produto->tipo == 'Sobremesa')
+        @if($produto->tipo == 'Sobremesa' && $produto->condicao == 'Disponível')
 
         <?php
 
@@ -380,7 +383,7 @@
 
         @foreach($produtos as $produto)
 
-        @if($produto->tipo == 'Combo')
+        @if($produto->tipo == 'Combo' && $produto->condicao == 'Disponível')
 
         <?php
 

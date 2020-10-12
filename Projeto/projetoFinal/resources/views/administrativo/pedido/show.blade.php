@@ -95,6 +95,7 @@
                         <option hidden>Selecione</option>
                         <option value="Em aberto">Em aberto</option>
                         <option value="Finalizado">Finalizado</option>
+                        <option value="Cancelado">Cancelado</option>
 
                     </select>
                 </div>

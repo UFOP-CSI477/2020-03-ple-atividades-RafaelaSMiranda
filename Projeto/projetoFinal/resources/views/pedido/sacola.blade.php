@@ -41,6 +41,30 @@
         @endif
         @endforeach
 
+        <br>
+
+        <div class="totalPagar">
+
+            <?php
+
+            $valorTotal = 0;
+
+            if (session()->has('produto')) {
+                $produtos = session()->all()['produto'];
+
+                foreach ($produtos as $produto) {
+
+                    $valorTotal += $produto['quantidade'] * $produto['valor'];
+                }
+            }
+
+            ?>
+            <h1 style="font-family:'Sansita+Swashed'; font-weight: bold; text-align: center; font-size: 25px;">
+                Total a pagar R$ {{$valorTotal}}
+            </h1>
+
+
+        </div>
         <hr>
 
         <a type="buttom" href="{{route('cliente.create')}}" class="btn btn-light border-success"> Finalizar</a>

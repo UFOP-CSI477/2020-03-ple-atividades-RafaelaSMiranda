@@ -6,6 +6,8 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\PedidoProdutoController;
 use App\Http\Controllers\ProdutoController;
+use App\Http\Controllers\UserController;
+use App\Models\Pedido;
 use App\Models\Produto;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -44,7 +46,11 @@ Route::resource('/pedidoProduto', PedidoProdutoController::class);
 
 Route::resource('/pedido', PedidoController::class);
 
+// Route::get('/pedido', [PedidoController::class, 'indexPorProduto'])->name('indexProduto');
+
 Route::resource('/cliente', ClienteController::class);
+
+Route::resource('/user', UserController::class)->middleware('auth');
 
 Route::get('/adicionar/{produto}', [CarrinhoController::class, 'adicionar'])->name('sacolaAdicionar');
 Route::get('/remover/{produto}', [CarrinhoController::class, 'remover'])->name('sacolaRemover');

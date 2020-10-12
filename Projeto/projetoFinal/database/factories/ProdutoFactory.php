@@ -26,6 +26,7 @@ class ProdutoFactory extends Factory
 
             'nome' => $this->faker->randomElement($array = array('Pizza', 'Hambúrguer', 'Porção', 'Suco', 'Agua', 'Regrigerante')),
             'tipo' => $this->faker->randomElement($array = array('Bebida', 'Pizza', 'Hambúrguer', 'Porção', 'Combo', 'Promoção', 'Sobremesa')),
+            'condicao' => $this->faker->randomElement($array = array('Disponível', 'Não disponível')),
             'descricao' => $this->faker->word,
             'valor' => $this->faker->numberBetween($min = 10, $max = 60)
         ];

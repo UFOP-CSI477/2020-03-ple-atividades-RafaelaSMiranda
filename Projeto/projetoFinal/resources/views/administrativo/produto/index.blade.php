@@ -23,6 +23,7 @@
                     <th>Nome</th>
                     <th>Descrição</th>
                     <th>Valor unitário</th>
+                    <th>Disponibilidade</th>
                 </tr>
             </thead>
 
@@ -35,6 +36,7 @@
                     <td> <a style="text-decoration: none; color: black;" href="{{route('produto.show', $produto->id)}}">{{$produto->nome}}</a></td>
                     <td><a style="text-decoration: none; color: black;" href="{{route('produto.show', $produto->id)}}">{{ $produto->descricao}} </a></td>
                     <td> <a style="text-decoration: none; color: black;" href="{{route('produto.show',$produto->id)}}">R$ {{$produto->valor}}</a> </td>
+                    <td> <a style="text-decoration: none; color: black;" href="{{route('produto.show',$produto->id)}}">{{$produto->condicao}}</a> </td>
                 </tr>
 
                 @endif
@@ -84,6 +86,7 @@
                     <th>Nome</th>
                     <th>Descrição</th>
                     <th>Valor unitário</th>
+                    <th>Disponibilidade</th>
                 </tr>
             </thead>
 
@@ -97,6 +100,7 @@
                     <td> <a style="text-decoration: none; color: black;" href="{{route('produto.show', $produto->id)}}">{{$produto->nome}}</a></td>
                     <td><a style="text-decoration: none; color: black;" href="{{route('produto.show', $produto->id)}}">{{ $produto->descricao}} </a></td>
                     <td> <a style="text-decoration: none; color: black;" href="{{route('produto.show', $produto->id)}}">R$ {{$produto->valor}}</a> </td>
+                    <td> <a style="text-decoration: none; color: black;" href="{{route('produto.show',$produto->id)}}">{{$produto->condicao}}</a> </td>
                 </tr>
 
                 @endif
@@ -143,6 +147,7 @@
                     <th>Nome</th>
                     <th>Descrição</th>
                     <th>Valor unitário</th>
+                    <th>Disponibilidade</th>
                 </tr>
             </thead>
 
@@ -156,6 +161,7 @@
                     <td> <a style="text-decoration: none; color: black;" href="{{route('produto.show',$produto->id)}}">{{$produto->nome}}</a></td>
                     <td><a style="text-decoration: none; color: black;" href="{{route('produto.show',$produto->id)}}">{{ $produto->descricao}} </a></td>
                     <td> <a style="text-decoration: none; color: black;" href="{{route('produto.show',$produto->id)}}">R$ {{$produto->valor}}</a> </td>
+                    <td> <a style="text-decoration: none; color: black;" href="{{route('produto.show',$produto->id)}}">{{$produto->condicao}}</a> </td>
                 </tr>
 
                 @endif
@@ -202,6 +208,7 @@
                     <th>Nome</th>
                     <th>Descrição</th>
                     <th>Valor unitário</th>
+                    <th>Disponibilidade</th>
                 </tr>
             </thead>
 
@@ -215,6 +222,7 @@
                     <td> <a style="text-decoration: none; color: black;" href="{{route('produto.show',$produto->id)}}">{{$produto->nome}}</a></td>
                     <td><a style="text-decoration: none; color: black;" href="{{route('produto.show',$produto->id)}}">{{ $produto->descricao}} </a></td>
                     <td> <a style="text-decoration: none; color: black;" href="{{route('produto.show',$produto->id)}}">R$ {{$produto->valor}}</a> </td>
+                    <td> <a style="text-decoration: none; color: black;" href="{{route('produto.show',$produto->id)}}">{{$produto->condicao}}</a> </td>
                 </tr>
 
                 @endif
@@ -261,6 +269,7 @@
                     <th>Nome</th>
                     <th>Descrição</th>
                     <th>Valor unitário</th>
+                    <th>Disponibilidade</th>
                 </tr>
             </thead>
 
@@ -274,6 +283,7 @@
                     <td> <a style="text-decoration: none; color: black;" href="{{route('produto.show',$produto->id)}}">{{$produto->nome}}</a></td>
                     <td><a style="text-decoration: none; color: black;" href="{{route('produto.show',$produto->id)}}">{{ $produto->descricao}} </a></td>
                     <td> <a style="text-decoration: none; color: black;" href="{{route('produto.show',$produto->id)}}">R$ {{$produto->valor}}</a> </td>
+                    <td> <a style="text-decoration: none; color: black;" href="{{route('produto.show',$produto->id)}}">{{$produto->condicao}}</a> </td>
                 </tr>
 
                 @endif
@@ -320,6 +330,7 @@
                     <th>Nome</th>
                     <th>Descrição</th>
                     <th>Valor unitário</th>
+                    <th>Disponibilidade</th>
                 </tr>
             </thead>
 
@@ -333,6 +344,7 @@
                     <td> <a style="text-decoration: none; color: black;" href="{{route('produto.show',$produto->id)}}">{{$produto->nome}}</a></td>
                     <td><a style="text-decoration: none; color: black;" href="{{route('produto.show',$produto->id)}}">{{ $produto->descricao}} </a></td>
                     <td> <a style="text-decoration: none; color: black;" href="{{route('produto.show',$produto->id)}}">R$ {{$produto->valor}}</a> </td>
+                    <td> <a style="text-decoration: none; color: black;" href="{{route('produto.show',$produto->id)}}">{{$produto->condicao}}</a> </td>
                 </tr>
 
                 @endif

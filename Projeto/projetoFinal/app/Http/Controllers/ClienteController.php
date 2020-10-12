@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Cliente;
 use Illuminate\Http\Request;
 
+use function PHPUnit\Framework\isNull;
+
 class ClienteController extends Controller
 {
     /**
@@ -39,10 +41,11 @@ class ClienteController extends Controller
     {
         //
 
-        $cliente = Cliente::create($request->all());
-
-        return redirect()->route('pedidoProduto.store');
-
+        if (!isNull($request->nome || $request->endereco || $request->referencia || $request->pagamento || $request->contato || $request->email)) {
+            Cliente::create($request->all());
+        } else {
+            return redirect()->route('pedidoProduto.store');
+        }
     }
 
     /**

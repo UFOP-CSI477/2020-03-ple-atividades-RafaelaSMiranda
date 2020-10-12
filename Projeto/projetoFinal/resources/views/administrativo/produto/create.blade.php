@@ -6,7 +6,7 @@
 
 <p style="font-family: 'Lobster Two'; font-size: 30px; display: flex; justify-content: center;">Cadastrar Produto</p>
 
-<form method="POST" action="{{route('produto.store')}}">
+<form method="POST" action="{{route('produto.store')}}"  onsubmit = "return validacaoProduto()">
 
     @csrf
 
@@ -23,7 +23,7 @@
     </div>
 
     <div class="form-group">
-        <label for="valor">Valor unitário:</label>
+        <label for="valor">Valor unitário em reais (R$):</label>
         <input type="number" step="any" min="0" name="valor" id="valor" class="form-control">
     </div>
 
@@ -38,6 +38,15 @@
             <option value="Bebida">Bebida</option>
             <option value="Sobremesa">Sobremesa</option>
             <option value="Combo">Combo</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="condicao">Condição para venda</label>
+        <select class="form-control" id="condicao" name="condicao">
+            <option hidden>Selecione</option>
+            <option value="Disponível">Disponível</option>
+            <option value="Não disponível">Não disponível</option>
         </select>
     </div>
 

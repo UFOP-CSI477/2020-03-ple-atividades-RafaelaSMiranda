@@ -18,6 +18,7 @@ class CreateProdutosTable extends Migration
             $table->string('nome');
             $table->string('tipo');
             $table->string('descricao');
+            $table->string('condicao');
             $table->decimal('valor')->default(0);
             $table->timestamps();
         });

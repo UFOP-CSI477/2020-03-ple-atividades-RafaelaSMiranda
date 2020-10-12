@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use function PHPUnit\Framework\isEmpty;
+use function PHPUnit\Framework\isNull;
 
 class ProdutoController extends Controller
 {
@@ -42,9 +43,9 @@ class ProdutoController extends Controller
     {
 
         if (Auth::check()) {
-
             return view('administrativo.produto.create');
         } else {
+            session()->flash('mensagemErro', 'Operação não permitida!');
             return redirect()->route('login');
         }
     }
@@ -61,12 +62,16 @@ class ProdutoController extends Controller
         //
 
         if (Auth::check()) {
-            Produto::create($request->all());
+            if (!isNull($request->nome || $request->descricao || $request->valor || $request->tipo || $request->condicao)) {
+                session()->flash('mensagemErro', 'Insira todos os dados para o cadastro');
+            } else {
 
-            session()->flash('mensagem', 'Produto adicionado com sucesso');
-
+                Produto::create($request->all());
+                session()->flash('mensagem', 'Produto adicionado com sucesso');
+            }
             return redirect()->route('pedido.index');
         } else {
+            session()->flash('mensagemErro', 'Operação não permitida!');
             return redirect()->route('login');
         }
     }
@@ -81,7 +86,12 @@ class ProdutoController extends Controller
     public function show(Produto $produto)
     {
 
-        return view('administrativo.produto.show', ['produtos' => $produto]);
+        if (Auth::check()) {
+            return view('administrativo.produto.show', ['produtos' => $produto]);
+        } else {
+            session()->flash('mensagemErro', 'Operação não permitida!');
+            return redirect()->route('login');
+        }
     }
 
     /**
@@ -92,6 +102,14 @@ class ProdutoController extends Controller
      */
     public function edit(Produto $produto)
     {
+
+
+        if (Auth::check()) {
+            return view('administrativo.produto.edit', ['produtos' => $produto]);
+        } else {
+            session()->flash('mensagemErro', 'Operação não permitida!');
+            return redirect()->route('login');
+        }
     }
 
     /**
@@ -104,6 +122,17 @@ class ProdutoController extends Controller
     public function update(Request $request, Produto $produto)
     {
         //
+
+        if (Auth::check()) {
+            $produto->fill($request->all());
+            $produto->save();
+
+            session()->flash('mensagem', 'Produto atualizado com sucesso');
+            return redirect()->route('produto.index');
+        } else {
+            session()->flash('mensagemErro', 'Operação não permitida!');
+            return redirect()->route('pedido.index');
+        }
     }
 
     /**

@@ -13,6 +13,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="{{asset('js/validacaoPedido.js')}}"></script>
     <script src="{{asset('js/horarioAtual.js')}}"></script>
+    <script src="{{asset('js/validacaoProduto.js')}}"></script>
 
 
 </head>

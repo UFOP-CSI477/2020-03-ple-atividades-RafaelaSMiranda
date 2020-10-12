@@ -21,16 +21,31 @@ class PedidoController extends Controller
         //
 
         if (Auth::check()) {
-
-            $data = new DateTime();
-
-
             $pedidos = Pedido::orderBy('created_at', 'asc')->get();
-
             return view('administrativo.homeAdm', ['pedidos' => $pedidos]);
         } else {
+            session()->flash('mensagemErro', 'Operação não permitida!');
             return redirect()->route('login');
         }
+    }
+
+    public function indexPorProduto()
+    {
+
+        $lista = array();
+        $produtos = Produto::get();
+        foreach ($produtos as $produto) {
+            $query =  PedidoProduto::where('produto_id', '=', $produto->id)->get();
+            // echo sizeof($query);
+
+            if (sizeof($query) > 0) {
+
+                $lista[$produto->id] = $query;
+            }
+        }
+
+        // print_r($lista);
+        return view('administrativo.indexRelatorioManutencao', ['lista' => $lista]);
     }
 
 
@@ -63,10 +78,13 @@ class PedidoController extends Controller
     public function show(Pedido $pedido)
     {
         //
-
-        $pedidoProduto = PedidoProduto::where('pedido_id', '=', $pedido->id)->get();
-
-        return view('administrativo.pedido.show', ['pedidoProdutos' => $pedidoProduto, 'pedidos' => $pedido]);
+        if (Auth::check()) {
+            $pedidoProduto = PedidoProduto::where('pedido_id', '=', $pedido->id)->get();
+            return view('administrativo.pedido.show', ['pedidoProdutos' => $pedidoProduto, 'pedidos' => $pedido]);
+        } else {
+            session()->flash('mensagemErro', 'Operação não permitida!');
+            return redirect()->route('login');
+        }
     }
 
     /**
@@ -91,10 +109,14 @@ class PedidoController extends Controller
     {
         //
 
-        $pedido->fill($request->all());
-        $pedido->save();
-
-        return redirect()->route('pedido.index');
+        if (Auth::check()) {
+            $pedido->fill($request->all());
+            $pedido->save();
+            return redirect()->route('pedido.index');
+        } else {
+            session()->flash('mensagemErro', 'Operação não permitida!');
+            return redirect()->route('login');
+        }
     }
 
     /**

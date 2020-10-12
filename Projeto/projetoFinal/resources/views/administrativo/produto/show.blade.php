@@ -21,6 +21,11 @@
     </div>
 
     <div style="display: flex;">
+        <p style="margin-right: 5px; font-size: 20px;">Condição:
+            {{$produtos->condicao}}</p>
+    </div>
+
+    <div style="display: flex;">
         <p style="margin-right: 5px; font-size: 20px;">Valor unitário:
             R$ {{$produtos->valor}}</p>
     </div>
@@ -43,8 +48,6 @@
             @method('DELETE')
 
             <a href="{{route('produto.edit', $produtos->id)}}" style="margin-left: 2px; margin-right: 2px; font-size: 100%;" type="button" class="btn btn-light border-success">Atualizar</a>
-
-            <input type="submit" class="btn btn-light border-danger" value="Excluir">
 
             <a href="{{route('produto.index')}}" style="margin-left: 2px; margin-right: 2px; font-size: 100%;" type="button" class="btn btn-light border-info">Voltar</a>
         </form>
