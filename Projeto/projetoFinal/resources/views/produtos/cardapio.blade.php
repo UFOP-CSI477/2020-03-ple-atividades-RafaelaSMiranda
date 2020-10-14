@@ -42,7 +42,7 @@
 
 
                 <div class="valor" style="display: flex;">
-                    <p style="font-size: 14px; color: red; text-decoration: line-through"> R$ {{$produto->valor+10}}</p>
+                    <p style="font-size: 14px; color: red; text-decoration: line-through"> R$ {{$produto->valor+8.50}}</p>
                     <p style="font-weight: bold; margin-left: 25px;"> R$ {{$produto->valor}} </p>
                 </div>
 
@@ -345,8 +345,8 @@
             <div class="quantidade">
 
 
-                <div class="valor" style="display: flex;">
-                    <p style="font-weight: bold; margin-left: 25px;"> R$ {{$produto->valor}} </p>
+                <div class="valor">
+                    <p style="font-weight: bold;">R$ {{$produto->valor}}</p>
                 </div>
 
                 <div class="unidades">
@@ -407,8 +407,8 @@
 
 
                 <div class="valor" style="display: flex;">
-                    <p style="color: red; text-decoration: line-through"> R$ {{$produto->valor+15}}</p>
-                    <p style="font-weight: bold; margin-left: 25px;"> R$ {{$produto->valor}} </p>
+
+                    <p style="font-weight: bold"> R$ {{$produto->valor}} </p>
                 </div>
 
                 <div class="unidades">

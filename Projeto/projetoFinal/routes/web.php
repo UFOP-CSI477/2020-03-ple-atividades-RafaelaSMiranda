@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdicionalController;
+use App\Http\Controllers\BuscasPedidoController;
 use App\Http\Controllers\CarrinhoController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\PedidoController;
@@ -45,8 +46,6 @@ Route::resource('/produto', ProdutoController::class);
 Route::resource('/pedidoProduto', PedidoProdutoController::class);
 
 Route::resource('/pedido', PedidoController::class);
-
-// Route::get('/pedido', [PedidoController::class, 'indexPorProduto'])->name('indexProduto');
 
 Route::resource('/cliente', ClienteController::class);
 

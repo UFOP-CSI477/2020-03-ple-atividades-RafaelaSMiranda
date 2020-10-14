@@ -59,7 +59,7 @@
                     }
 
                     ?>
-                    <th colspan="1" style="text-align: center;">Total</th>
+                    <th colspan="2" style="text-align: center;">Total</th>
                     <th colspan="2" style="text-align: center;"> {{$totalPromocao}}</th>
                 </tr>
             </tfoot>
@@ -122,7 +122,7 @@
                     }
 
                     ?>
-                    <th colspan="1" style="text-align: center;">Total</th>
+                    <th colspan="2" style="text-align: center;">Total</th>
                     <th colspan="2" style="text-align: center;"> {{$totalPromocao}}</th>
                 </tr>
             </tfoot>
@@ -183,7 +183,7 @@
                     }
 
                     ?>
-                    <th colspan="1" style="text-align: center;">Total</th>
+                    <th colspan="2" style="text-align: center;">Total</th>
                     <th colspan="2" style="text-align: center;"> {{$totalPromocao}}</th>
                 </tr>
             </tfoot>
@@ -244,7 +244,7 @@
                     }
 
                     ?>
-                    <th colspan="1" style="text-align: center;">Total</th>
+                    <th colspan="2" style="text-align: center;">Total</th>
                     <th colspan="2" style="text-align: center;"> {{$totalPromocao}}</th>
                 </tr>
             </tfoot>
@@ -305,7 +305,7 @@
                     }
 
                     ?>
-                    <th colspan="1" style="text-align: center;">Total</th>
+                    <th colspan="2" style="text-align: center;">Total</th>
                     <th colspan="2" style="text-align: center;"> {{$totalPromocao}}</th>
                 </tr>
             </tfoot>
@@ -366,12 +366,73 @@
                     }
 
                     ?>
-                    <th colspan="1" style="text-align: center;">Total</th>
+                    <th colspan="2" style="text-align: center;">Total</th>
                     <th colspan="2" style="text-align: center;"> {{$totalPromocao}}</th>
                 </tr>
             </tfoot>
 
         </table>
+
+           <!------------------------------------------------------------------------------------------------- -->
+
+           <h1 style="font-family:'Sansita+Swashed'; font-weight: bold; text-align: center; font-size: 25px;">
+            Sobremesas
+        </h1>
+
+        <table id="tableDados" class="table table-hover table-bordered table-striped shadow">
+            <thead class="table-secondary">
+
+                <caption style="text-align: center;">Produtos cadastrados</caption>
+
+                <p style="font-family: 'Times New Roman', Times, serif; font-size: 120%;">Clique no produto para expandir a visualização</p>
+
+                <tr style="font-size: 20px;" class="align-items-center">
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                    <th>Valor unitário</th>
+                    <th>Disponibilidade</th>
+                </tr>
+            </thead>
+
+            <tbody class=" table-hover">
+
+                @foreach($produtos as $produto)
+
+                @if($produto->tipo == 'Sobremesa')
+
+                <tr>
+                    <td> <a style="text-decoration: none; color: black;" href="{{route('produto.show',$produto->id)}}">{{$produto->nome}}</a></td>
+                    <td><a style="text-decoration: none; color: black;" href="{{route('produto.show',$produto->id)}}">{{ $produto->descricao}} </a></td>
+                    <td> <a style="text-decoration: none; color: black;" href="{{route('produto.show',$produto->id)}}">R$ {{$produto->valor}}</a> </td>
+                    <td> <a style="text-decoration: none; color: black;" href="{{route('produto.show',$produto->id)}}">{{$produto->condicao}}</a> </td>
+                </tr>
+
+                @endif
+                @endforeach
+
+            </tbody>
+
+            <tfoot>
+                <tr>
+
+                    <?php
+                    $totalPromocao = 0;
+
+                    foreach ($produtos as $produto) {
+                        if ($produto->tipo == 'Sobremesa') {
+
+                            $totalPromocao++;
+                        }
+                    }
+
+                    ?>
+                    <th colspan="2" style="text-align: center;">Total</th>
+                    <th colspan="2" style="text-align: center;"> {{$totalPromocao}}</th>
+                </tr>
+            </tfoot>
+
+        </table>
+
     </div>
 </div>
 

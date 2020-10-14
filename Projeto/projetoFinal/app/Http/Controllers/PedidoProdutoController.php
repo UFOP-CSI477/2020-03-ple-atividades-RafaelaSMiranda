@@ -95,6 +95,7 @@ class PedidoProdutoController extends Controller
 
             $request->session()->forget('produto');
 
+
             session()->flash('mensagem', 'Pedido concluído com sucesso. Você receberá um e-mail com a confirmação. Volte sempre!');
         } else {
             session()->flash('mensagemErro', 'Escolha pelo menos um produto');

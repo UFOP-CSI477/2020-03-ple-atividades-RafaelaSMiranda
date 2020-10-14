@@ -20,17 +20,6 @@
 
 <li class="nav-item dropdown active">
     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Pedidos
-    </a>
-    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="#pizza">Visualizar por data</a>
-        <a class="dropdown-item" href="#pizza">Visualizar por produto</a>
-        <a class="dropdown-item" href="#hamburguer">Visualizar por cliente</a>
-    </div>
-</li>
-
-<li class="nav-item dropdown active">
-    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Administradores
     </a>
     <div class="dropdown-menu" aria-labelledby="navbarDropdown">

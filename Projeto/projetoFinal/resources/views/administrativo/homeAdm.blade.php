@@ -13,7 +13,7 @@
 
                 <tr style="font-size: 20px;" class="align-items-center">
                     <th style="text-align: center;">Número</th>
-                    <th style="text-align: center;">Data do pedido</th>
+                    <th style="text-align: center;">Data/hora do pedido</th>
                     <th style="text-align: center;">Cliente</th>
                     <th style="text-align: center;">Valor total</th>
                     <th style="text-align: center;">Status</th>
@@ -76,7 +76,7 @@
                     $totalAberto = 0;
 
                     foreach ($pedidos as $pedido) {
-                        if ($pedido->status == 'Em aberto') {
+                        if ($pedido->status == 'Em aberto' || is_null($pedido->status)) {
 
                             $totalAberto++;
                         }
@@ -96,6 +96,7 @@
                 <caption style="text-align: center;">Últimos pedidos</caption>
 
                 <tr style="font-size: 20px;" class="align-items-center">
+                    <th style="text-align: center;">Número</th>
                     <th style="text-align: center;">Data/hora do pedido</th>
                     <th style="text-align: center;">Cliente</th>
                     <th style="text-align: center;">Valor total</th>
@@ -113,6 +114,13 @@
                 @if($pedido->status == 'Finalizado')
 
                 <tr>
+
+                    <td>
+                        <a style="text-decoration: none; color: black;" href="{{route('pedido.show', $pedido->id)}}">
+                            {{ $pedido->id}}
+                        </a>
+
+                    </td>
 
                     <td>
                         <a style="text-decoration: none; color: black;" href="{{route('pedido.show', $pedido->id)}}">
@@ -172,6 +180,7 @@
                 <caption style="text-align: center;">Últimos pedidos</caption>
 
                 <tr style="font-size: 20px;" class="align-items-center">
+                    <th style="text-align: center;">Número</th>
                     <th style="text-align: center;">Data/hora do pedido</th>
                     <th style="text-align: center;">Cliente</th>
                     <th style="text-align: center;">Valor total</th>
@@ -189,6 +198,14 @@
                 @if($pedido->status == 'Cancelado')
 
                 <tr>
+
+
+                <td>
+                        <a style="text-decoration: none; color: black;" href="{{route('pedido.show', $pedido->id)}}">
+                            {{ $pedido->id}}
+                        </a>
+
+                    </td>
 
                     <td>
                         <a style="text-decoration: none; color: black;" href="{{route('pedido.show', $pedido->id)}}">

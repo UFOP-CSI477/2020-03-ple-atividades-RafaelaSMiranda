@@ -69,7 +69,7 @@ class ProdutoController extends Controller
                 Produto::create($request->all());
                 session()->flash('mensagem', 'Produto adicionado com sucesso');
             }
-            return redirect()->route('pedido.index');
+            return redirect()->route('produto.index');
         } else {
             session()->flash('mensagemErro', 'Operação não permitida!');
             return redirect()->route('login');

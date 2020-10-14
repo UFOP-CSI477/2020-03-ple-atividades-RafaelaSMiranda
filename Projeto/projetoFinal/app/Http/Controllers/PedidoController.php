@@ -29,25 +29,6 @@ class PedidoController extends Controller
         }
     }
 
-    public function indexPorProduto()
-    {
-
-        $lista = array();
-        $produtos = Produto::get();
-        foreach ($produtos as $produto) {
-            $query =  PedidoProduto::where('produto_id', '=', $produto->id)->get();
-            // echo sizeof($query);
-
-            if (sizeof($query) > 0) {
-
-                $lista[$produto->id] = $query;
-            }
-        }
-
-        // print_r($lista);
-        return view('administrativo.indexRelatorioManutencao', ['lista' => $lista]);
-    }
-
 
     /**
      * Show the form for creating a new resource.
@@ -114,7 +95,7 @@ class PedidoController extends Controller
             $pedido->save();
             return redirect()->route('pedido.index');
         } else {
-            session()->flash('mensagemErro', 'Operação não permitida!');
+            session()->flash('mensagemErro', 'Operação não permitida! Realize o login.');
             return redirect()->route('login');
         }
     }
